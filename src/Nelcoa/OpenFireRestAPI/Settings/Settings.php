@@ -11,7 +11,7 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace OpenFireRestAPI\Settings;
+namespace Nelcoa\OpenFireRestAPI\Settings;
 
 class Settings
 {
