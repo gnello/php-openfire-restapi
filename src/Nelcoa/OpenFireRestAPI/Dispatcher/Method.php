@@ -11,7 +11,7 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace OpenFireRestAPI\Dispatcher;
+namespace Nelcoa\OpenFireRestAPI\Dispatcher;
 
 /**
  * HTTP Methods for RESTful Services
