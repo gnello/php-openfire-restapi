@@ -34,7 +34,8 @@ class Messages extends Dispatcher
      */
     public static function sendBroadcastMessage($body)
     {
+        $payload = new Payloads\Message(compact('body'));
         $endpoint = self::$endpoint . Users::$endpoint;
-        return self::sendRequest(Method::POST, $endpoint, compact('body'));
+        return self::sendRequest(Method::POST, $endpoint, $payload);
     }
 }

@@ -58,8 +58,9 @@ class System extends Dispatcher
      */
     public static function createSystemProperty($propertyName, $propertyValue)
     {
+        $payload = new Payloads\SystemProperty(compact('propertyName', 'propertyValue'));
         $endpoint = self::$endpoint . '/properties';
-        return self::sendRequest(Method::POST, $endpoint, compact('propertyName', 'propertyValue'));
+        return self::sendRequest(Method::POST, $endpoint, $payload);
     }
 
     /**

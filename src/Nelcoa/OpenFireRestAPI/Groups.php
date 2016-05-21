@@ -57,7 +57,8 @@ class Groups extends Dispatcher
      */
     public static function createGroup($name, $description)
     {
-        return self::sendRequest(Method::POST, self::$endpoint, compact('name', 'description'));
+        $payload = new Payloads\Group(compact('name', 'description'));
+        return self::sendRequest(Method::POST, self::$endpoint, $payload);
     }
 
     /**
@@ -82,7 +83,8 @@ class Groups extends Dispatcher
      */
     public static function updateGroup($groupName, $name, $description)
     {
+        $payload = new Payloads\Group(compact('name', 'description'));
         $endpoint = self::$endpoint . '/' . $groupName;
-        return self::sendRequest(Method::PUT, $endpoint, compact('name', 'description'));
+        return self::sendRequest(Method::PUT, $endpoint, $payload);
     }
 }
