@@ -13,6 +13,8 @@
 
 namespace Nelcoa\OpenFireRestAPI\Dispatcher;
 
+use \Nelcoa\OpenFireRestAPI\Settings\Settings;
+
 /**
  * This class is responsible for sending requests to the server. The requests are sent
  * by curl to ensure compatibility also with PHP installations without the XML form.
