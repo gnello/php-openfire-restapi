@@ -57,6 +57,14 @@ class Settings
     }
 
     /**
+     * @param bool $useSSL
+     */
+    public static function setSSL($useSSL)
+    {
+        self::$useSSL = $useSSL;
+    }
+
+    /**
      * @param $secret
      */
     public static function setSecret($secret)
