@@ -69,7 +69,8 @@ class Users extends Dispatcher
      */
     public static function createUser($username, $password, $name = null, $email = null, $properties = array())
     {
-        return self::sendRequest(Method::POST, self::$endpoint, compact('username', 'password', 'name', 'email', 'properties'));
+        $payload = new Payloads\User(compact('username', 'password', 'name', 'email', 'properties'));
+        return self::sendRequest(Method::POST, self::$endpoint, $payload);
     }
 
     /**

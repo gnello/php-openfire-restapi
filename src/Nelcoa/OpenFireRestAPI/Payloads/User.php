@@ -33,12 +33,4 @@ class User extends Payload
     private $email;
     private $password;
     private $properties;
-
-    /**
-     * User constructor.
-     */
-    public function __construct()
-    {
-        
-    }
 }

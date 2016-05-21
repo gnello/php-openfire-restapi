@@ -31,7 +31,7 @@ abstract class Dispatcher
      * @param Payload $payload
      * @return array
      */
-    protected static function sendRequest($method, $endpoint, Payload $payload)
+    protected static function sendRequest($method, $endpoint, Payload $payload = null)
     {
         $url = Settings::getBaseURL() . $endpoint;
         $headers = Settings::getHeaders();

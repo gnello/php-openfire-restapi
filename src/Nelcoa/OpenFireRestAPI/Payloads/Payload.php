@@ -16,6 +16,18 @@ namespace Nelcoa\OpenFireRestAPI\Payloads;
 abstract class Payload 
 {
     /**
+     * Payload constructor.
+     */
+    public function __construct()
+    {
+        $args = func_get_args();
+        foreach ($args as $k => $v)
+        {
+            $this->{$k} = $v;
+        }
+    }
+
+    /**
      * @return string
      */
     public function prepare()
