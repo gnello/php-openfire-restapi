@@ -18,14 +18,6 @@ use \Nelcoa\OpenFireRestAPI\Dispatcher\Dispatcher;
 
 /**
  * User related REST Endpoints
- *
- * Parameter    Optional    Description
- * username     No          The username of the user
- * name         Yes         The name of the user
- * email        Yes         The email of the user
- * password     No          The password of the user
- * properties   Yes         List of properties. Property is a key / value object. The key must to be per user unique
- *
  * Class Users
  * @package OpenFireRestAPI
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#user-related-rest-endpoints
