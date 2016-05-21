@@ -71,6 +71,14 @@ class Settings
     {
         self::$secret = $secret;    
     }
+
+    /**
+     * @param $serverName
+     */
+    public static function setServerName($serverName)
+    {
+        self::$serverName = $serverName;
+    }
     
     /**
      * Returns the URL under which query the webservice
