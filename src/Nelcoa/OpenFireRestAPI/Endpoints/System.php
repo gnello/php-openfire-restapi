@@ -11,10 +11,11 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI;
+namespace Nelcoa\OpenFireRestAPI\Endpoints;
 
 use \Nelcoa\OpenFireRestAPI\Dispatcher\Method;
 use \Nelcoa\OpenFireRestAPI\Dispatcher\Dispatcher;
+use \Nelcoa\OpenFireRestAPI\Payloads;
 
 /**
  * System related REST Endpoints
