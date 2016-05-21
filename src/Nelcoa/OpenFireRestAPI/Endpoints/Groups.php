@@ -11,10 +11,11 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI;
+namespace Nelcoa\OpenFireRestAPI\Endpoints;
 
 use \Nelcoa\OpenFireRestAPI\Dispatcher\Method;
 use \Nelcoa\OpenFireRestAPI\Dispatcher\Dispatcher;
+use \Nelcoa\OpenFireRestAPI\Payloads;
 
 /**
  * Group related REST Endpoints
@@ -57,7 +58,8 @@ class Groups extends Dispatcher
      */
     public static function createGroup($name, $description)
     {
-        return self::sendRequest(Method::POST, self::$endpoint, compact('name', 'description'));
+        $payload = new Payloads\Group(compact('name', 'description'));
+        return self::sendRequest(Method::POST, self::$endpoint, $payload);
     }
 
     /**
@@ -82,7 +84,8 @@ class Groups extends Dispatcher
      */
     public static function updateGroup($groupName, $name, $description)
     {
+        $payload = new Payloads\Group(compact('name', 'description'));
         $endpoint = self::$endpoint . '/' . $groupName;
-        return self::sendRequest(Method::PUT, $endpoint, compact('name', 'description'));
+        return self::sendRequest(Method::PUT, $endpoint, $payload);
     }
 }

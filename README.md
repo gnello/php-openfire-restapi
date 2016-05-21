@@ -17,21 +17,41 @@ PhpOpenFireRestAPI is licensed under Apache License 2.0, see LICENCE for further
 }
 ```
 
+## CONFIGURATION
+Just change these constants into Settings.php
+```php
+const HOST = 'your_host';
+const PORT = '9090';
+const PLUGIN = '/plugins/restapi/v1';
+const SECRET = 'your_secret';
+const SERVER_NAME = 'your_server_name';
+```
+
+or you can dynamically configure in this way
+```php
+include "vendor/autoload.php";
+
+$api = new \Nelcoa\OpenFireRestAPI\API();
+
+// Set the required config parameters
+$api->Settings()->setSecret("your_secret");
+$api->Settings()->setHost("your_host");
+$api->Settings()->setServerName("your_servername");
+
+//Default values
+$api->Settings()->setPort("9090");
+$api->Settings()->setSSL(false);
+$api->Settings()->setPlugin("/plugins/restapi/v1");
+```
+
 ## USAGE
 ```php
 include "vendor/autoload.php";
 
-// Set the required config parameters
-\Nelcoa\OpenFireRestAPI\Settings\Settings::setSecret("your_secret");
-\Nelcoa\OpenFireRestAPI\Settings\Settings::setHost("your_host");
-
-//Default values
-\Nelcoa\OpenFireRestAPI\Settings\Settings::setPort("9090");
-\Nelcoa\OpenFireRestAPI\Settings\Settings::setSSL(false);
-\Nelcoa\OpenFireRestAPI\Settings\Settings::setPlugin("/plugins/restapi/v1");
+$api = new \Nelcoa\OpenFireRestAPI\API();
 
 //Add a new user
-$result = \Nelcoa\OpenFireRestAPI\Users::createUser('Username', 'Password', 'Full Name', 'jacky@domain.com');
+$result = $api->Users()->createUser('Username', 'Password', 'Full Name', 'jacky@domain.com');
 
 //Check result
 if($result['response']) {
@@ -41,19 +61,19 @@ if($result['response']) {
 }
 
 //Delete a user
-$result = \Nelcoa\OpenFireRestAPI\Users::deleteUser('Username');
+$result = $api->Users()->deleteUser('Username');
 
 //Ban a user
-$result = \Nelcoa\OpenFireRestAPI\Users::lockoutUser('Username');
+$result = $api->Users()->lockoutUser('Username');
 
 //Unban a user
-$result = \Nelcoa\OpenFireRestAPI\Users::unlockUser('Username');
+$result = $api->Users()->unlockUser('Username');
 
 //Add to roster
-\Nelcoa\OpenFireRestAPI\Users::createUserRosterEntry('Username', 'Jid', 'Full Name');
+$api->Users()->createUserRosterEntry('Username', 'Jid', 'Full Name');
 
 //Delete from roster
-\Nelcoa\OpenFireRestAPI\Users::deleteUserRosterEntry('Username', 'Jid');
+$api->Users()->deleteUserRosterEntry('Username', 'Jid');
 ```
 
 ## CONTACT

@@ -11,10 +11,11 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI;
+namespace Nelcoa\OpenFireRestAPI\Endpoints;
 
 use \Nelcoa\OpenFireRestAPI\Dispatcher\Method;
 use \Nelcoa\OpenFireRestAPI\Dispatcher\Dispatcher;
+use \Nelcoa\OpenFireRestAPI\Payloads;
 
 /**
  * System related REST Endpoints
@@ -58,8 +59,9 @@ class System extends Dispatcher
      */
     public static function createSystemProperty($propertyName, $propertyValue)
     {
+        $payload = new Payloads\SystemProperty(compact('propertyName', 'propertyValue'));
         $endpoint = self::$endpoint . '/properties';
-        return self::sendRequest(Method::POST, $endpoint, compact('propertyName', 'propertyValue'));
+        return self::sendRequest(Method::POST, $endpoint, $payload);
     }
 
     /**
