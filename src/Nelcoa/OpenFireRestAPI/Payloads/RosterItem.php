@@ -14,45 +14,39 @@
 namespace Nelcoa\OpenFireRestAPI\Payloads;
 
 /**
- * Payload of User related REST Endpoints
- * Class User
+ * Payload of RosterItem related REST Endpoints
+ * Class RosterItem
  * @package OpenFireRestAPI
- * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#user
+ * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#rosteritem
  */
-class User extends Payload
+class RosterItem extends Payload
 {
     /**
-     * The username of the user
+     * The JID of the roster item
      * Optional No
      * @var string
      */
-    private $username;
+    private $jid;
 
     /**
-     * The name of the user
+     * The nickname for the user when used in this roster
      * Optional Yes
      * @var string
      */
-    private $name;
+    private $nickname;
 
     /**
-     * The email of the user
+     * The subscription type
+     * Possible numeric values are: -1 (remove), 0 (none), 1 (to), 2 (from), 3 (both)
      * Optional Yes
-     * @var string
+     * @var integer
      */
-    private $email;
+    private $subscriptionType;
 
     /**
-     * The password of the user
+     * A list of groups to organize roster entries under (e.g. friends, co-workers, etc.)
      * Optional No
-     * @var string
-     */
-    private $password;
-
-    /**
-     * List of properties. Property is a key/value object. The key must to be per user unique
-     * Optional Yes
      * @var array
      */
-    private $properties;
+    private $groups;
 }

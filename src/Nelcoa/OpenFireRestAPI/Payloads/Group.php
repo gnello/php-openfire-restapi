@@ -14,45 +14,38 @@
 namespace Nelcoa\OpenFireRestAPI\Payloads;
 
 /**
- * Payload of User related REST Endpoints
- * Class User
+ * Payload of Group related REST Endpoints
+ * Class Group
  * @package OpenFireRestAPI
- * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#user
+ * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#group
  */
-class User extends Payload
+class Group extends Payload
 {
     /**
-     * The username of the user
+     * The name of the group
      * Optional No
-     * @var string
-     */
-    private $username;
-
-    /**
-     * The name of the user
-     * Optional Yes
      * @var string
      */
     private $name;
 
     /**
-     * The email of the user
-     * Optional Yes
-     * @var string
-     */
-    private $email;
-
-    /**
-     * The password of the user
+     * The description of the group
      * Optional No
      * @var string
      */
-    private $password;
+    private $description;
 
     /**
-     * List of properties. Property is a key/value object. The key must to be per user unique
+     * A collection with current admins of the group
      * Optional Yes
      * @var array
      */
-    private $properties;
+    private $admins;
+
+    /**
+     * A collection with current members of the group
+     * Optional Yes
+     * @var array
+     */
+    private $members;
 }
