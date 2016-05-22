@@ -5,7 +5,7 @@ Php REST API Client to manage Openfire Server
 PhpOpenFireRestAPI is licensed under Apache License 2.0, see LICENCE for further information.
 
 ## REQUIREMENTS
-- PHP 5.3.2+
+- PHP 5.3+
 
 ## INSTALLATION
 ### Composer
