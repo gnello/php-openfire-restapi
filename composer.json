@@ -1,5 +1,5 @@
 {
-  "name": "nelcoa/openfire-rest-api",
+  "name": "nelcoa/PhpOpenFireRestAPI",
   "description": "Manage OpenFire Server using Rest API",
   "version": "1.0.1",
   "keywords": ["openfire", "chat"],
