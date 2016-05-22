@@ -87,9 +87,10 @@ class API
     }
 
     /**
+     * TODO: implements ChatRooms
      * @return Endpoints\ChatRooms
      */
-    public function ChatRooms()
+    private function ChatRooms()
     {
         return $this->chatrooms;
     }

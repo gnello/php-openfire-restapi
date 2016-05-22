@@ -50,6 +50,11 @@ class Group extends Payload
     private $members;
 
     /**
+     *
+     */
+    private $groupname;
+
+    /**
      * @param $name
      */
     protected function setName($name) {
@@ -78,6 +83,13 @@ class Group extends Payload
     }
 
     /**
+     * @param $groupname
+     */
+    protected function setGroupname($groupname) {
+        $this->groupname = $groupname;
+    }
+
+    /**
      * @return string
      */
     protected function getName() {
@@ -103,5 +115,12 @@ class Group extends Payload
      */
     protected function getMembers() {
         return $this->members;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getGroupname() {
+        return $this->groupname;
     }
 }

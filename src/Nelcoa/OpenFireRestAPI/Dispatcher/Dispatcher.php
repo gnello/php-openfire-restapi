@@ -78,7 +78,7 @@ abstract class Dispatcher
 
         return array(
             'response'  => $response,
-            'output'    => $server_output,
+            'output'    => json_decode($server_output)
         );
     }
 }

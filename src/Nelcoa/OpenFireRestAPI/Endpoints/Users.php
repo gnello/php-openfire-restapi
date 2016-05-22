@@ -29,7 +29,6 @@ class Users extends Dispatcher
     public static $endpoint = '/users';
 
     /**
-     * TODO: Test
      * Get all or filtered users
      * @param string $search        Search/Filter by username.
      * @param string $propertyKey   Filter by user propertyKey.
@@ -63,7 +62,6 @@ class Users extends Dispatcher
     }
 
     /**
-     * TODO: Check properties
      * Create a new user
      * @param $username
      * @param $password
@@ -121,7 +119,6 @@ class Users extends Dispatcher
     }
 
     /**
-     * TODO: Test
      * Add user to a groups
      * @param $username
      * @param $groupname
@@ -149,7 +146,6 @@ class Users extends Dispatcher
     }
 
     /**
-     * TODO: Test
      * Remove a user from a groups
      * @param $username
      * @param $groupname

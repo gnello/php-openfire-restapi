@@ -51,7 +51,8 @@ include "vendor/autoload.php";
 $api = new \Nelcoa\OpenFireRestAPI\API();
 
 //Add a new user
-$result = $api->Users()->createUser('Username', 'Password', 'Full Name', 'email@domain.com');
+$properties = array('key1' => 'value1, 'key2' => 'value2');
+$result = $api->Users()->createUser('Username', 'Password', 'Full Name', 'email@domain.com', $properties);
 
 //Check result
 if($result['response']) {
@@ -77,6 +78,18 @@ $result = $api->Users()->updateUserRosterEntry('Username', 'Jid', 'Full Name', 3
 
 //Delete from roster
 $result = $api->Users()->deleteUserRosterEntry('Username', 'Jid');
+
+//Create group
+$result = $api->Groups()->createGroup('groupname', 'description');
+
+//Add to groups
+$result = $api->Users()->addUserToGroup('Username', array('groupname1', 'groupname2', 'groupname3'));
+
+//Delete from groups
+$result = $api->Users()->deleteUserFromGroups('Username', array('groupname1','groupname2'));
+
+//Send message to all online users
+$result = $api->Messages()->sendBroadcastMessage('Hello everybody!');
 ```
 
 ## CONTACT

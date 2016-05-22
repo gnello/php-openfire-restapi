@@ -88,7 +88,11 @@ class User extends Payload
      * @param $properties
      */
     protected function setProperties($properties) {
-        $this->properties = $properties;
+        foreach ($properties as $key => $value) {
+            $property['@key'] = $key;
+            $property['@value'] = $value;
+            $this->properties['property'][] = $property;
+        }
     }
 
     /**
