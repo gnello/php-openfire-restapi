@@ -45,21 +45,26 @@ $api->Settings()->setPlugin("/plugins/restapi/v1");
 ```
 
 ## USAGE
+### Init
 ```php
 include "vendor/autoload.php";
 
 $api = new \Nelcoa\OpenFireRestAPI\API();
-
-//Add a new user
-$properties = array('key1' => 'value1', 'key2' => 'value2');
-$result = $api->Users()->createUser('Username', 'Password', 'Full Name', 'email@domain.com', $properties);
-
+```
+### Check result
+```php
 //Check result
 if($result['response']) {
     echo $result['output'];
 } else {
     echo 'Error!';
 }
+```
+### Users
+```php
+//Add a new user
+$properties = array('key1' => 'value1', 'key2' => 'value2');
+$result = $api->Users()->createUser('Username', 'Password', 'Full Name', 'email@domain.com', $properties);
 
 //Delete a user
 $result = $api->Users()->deleteUser('Username');
@@ -69,7 +74,9 @@ $result = $api->Users()->lockoutUser('Username');
 
 //Unban a user
 $result = $api->Users()->unlockUser('Username');
-
+```
+### Roster
+```php
 //Add to roster
 $result = $api->Users()->createUserRosterEntry('Username', 'Jid', 'Full Name', 3, array('group1','group2'));
 
@@ -78,7 +85,9 @@ $result = $api->Users()->updateUserRosterEntry('Username', 'Jid', 'Full Name', 3
 
 //Delete from roster
 $result = $api->Users()->deleteUserRosterEntry('Username', 'Jid');
-
+```
+### Groups
+```php
 //Create group
 $result = $api->Groups()->createGroup('groupname', 'description');
 
@@ -87,7 +96,9 @@ $result = $api->Users()->addUserToGroup('Username', array('groupname1', 'groupna
 
 //Delete from groups
 $result = $api->Users()->deleteUserFromGroups('Username', array('groupname1','groupname2'));
-
+```
+### Messages
+```php
 //Send message to all online users
 $result = $api->Messages()->sendBroadcastMessage('Hello everybody!');
 ```
