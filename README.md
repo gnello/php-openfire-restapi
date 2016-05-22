@@ -45,7 +45,7 @@ $api->Settings()->setPlugin("/plugins/restapi/v1");
 ```
 
 ## USAGE
-### Init
+### Start
 ```php
 include "vendor/autoload.php";
 
