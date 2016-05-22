@@ -1,9 +1,10 @@
 {
-  "name": "PhpOpenFireRestAPI",
+  "name": "nelcoa/phpopenfirerestapi",
   "description": "Manage OpenFire Server using Rest API",
   "version": "1.0.0",
+  "keywords": ["openfire", "chat"],
   "homepage": "https://github.com/nelcoa/PhpOpenFireRestAPI",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "authors": [
     {
       "name": "Luca Agnello",
@@ -15,12 +16,14 @@
     "issues": "https://github.com/nelcoa/PhpOpenFireRestAPI/issues"
   },
   "require": {
-    "php": ">=5.3.0"
+    "php": ">=5.3.0",
+    "ext-curl": "*"
   },
   "autoload": {
     "psr-4": {
-      "Nelcoa\\OpenFireRestAPI": "src/"
+      "Nelcoa\\OpenFireRestAPI\\": "src/"
     }
   },
-  "minimum-stability": "dev"
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
