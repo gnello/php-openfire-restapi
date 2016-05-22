@@ -5,7 +5,7 @@ Php REST API Client to manage Openfire Server
 [ ] Develop the Payload ChatRoom
 
 ## VERSION
-1.0.4
+1.0.3
 
 ## LICENSE
 PhpOpenFireRestAPI is licensed under Apache License 2.0, see LICENCE for further information.
