@@ -11,35 +11,22 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Payload;
-
-use Nelcoa\OpenFireRestAPI\Payload\Model\IMessage;
+namespace Nelcoa\OpenFireRestAPI\Payload\Model;
 
 /**
  * Payload of Message related REST Endpoint
- * Class Message
- * @package Nelcoa\OpenFireRestAPI\Payload
+ * Interface IMessage
+ * @package Nelcoa\OpenFireRestAPI\Payload\Model
  */
-class Message extends Payload implements IMessage
+interface IMessage
 {
-    /**
-     * The body of the message
-     * Optional No
-     * @var string
-     */
-    private $body;
-
     /**
      * @param $body
      */
-    public function setBody($body) {
-        $this->body = $body;
-    }
+    public function setBody($body);
 
     /**
      * @return string
      */
-    public function getBody() {
-        return $this->body;
-    }
+    public function getBody();
 }

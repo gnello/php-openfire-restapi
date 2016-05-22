@@ -20,7 +20,7 @@ use \Nelcoa\OpenFireRestAPI\Payload;
 /**
  * System related REST Endpoint
  * Class System
- * @package OpenFireRestAPI
+ * @package Nelcoa\OpenFireRestAPI\Endpoint
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#system-related-rest-endpoints
  */
 class System extends Dispatcher

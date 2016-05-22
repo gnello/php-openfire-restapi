@@ -14,9 +14,9 @@
 namespace Nelcoa\OpenFireRestAPI;
 
 /**
- * Group related REST Endpoint
- * Class Group
- * @package OpenFireRestAPI
+ * API manager
+ * Class API
+ * @package Nelcoa\OpenFireRestAPI
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#group-related-rest-endpoints
  */
 class API
@@ -100,7 +100,7 @@ class API
      */
     public function Group()
     {
-        return $this->Group;
+        return $this->group;
     }
 
     /**

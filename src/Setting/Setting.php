@@ -13,6 +13,10 @@
 
 namespace Nelcoa\OpenFireRestAPI\Setting;
 
+/**
+ * Class Setting
+ * @package Nelcoa\OpenFireRestAPI\Setting
+ */
 class Setting
 {
     /**

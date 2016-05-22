@@ -20,7 +20,7 @@ use \Nelcoa\OpenFireRestAPI\Payload;
 /**
  * Message related REST Endpoint
  * Class Message
- * @package OpenFireRestAPI
+ * @package Nelcoa\OpenFireRestAPI\Endpoint
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#message-related-rest-endpoints
  */
 class Message extends Dispatcher

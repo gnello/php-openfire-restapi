@@ -21,7 +21,7 @@ use \Nelcoa\OpenFireRestAPI\Payload\Payload;
  * by curl to ensure compatibility also with PHP installations without the XML form.
  *
  * Class Dispatcher
- * @package OpenFireRestAPI
+ * @package Nelcoa\OpenFireRestAPI\Dispatcher
  */
 abstract class Dispatcher
 {

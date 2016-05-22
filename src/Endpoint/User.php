@@ -21,7 +21,7 @@ use \Nelcoa\OpenFireRestAPI\Payload;
 /**
  * User related REST Endpoint
  * Class User
- * @package OpenFireRestAPI
+ * @package Nelcoa\OpenFireRestAPI\Endpoint
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#user-related-rest-endpoints
  */
 class User extends Dispatcher

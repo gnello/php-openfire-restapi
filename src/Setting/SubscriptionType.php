@@ -13,6 +13,10 @@
 
 namespace Nelcoa\OpenFireRestAPI\Setting;
 
+/**
+ * Class SubscriptionType
+ * @package Nelcoa\OpenFireRestAPI\Setting
+ */
 class SubscriptionType
 {
     /**

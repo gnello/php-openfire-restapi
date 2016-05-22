@@ -19,7 +19,7 @@ use \Nelcoa\OpenFireRestAPI\Dispatcher\Dispatcher;
 /**
  * Session related REST Endpoint
  * Class Session
- * @package OpenFireRestAPI
+ * @package Nelcoa\OpenFireRestAPI\Endpoint
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#session-related-rest-endpoints
  */
 class Session extends Dispatcher

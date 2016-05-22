@@ -17,7 +17,7 @@ namespace Nelcoa\OpenFireRestAPI\Dispatcher;
  * HTTP Methods for RESTful Services
  * To provide a standard way of accessing the data the plugin is using REST.
  * Class Method
- * @package OpenFireRestAPI
+ * @package Nelcoa\OpenFireRestAPI\Dispatcher
  */
 abstract class Method
 {

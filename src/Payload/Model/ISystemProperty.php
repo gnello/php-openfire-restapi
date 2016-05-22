@@ -11,57 +11,33 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Payload;
-
-use Nelcoa\OpenFireRestAPI\Payload\Model\ISystemProperty;
+namespace Nelcoa\OpenFireRestAPI\Payload\Model;
 
 /**
  * Payload of SystemProperty related REST Endpoint
- * Class SystemProperty
- * @package Nelcoa\OpenFireRestAPI\Payload
+ * Interface ISystemProperty
+ * @package Nelcoa\OpenFireRestAPI\Payload\Model
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#system-property
  */
-class SystemProperty extends Payload implements ISystemProperty
+interface ISystemProperty
 {
-    /**
-     * The name of the system property
-     * Optional No
-     * @var string
-     */
-    private $key;
-
-    /**
-     * The value of the system property
-     * Optional Yes
-     * @var string
-     */
-    private $value;
-
     /**
      * @param $key
      */
-    protected function setKey($key) {
-        $this->key = $key;
-    }
+    public function setKey($key);
 
     /**
      * @param $value
      */
-    protected function setValue($value) {
-        $this->value = $value;
-    }
+    public function setValue($value);
 
     /**
      * @return string
      */
-    protected function getKey() {
-        return $this->key;
-    }
+    public function getKey();
 
     /**
      * @return string
      */
-    protected function getValue() {
-        return $this->value;
-    }
+    public function getValue();
 }

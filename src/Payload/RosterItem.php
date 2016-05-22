@@ -12,16 +12,18 @@
  */
 
 namespace Nelcoa\OpenFireRestAPI\Payload;
+
+use Nelcoa\OpenFireRestAPI\Payload\Model\IRosterItem;
 use Nelcoa\OpenFireRestAPI\Setting\Setting;
 use Nelcoa\OpenFireRestAPI\Setting\SubscriptionType;
 
 /**
  * Payload of RosterItem related REST Endpoint
  * Class RosterItem
- * @package OpenFireRestAPI
+ * @package Nelcoa\OpenFireRestAPI\Payload
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#rosteritem
  */
-class RosterItem extends Payload
+class RosterItem extends Payload implements IRosterItem
 {
     /**
      * The JID of the roster item

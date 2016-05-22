@@ -20,7 +20,7 @@ use \Nelcoa\OpenFireRestAPI\Payload;
 /**
  * Group related REST Endpoint
  * Class Group
- * @package OpenFireRestAPI
+ * @package Nelcoa\OpenFireRestAPI\Endpoint
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#group-related-rest-endpoints
  */
 class Group extends Dispatcher

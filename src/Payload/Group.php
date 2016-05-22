@@ -13,13 +13,15 @@
 
 namespace Nelcoa\OpenFireRestAPI\Payload;
 
+use Nelcoa\OpenFireRestAPI\Payload\Model\IGroup;
+
 /**
  * Payload of Group related REST Endpoint
  * Class Group
- * @package OpenFireRestAPI
+ * @package Nelcoa\OpenFireRestAPI\Payload
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#group
  */
-class Group extends Payload
+class Group extends Payload implements IGroup
 {
     /**
      * The name of the group
@@ -57,70 +59,70 @@ class Group extends Payload
     /**
      * @param $name
      */
-    protected function setName($name) {
+    public function setName($name) {
         $this->name = $name;
     }
 
     /**
      * @param $description
      */
-    protected function setDescription($description) {
+    public function setDescription($description) {
         $this->description = $description;
     }
 
     /**
      * @param $admins
      */
-    protected function setAdmins($admins) {
+    public function setAdmins($admins) {
         $this->admins = $admins;
     }
 
     /**
      * @param $members
      */
-    protected function setMembers($members) {
+    public function setMembers($members) {
         $this->members = $members;
     }
 
     /**
      * @param $groupname
      */
-    protected function setGroupname($groupname) {
+    public function setGroupname($groupname) {
         $this->groupname = $groupname;
     }
 
     /**
      * @return string
      */
-    protected function getName() {
+    public function getName() {
         return $this->name;
     }
 
     /**
      * @return string
      */
-    protected function getDescription() {
+    public function getDescription() {
         return $this->description;
     }
 
     /**
      * @return string
      */
-    protected function getAdmins() {
+    public function getAdmins() {
         return $this->admins;
     }
 
     /**
      * @return string
      */
-    protected function getMembers() {
+    public function getMembers() {
         return $this->members;
     }
 
     /**
      * @return string
      */
-    protected function getGroupname() {
+    public function getGroupname() {
         return $this->groupname;
     }
 }

@@ -20,7 +20,7 @@ use \Nelcoa\OpenFireRestAPI\Dispatcher\Dispatcher;
  * TODO: Control and implement better
  * Chat room related REST Endpoint
  * Class ChatRoom
- * @package OpenFireRestAPI
+ * @package Nelcoa\OpenFireRestAPI\Endpoint
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#chat-room-related-rest-endpoints
  */
 class ChatRoom extends Dispatcher
