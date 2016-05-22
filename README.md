@@ -1,7 +1,7 @@
 # php-openfire-restapi
 Php REST API Client to manage Openfire Server
 
-###### TODO
+##### TODO
 [] - Develop the Payload ChatRoom
 
 ## VERSION
