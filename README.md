@@ -2,7 +2,7 @@
 Php REST API Client to manage Openfire Server
 
 ##### TODO
-[] - Develop the Payload ChatRoom
+[ ] Develop the Payload ChatRoom
 
 ## VERSION
 1.0.4
