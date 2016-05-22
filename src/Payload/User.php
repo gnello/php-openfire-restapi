@@ -11,10 +11,10 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Payloads;
+namespace Nelcoa\OpenFireRestAPI\Payload;
 
 /**
- * Payload of User related REST Endpoints
+ * Payload of User related REST Endpoint
  * Class User
  * @package OpenFireRestAPI
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#user

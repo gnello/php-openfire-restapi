@@ -11,11 +11,12 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Payloads;
-use Nelcoa\OpenFireRestAPI\Settings\Settings;
+namespace Nelcoa\OpenFireRestAPI\Payload;
+use Nelcoa\OpenFireRestAPI\Setting\Setting;
+use Nelcoa\OpenFireRestAPI\Setting\SubscriptionType;
 
 /**
- * Payload of RosterItem related REST Endpoints
+ * Payload of RosterItem related REST Endpoint
  * Class RosterItem
  * @package OpenFireRestAPI
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#rosteritem
@@ -56,8 +57,8 @@ class RosterItem extends Payload
      * @param $jid
      */
     protected function setJid($jid) {
-        if (strpos('@' . Settings::$serverName, $jid) === false) {
-            $jid .= '@' . Settings::$serverName;
+        if (strpos('@' . Setting::$serverName, $jid) === false) {
+            $jid .= '@' . Setting::$serverName;
         }
         $this->jid = $jid;;
     }
@@ -71,8 +72,12 @@ class RosterItem extends Payload
 
     /**
      * @param $subscriptionType
+     * @throws \Exception
      */
     protected function setSubscriptionType($subscriptionType) {
+        if (!SubscriptionType::isValid($subscriptionType)) {
+            throw new \Exception("SubscriptionType not valid!");
+        }
         $this->subscriptionType = $subscriptionType;
     }
 

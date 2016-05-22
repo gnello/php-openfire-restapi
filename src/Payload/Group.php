@@ -11,10 +11,10 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Payloads;
+namespace Nelcoa\OpenFireRestAPI\Payload;
 
 /**
- * Payload of Group related REST Endpoints
+ * Payload of Group related REST Endpoint
  * Class Group
  * @package OpenFireRestAPI
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#group

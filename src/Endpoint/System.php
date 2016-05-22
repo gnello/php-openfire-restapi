@@ -11,14 +11,14 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Endpoints;
+namespace Nelcoa\OpenFireRestAPI\Endpoint;
 
 use \Nelcoa\OpenFireRestAPI\Dispatcher\Method;
 use \Nelcoa\OpenFireRestAPI\Dispatcher\Dispatcher;
-use \Nelcoa\OpenFireRestAPI\Payloads;
+use \Nelcoa\OpenFireRestAPI\Payload;
 
 /**
- * System related REST Endpoints
+ * System related REST Endpoint
  * Class System
  * @package OpenFireRestAPI
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#system-related-rest-endpoints
@@ -59,7 +59,7 @@ class System extends Dispatcher
      */
     public static function createSystemProperty($propertyName, $propertyValue)
     {
-        $payload = new Payloads\SystemProperty(compact('propertyName', 'propertyValue'));
+        $payload = new Payload\SystemProperty(compact('propertyName', 'propertyValue'));
         $endpoint = self::$endpoint . '/properties';
         return self::sendRequest(Method::POST, $endpoint, $payload);
     }
@@ -95,7 +95,7 @@ class System extends Dispatcher
      */
     public static function retrieveConcurrentSessions()
     {
-        $endpoint = self::$endpoint . '/statistics/sessions';
+        $endpoint = self::$endpoint . '/statistics' . Session::$endpoint;
         return self::sendRequest(Method::GET, $endpoint);
     }
 }

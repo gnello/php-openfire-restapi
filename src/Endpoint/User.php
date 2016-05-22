@@ -11,20 +11,20 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Endpoints;
+namespace Nelcoa\OpenFireRestAPI\Endpoint;
 
 use \Nelcoa\OpenFireRestAPI\Dispatcher\Method;
 use \Nelcoa\OpenFireRestAPI\Dispatcher\Dispatcher;
-use \Nelcoa\OpenFireRestAPI\Settings\Settings;
-use \Nelcoa\OpenFireRestAPI\Payloads;
+use \Nelcoa\OpenFireRestAPI\Setting\SubscriptionType;
+use \Nelcoa\OpenFireRestAPI\Payload;
 
 /**
- * User related REST Endpoints
- * Class Users
+ * User related REST Endpoint
+ * Class User
  * @package OpenFireRestAPI
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#user-related-rest-endpoints
  */
-class Users extends Dispatcher
+class User extends Dispatcher
 {
     public static $endpoint = '/users';
 
@@ -73,7 +73,7 @@ class Users extends Dispatcher
      */
     public static function createUser($username, $password, $name = null, $email = null, $properties = array())
     {
-        $payload = new Payloads\User(compact('username', 'password', 'name', 'email', 'properties'));
+        $payload = new Payload\User(compact('username', 'password', 'name', 'email', 'properties'));
         return self::sendRequest(Method::POST, self::$endpoint, $payload);
     }
 
@@ -101,7 +101,7 @@ class Users extends Dispatcher
      */
     public static function updateUser($username, $password, $name = null, $email = null, $properties = array())
     {
-        $payload = new Payloads\User(compact('username', 'password', 'name', 'email', 'properties'));
+        $payload = new Payload\User(compact('username', 'password', 'name', 'email', 'properties'));
         $endpoint = self::$endpoint . '/' . $username;
         return self::sendRequest(Method::PUT, $endpoint, $payload);
     }
@@ -109,12 +109,12 @@ class Users extends Dispatcher
     /**
      * Get group names of a specific user
      * @param $username
-     * @return array with Groups
-     * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#retrieve-all-user-groups
+     * @return array with Group
+     * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#retrieve-all-user-Group
      */
     public static function retrieveAllUserGroups($username)
     {
-        $endpoint = self::$endpoint . '/' . $username . Groups::$endpoint;
+        $endpoint = self::$endpoint . '/' . $username . Group::$endpoint;
         return self::sendRequest(Method::GET, $endpoint);
     }
 
@@ -127,8 +127,8 @@ class Users extends Dispatcher
      */
     public static function addUserToGroups($username, $groupname)
     {
-        $payload = new Payloads\Group(compact('groupname'));
-        $endpoint = self::$endpoint . '/' . $username . Groups::$endpoint;
+        $payload = new Payload\Group(compact('groupname'));
+        $endpoint = self::$endpoint . '/' . $username . Group::$endpoint;
         return self::sendRequest(Method::POST, $endpoint, $payload);
     }
 
@@ -141,7 +141,7 @@ class Users extends Dispatcher
      */
     public static function addUserToGroup($username, $groupName)
     {
-        $endpoint = self::$endpoint . '/' . $username . Groups::$endpoint . '/' . $groupName;
+        $endpoint = self::$endpoint . '/' . $username . Group::$endpoint . '/' . $groupName;
         return self::sendRequest(Method::POST, $endpoint);
     }
 
@@ -154,8 +154,8 @@ class Users extends Dispatcher
      */
     public static function deleteUserFromGroups($username, $groupname)
     {
-        $payload = new Payloads\Group(compact('groupname'));
-        $endpoint = self::$endpoint . '/' . $username . Groups::$endpoint;
+        $payload = new Payload\Group(compact('groupname'));
+        $endpoint = self::$endpoint . '/' . $username . Group::$endpoint;
         return self::sendRequest(Method::DELETE, $endpoint, $payload);
     }
 
@@ -168,7 +168,7 @@ class Users extends Dispatcher
      */
     public static function deleteUserFromGroup($username, $groupName)
     {
-        $endpoint = self::$endpoint . '/' . $username . Groups::$endpoint . '/' . $groupName;
+        $endpoint = self::$endpoint . '/' . $username . Group::$endpoint . '/' . $groupName;
         return self::sendRequest(Method::DELETE, $endpoint);
     }
 
@@ -219,9 +219,9 @@ class Users extends Dispatcher
      * @return array with HTTP status 201 (Created)
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#create-a-user-roster-entry
      */
-    public static function createUserRosterEntry($username, $jid, $nickname = null, $subscriptionType = 3, $groups)
+    public static function createUserRosterEntry($username, $jid, $nickname = null, $subscriptionType = SubscriptionType::BOTH, $groups)
     {
-        $payload = new Payloads\RosterItem(compact('jid', 'nickname', 'subscriptionType', 'groups'));
+        $payload = new Payload\RosterItem(compact('jid', 'nickname', 'subscriptionType', 'groups'));
         $endpoint = self::$endpoint . '/' . $username . '/roster';
         $res = self::sendRequest(Method::POST, $endpoint, $payload);
         return $res;
@@ -236,7 +236,7 @@ class Users extends Dispatcher
      */
     public static function deleteUserRosterEntry($username, $jid)
     {
-        $payload = new Payloads\RosterItem(compact('jid'));
+        $payload = new Payload\RosterItem(compact('jid'));
         $endpoint = self::$endpoint . '/' . $username . '/roster/' . $payload->getJid();
         return self::sendRequest(Method::DELETE, $endpoint);
     }
@@ -251,9 +251,9 @@ class Users extends Dispatcher
      * @return array with HTTP status 200 (OK)
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#update-a-user-roster-entry
      */
-    public static function updateUserRosterEntry($username, $jid, $nickname = null, $subscriptionType = 3, $groups)
+    public static function updateUserRosterEntry($username, $jid, $nickname = null, $subscriptionType = SubscriptionType::BOTH, $groups)
     {
-        $payload = new Payloads\RosterItem(compact('jid', 'nickname', 'subscriptionType', 'groups'));
+        $payload = new Payload\RosterItem(compact('jid', 'nickname', 'subscriptionType', 'groups'));
         $endpoint = self::$endpoint . '/' . $username. '/roster/' . $payload->getJid();
         return self::sendRequest(Method::PUT, $endpoint, $payload);
     }

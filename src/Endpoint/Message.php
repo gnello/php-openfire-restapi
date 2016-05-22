@@ -11,19 +11,19 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Endpoints;
+namespace Nelcoa\OpenFireRestAPI\Endpoint;
 
 use \Nelcoa\OpenFireRestAPI\Dispatcher\Method;
 use \Nelcoa\OpenFireRestAPI\Dispatcher\Dispatcher;
-use \Nelcoa\OpenFireRestAPI\Payloads;
+use \Nelcoa\OpenFireRestAPI\Payload;
 
 /**
- * Message related REST Endpoints
- * Class Messages
+ * Message related REST Endpoint
+ * Class Message
  * @package OpenFireRestAPI
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#message-related-rest-endpoints
  */
-class Messages extends Dispatcher
+class Message extends Dispatcher
 {
     public static $endpoint = '/messages';
 
@@ -35,8 +35,8 @@ class Messages extends Dispatcher
      */
     public static function sendBroadcastMessage($body)
     {
-        $payload = new Payloads\Message(compact('body'));
-        $endpoint = self::$endpoint . Users::$endpoint;
+        $payload = new Payload\Message(compact('body'));
+        $endpoint = self::$endpoint . User::$endpoint;
         return self::sendRequest(Method::POST, $endpoint, $payload);
     }
 }

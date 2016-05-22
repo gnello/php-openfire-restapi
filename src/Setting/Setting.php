@@ -11,12 +11,12 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Settings;
+namespace Nelcoa\OpenFireRestAPI\Setting;
 
-class Settings
+class Setting
 {
     /**
-     * Default Settings
+     * Default Setting
      * Edit this section to configure your client
      */
     const HOST = 'localhost';

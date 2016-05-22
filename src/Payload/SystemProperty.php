@@ -11,10 +11,10 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Payloads;
+namespace Nelcoa\OpenFireRestAPI\Payload;
 
 /**
- * Payload of SystemProperty related REST Endpoints
+ * Payload of SystemProperty related REST Endpoint
  * Class SystemProperty
  * @package OpenFireRestAPI
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#system-property

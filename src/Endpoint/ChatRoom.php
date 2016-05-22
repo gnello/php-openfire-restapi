@@ -11,19 +11,19 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Endpoints;
+namespace Nelcoa\OpenFireRestAPI\Endpoint;
 
 use \Nelcoa\OpenFireRestAPI\Dispatcher\Method;
 use \Nelcoa\OpenFireRestAPI\Dispatcher\Dispatcher;
 
 /**
  * TODO: Control and implement better
- * Chat room related REST Endpoints
- * Class ChatRooms
+ * Chat room related REST Endpoint
+ * Class ChatRoom
  * @package OpenFireRestAPI
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#chat-room-related-rest-endpoints
  */
-class ChatRooms extends Dispatcher
+class ChatRoom extends Dispatcher
 {
     public static $endpoint = '/chatrooms';
 

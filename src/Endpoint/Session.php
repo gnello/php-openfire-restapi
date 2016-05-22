@@ -11,18 +11,18 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Endpoints;
+namespace Nelcoa\OpenFireRestAPI\Endpoint;
 
 use \Nelcoa\OpenFireRestAPI\Dispatcher\Method;
 use \Nelcoa\OpenFireRestAPI\Dispatcher\Dispatcher;
 
 /**
- * Session related REST Endpoints
- * Class Sessions
+ * Session related REST Endpoint
+ * Class Session
  * @package OpenFireRestAPI
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#session-related-rest-endpoints
  */
-class Sessions extends Dispatcher
+class Session extends Dispatcher
 {
     public static $endpoint = '/sessions';
 

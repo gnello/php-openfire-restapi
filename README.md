@@ -1,4 +1,4 @@
-# PhpOpenFireRestAPI
+# php-openfire-restapi
 Php REST API Client to manage Openfire Server
 
 ## LICENSE
@@ -25,7 +25,7 @@ PhpOpenFireRestAPI is licensed under Apache License 2.0, see LICENCE for further
 ```
 
 ## CONFIGURATION
-Just change these constants into Settings.php
+Just change these constants into Setting.php
 ```php
 const HOST = 'your_host';
 const PORT = '9090';
@@ -41,14 +41,14 @@ include "vendor/autoload.php";
 $api = new \Nelcoa\OpenFireRestAPI\API();
 
 // Set the required config parameters
-$api->Settings()->setSecret("your_secret");
-$api->Settings()->setHost("your_host");
-$api->Settings()->setServerName("your_servername");
+$api->Setting()->setSecret("your_secret");
+$api->Setting()->setHost("your_host");
+$api->Setting()->setServerName("your_servername");
 
 //Default values
-$api->Settings()->setPort("9090");
-$api->Settings()->setSSL(false);
-$api->Settings()->setPlugin("/plugins/restapi/v1");
+$api->Setting()->setPort("9090");
+$api->Setting()->setSSL(false);
+$api->Setting()->setPlugin("/plugins/restapi/v1");
 ```
 
 ## USAGE
@@ -66,47 +66,47 @@ if($result['response']) {
     echo 'Error!';
 }
 ```
-### Users
+### User
 ```php
 //Add a new user
 $properties = array('key1' => 'value1', 'key2' => 'value2');
-$result = $api->Users()->createUser('Username', 'Password', 'Full Name', 'email@domain.com', $properties);
+$result = $api->User()->createUser('Username', 'Password', 'Full Name', 'email@domain.com', $properties);
 
 //Delete a user
-$result = $api->Users()->deleteUser('Username');
+$result = $api->User()->deleteUser('Username');
 
 //Ban a user
-$result = $api->Users()->lockoutUser('Username');
+$result = $api->User()->lockoutUser('Username');
 
 //Unban a user
-$result = $api->Users()->unlockUser('Username');
+$result = $api->User()->unlockUser('Username');
 ```
 ### Roster
 ```php
 //Add to roster
-$result = $api->Users()->createUserRosterEntry('Username', 'Jid', 'Full Name', 3, array('group1','group2'));
+$result = $api->User()->createUserRosterEntry('Username', 'Jid', 'Full Name', 3, array('group1','group2'));
 
 //Update roster
-$result = $api->Users()->updateUserRosterEntry('Username', 'Jid', 'Full Name', 3, array('group1'));
+$result = $api->User()->updateUserRosterEntry('Username', 'Jid', 'Full Name', 3, array('group1'));
 
 //Delete from roster
-$result = $api->Users()->deleteUserRosterEntry('Username', 'Jid');
+$result = $api->User()->deleteUserRosterEntry('Username', 'Jid');
 ```
-### Groups
+### Group
 ```php
 //Create group
-$result = $api->Groups()->createGroup('groupname', 'description');
+$result = $api->Group()->createGroup('groupname', 'description');
 
-//Add to groups
-$result = $api->Users()->addUserToGroup('Username', array('groupname1', 'groupname2', 'groupname3'));
+//Add to Group
+$result = $api->User()->addUserToGroup('Username', array('groupname1', 'groupname2', 'groupname3'));
 
-//Delete from groups
-$result = $api->Users()->deleteUserFromGroups('Username', array('groupname1','groupname2'));
+//Delete from Group
+$result = $api->User()->deleteUserFromGroup('Username', array('groupname1','groupname2'));
 ```
-### Messages
+### Message
 ```php
 //Send message to all online users
-$result = $api->Messages()->sendBroadcastMessage('Hello everybody!');
+$result = $api->Message()->sendBroadcastMessage('Hello everybody!');
 ```
 
 ## CONTACT
