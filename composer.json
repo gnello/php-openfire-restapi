@@ -1,7 +1,7 @@
 {
-  "name": "nelcoa/phpopenfirerestapi",
+  "name": "nelcoa/openfire-rest-api",
   "description": "Manage OpenFire Server using Rest API",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": ["openfire", "chat"],
   "homepage": "https://github.com/nelcoa/PhpOpenFireRestAPI",
   "license": "Apache-2.0",
