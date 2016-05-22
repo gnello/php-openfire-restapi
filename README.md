@@ -12,12 +12,12 @@ PhpOpenFireRestAPI is licensed under Apache License 2.0, see LICENCE for further
 ```json
 {
     "require": {
-        "nelcoa/PhpOpenFireRestAPI": "dev-master"
-    },
-    "repositories": [
+        "nelcoa/php-openfire-restapi": "dev-master"
+      },
+      "repositories": [
         {
           "type": "vcs",
-          "url": "https://github.com/nelcoa/PhpOpenFireRestAPI"
+          "url": "https://github.com/nelcoa/php-openfire-restapi"
         }
       ]
     }
