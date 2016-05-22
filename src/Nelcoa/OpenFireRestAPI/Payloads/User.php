@@ -55,4 +55,39 @@ class User extends Payload
      * @var array
      */
     private $properties;
+
+    /**
+     * @return string
+     */
+    public function getUsername() {
+        return $this->username;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName() {
+        return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail() {
+        return $this->email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword() {
+        return $this->password;
+    }
+
+    /**
+     * @return array
+     */
+    public function getProperties() {
+        return $this->properties;
+    }
 }

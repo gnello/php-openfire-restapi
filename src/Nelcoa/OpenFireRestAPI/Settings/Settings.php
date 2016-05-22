@@ -19,7 +19,7 @@ class Settings
      * Default Settings
      * Edit this section to configure your client
      */
-    const HOST = 'your_host';
+    const HOST = 'localhost';
     const PORT = '9090';
     const PLUGIN = '/plugins/restapi/v1';
     const SECRET = 'your_secret';

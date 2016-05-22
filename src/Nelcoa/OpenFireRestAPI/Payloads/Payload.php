@@ -37,7 +37,8 @@ abstract class Payload
 
         $payload = array();
         foreach ($props as $prop) {
-            $payload[$prop->getName()] = $prop->getValue();
+            $fnc = 'get' . ucfirst($prop->getName());
+            $payload[$prop->getName()] = $this->$fnc();//$prop->getValue();
         }
 
         return json_encode($payload);

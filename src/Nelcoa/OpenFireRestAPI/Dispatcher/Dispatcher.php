@@ -35,7 +35,12 @@ abstract class Dispatcher
     {
         $url = Settings::getBaseURL() . $endpoint;
         $headers = Settings::getHeaders();
-        $postData = $payload->prepare();
+
+        $postData = null;
+        if (!is_null($payload)) {
+            $postData = $payload->prepare();
+        }
+
         $curlres = self::execute_curl($url, $headers, $method, $postData);
 
         if ($curlres) {
@@ -68,7 +73,7 @@ abstract class Dispatcher
             curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
         }
 
-        $server_output = curl_exec($ch);
+        $server_output = curl_exec($ch); var_dump($server_output);die();
         $info = curl_getinfo($ch);
         curl_close ($ch);
 
