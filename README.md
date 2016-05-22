@@ -53,7 +53,6 @@ $api = new \Nelcoa\OpenFireRestAPI\API();
 ```
 ### Check result
 ```php
-//Check result
 if($result['response']) {
     echo $result['output'];
 } else {
