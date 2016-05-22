@@ -34,4 +34,32 @@ class SystemProperty extends Payload
      * @var string
      */
     private $value;
+
+    /**
+     * @param $key
+     */
+    protected function setKey($key) {
+        $this->key = $key;
+    }
+
+    /**
+     * @param $value
+     */
+    protected function setValue($value) {
+        $this->value = $value;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getKey() {
+        return $this->key;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getValue() {
+        return $this->value;
+    }
 }

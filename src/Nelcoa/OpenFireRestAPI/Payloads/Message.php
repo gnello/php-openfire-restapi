@@ -26,4 +26,18 @@ class Message extends Payload
      * @var string
      */
     private $body;
+
+    /**
+     * @param $body
+     */
+    protected function setBody($body) {
+        $this->body = $body;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getBody() {
+        return $this->body;
+    }
 }

@@ -57,37 +57,72 @@ class User extends Payload
     private $properties;
 
     /**
+     * @param $username
+     */
+    protected function setUsername($username) {
+        $this->username = $username;
+    }
+
+    /**
+     * @param $name
+     */
+    protected function setName($name) {
+        $this->name = $name;
+    }
+
+    /**
+     * @param $email
+     */
+    protected function setEmail($email) {
+        $this->email = $email;
+    }
+
+    /**
+     * @param $password
+     */
+    protected function setPassword($password) {
+        $this->password = $password;
+    }
+
+    /**
+     * @param $properties
+     */
+    protected function setProperties($properties) {
+        $this->properties = $properties;
+    }
+
+    /**
      * @return string
      */
-    public function getUsername() {
+    protected function getUsername() {
         return $this->username;
     }
 
     /**
      * @return string
      */
-    public function getName() {
+    protected function getName() {
         return $this->name;
     }
 
     /**
      * @return string
      */
-    public function getEmail() {
+    protected function getEmail() {
         return $this->email;
     }
 
     /**
      * @return string
      */
-    public function getPassword() {
+    protected function getPassword() {
         return $this->password;
     }
 
     /**
      * @return array
      */
-    public function getProperties() {
+    protected function getProperties() {
         return $this->properties;
     }
 }

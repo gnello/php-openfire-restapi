@@ -21,9 +21,10 @@ abstract class Payload
     public function __construct()
     {
         $args = func_get_args();
-        foreach ($args as $k => $v)
+        foreach ($args[0] as $k => $v)
         {
-            $this->{$k} = $v;
+            $func = 'set' . ucfirst($k);
+            $this->$func($v);
         }
     }
 
@@ -38,7 +39,7 @@ abstract class Payload
         $payload = array();
         foreach ($props as $prop) {
             $fnc = 'get' . ucfirst($prop->getName());
-            $payload[$prop->getName()] = $this->$fnc();//$prop->getValue();
+            $payload[$prop->getName()] = $this->$fnc();
         }
 
         return json_encode($payload);

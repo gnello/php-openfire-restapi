@@ -225,7 +225,6 @@ class Users extends Dispatcher
      */
     public static function createUserRosterEntry($username, $jid, $nickname = null, $subscriptionType = 3, $groups)
     {
-        $jid = Settings::getJID($jid);
         $payload = new Payloads\RosterItem(compact('jid', 'nickname', 'subscriptionType', 'groups'));
         $endpoint = self::$endpoint . '/' . $username . '/roster';
         $res = self::sendRequest(Method::POST, $endpoint, $payload);
@@ -241,8 +240,8 @@ class Users extends Dispatcher
      */
     public static function deleteUserRosterEntry($username, $jid)
     {
-        $jid = Settings::getJID($jid);
-        $endpoint = self::$endpoint . '/' . $username . '/roster/' . $jid;
+        $payload = new Payloads\RosterItem(compact('jid'));
+        $endpoint = self::$endpoint . '/' . $username . '/roster/' . $payload->getJid();
         return self::sendRequest(Method::DELETE, $endpoint);
     }
 
@@ -258,9 +257,8 @@ class Users extends Dispatcher
      */
     public static function updateUserRosterEntry($username, $jid, $nickname = null, $subscriptionType = 3, $groups)
     {
-        $jid = Settings::getJID($jid);
         $payload = new Payloads\RosterItem(compact('jid', 'nickname', 'subscriptionType', 'groups'));
-        $endpoint = self::$endpoint . '/' . $username. '/roster/' . $jid;
+        $endpoint = self::$endpoint . '/' . $username. '/roster/' . $payload->getJid();
         return self::sendRequest(Method::PUT, $endpoint, $payload);
     }
 }

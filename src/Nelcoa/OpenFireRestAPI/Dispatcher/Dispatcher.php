@@ -41,13 +41,7 @@ abstract class Dispatcher
             $postData = $payload->prepare();
         }
 
-        $curlres = self::execute_curl($url, $headers, $method, $postData);
-
-        if ($curlres) {
-            return array('response' => true, 'output' => json_decode($curlres));
-        }
-        return array('response' => false);
-
+        return self::execute_curl($url, $headers, $method, $postData);
     }
 
     /**
@@ -73,13 +67,18 @@ abstract class Dispatcher
             curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
         }
 
-        $server_output = curl_exec($ch); var_dump($server_output);die();
+        $server_output = curl_exec($ch);
         $info = curl_getinfo($ch);
         curl_close ($ch);
 
+        $response = false;
         if ($info['http_code'] == 200 || $info['http_code'] == 201) {
-            return $server_output;
+            $response = true;
         }
-        return false;
+
+        return array(
+            'response'  => $response,
+            'output'    => $server_output,
+        );
     }
 }

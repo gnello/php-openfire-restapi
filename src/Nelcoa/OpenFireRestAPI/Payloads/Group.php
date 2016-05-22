@@ -48,4 +48,60 @@ class Group extends Payload
      * @var array
      */
     private $members;
+
+    /**
+     * @param $name
+     */
+    protected function setName($name) {
+        $this->name = $name;
+    }
+
+    /**
+     * @param $description
+     */
+    protected function setDescription($description) {
+        $this->description = $description;
+    }
+
+    /**
+     * @param $admins
+     */
+    protected function setAdmins($admins) {
+        $this->admins = $admins;
+    }
+
+    /**
+     * @param $members
+     */
+    protected function setMembers($members) {
+        $this->members = $members;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getName() {
+        return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getDescription() {
+        return $this->description;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getAdmins() {
+        return $this->admins;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getMembers() {
+        return $this->members;
+    }
 }

@@ -12,6 +12,7 @@
  */
 
 namespace Nelcoa\OpenFireRestAPI\Payloads;
+use Nelcoa\OpenFireRestAPI\Settings\Settings;
 
 /**
  * Payload of RosterItem related REST Endpoints
@@ -49,4 +50,65 @@ class RosterItem extends Payload
      * @var array
      */
     private $groups;
+
+    /**
+     * Returns always the correct jid
+     * @param $jid
+     */
+    protected function setJid($jid) {
+        if (strpos('@' . Settings::$serverName, $jid) === false) {
+            $jid .= '@' . Settings::$serverName;
+        }
+        $this->jid = $jid;;
+    }
+
+    /**
+     * @param $nickname
+     */
+    protected function setNickname($nickname) {
+        $this->nickname = $nickname;
+    }
+
+    /**
+     * @param $subscriptionType
+     */
+    protected function setSubscriptionType($subscriptionType) {
+        $this->subscriptionType = $subscriptionType;
+    }
+
+    /**
+     * @param $groups
+     */
+    protected function setGroups($groups) {
+        $this->groups['group'] = $groups;
+    }
+
+    /**
+     * Returns always the correct jid
+     * @return string
+     */
+    public function getJid() {
+        return $this->jid;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getNickname() {
+        return $this->nickname;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getSubscriptionType() {
+        return $this->subscriptionType;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getGroups() {
+        return $this->groups;
+    }
 }

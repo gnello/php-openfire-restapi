@@ -29,7 +29,7 @@ class Settings
     private static $port	    = self::PORT;
     private static $plugin      = self::PLUGIN;
     private static $secret	    = self::SECRET;
-    private static $serverName	= self::SERVER_NAME;
+    public static $serverName	= self::SERVER_NAME;
     private static $useSSL	    = false;
 
     /**
@@ -101,18 +101,5 @@ class Settings
             'Authorization: ' . self::$secret,
             'Content-Type: application/json',
         );
-    }
-
-    /**
-     * Returns always the correct jid
-     * @param $jid
-     * @return string
-     */
-    public static function getJID($jid)
-    {
-        if (strpos('@' . self::$serverName, $jid) === false) {
-            $jid .= '@' . self::$serverName;
-        }
-        return $jid;
     }
 }

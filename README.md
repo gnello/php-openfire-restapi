@@ -51,7 +51,7 @@ include "vendor/autoload.php";
 $api = new \Nelcoa\OpenFireRestAPI\API();
 
 //Add a new user
-$result = $api->Users()->createUser('Username', 'Password', 'Full Name', 'jacky@domain.com');
+$result = $api->Users()->createUser('Username', 'Password', 'Full Name', 'email@domain.com');
 
 //Check result
 if($result['response']) {
@@ -70,10 +70,13 @@ $result = $api->Users()->lockoutUser('Username');
 $result = $api->Users()->unlockUser('Username');
 
 //Add to roster
-$api->Users()->createUserRosterEntry('Username', 'Jid', 'Full Name');
+$result = $api->Users()->createUserRosterEntry('Username', 'Jid', 'Full Name', 3, array('group1','group2'));
+
+//Update roster
+$result = $api->Users()->updateUserRosterEntry('Username', 'Jid', 'Full Name', 3, array('group1'));
 
 //Delete from roster
-$api->Users()->deleteUserRosterEntry('Username', 'Jid');
+$result = $api->Users()->deleteUserRosterEntry('Username', 'Jid');
 ```
 
 ## CONTACT
