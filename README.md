@@ -30,9 +30,9 @@ The best way to install php-openfire-restapi is to use Composer, you do that:
 }
 ```
 
-2. Run ```php composer.phar install``` or ```php composer.phar update```
+2. Run ```php composer.phar install``` or ```php composer.phar update``` command
 
-Read more about how to install and use Composer on your local machine [here] (https://www.io.it) .
+Read more about how to install and use Composer on your local machine [here] (https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
 
 ## CONFIGURATION
 Just change these constants into Setting.php
