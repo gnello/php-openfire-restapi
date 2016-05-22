@@ -51,7 +51,7 @@ include "vendor/autoload.php";
 $api = new \Nelcoa\OpenFireRestAPI\API();
 
 //Add a new user
-$properties = array('key1' => 'value1, 'key2' => 'value2');
+$properties = array('key1' => 'value1', 'key2' => 'value2');
 $result = $api->Users()->createUser('Username', 'Password', 'Full Name', 'email@domain.com', $properties);
 
 //Check result
