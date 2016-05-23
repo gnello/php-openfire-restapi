@@ -17,7 +17,7 @@ PhpOpenFireRestAPI is licensed under Apache License 2.0, see LICENCE for further
 ### Composer
 The best way to install php-openfire-restapi is to use Composer, you do that:
 
-1. Add the following to your project's ```composer.json``` file:
+1) Add the following to your project's ```composer.json``` file:
 ```json
 {
     "require": {
@@ -32,7 +32,8 @@ The best way to install php-openfire-restapi is to use Composer, you do that:
     }
 }
 ```
-2. Run ```php composer.phar install``` or ```php composer.phar update``` command
+
+2) Run ```php composer.phar install``` or ```php composer.phar update``` command
 
 Read more about how to install and use Composer on your local machine [here] (https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
 
