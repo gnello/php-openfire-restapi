@@ -19,13 +19,6 @@ The best way to install php-openfire-restapi is to use Composer, you do that:
 {
     "require": {
         "nelcoa/php-openfire-restapi": "dev-master"
-      },
-      "repositories": [
-        {
-          "type": "vcs",
-          "url": "https://github.com/nelcoa/php-openfire-restapi"
-        }
-      ]
     }
 }
 ```
