@@ -87,10 +87,12 @@ $result = $api->User()->unlockUser('Username');
 ### Roster
 ```php
 //Add to roster
-$result = $api->User()->createUserRosterEntry('Username', 'Jid', 'Full Name', 3, array('group1','group2'));
+use \Nelcoa\OpenFireRestAPI\Setting\SubscriptionType;
+$result = $api->User()->createUserRosterEntry('Username', 'Jid', 'Full Name', SubscriptionType::BOTH, array('group1','group2'));
 
 //Update roster
-$result = $api->User()->updateUserRosterEntry('Username', 'Jid', 'Full Name', 3, array('group1'));
+use \Nelcoa\OpenFireRestAPI\Setting\SubscriptionType;
+$result = $api->User()->updateUserRosterEntry('Username', 'Jid', 'Full Name', SubscriptionType::BOTH, array('group1'));
 
 //Delete from roster
 $result = $api->User()->deleteUserRosterEntry('Username', 'Jid');
