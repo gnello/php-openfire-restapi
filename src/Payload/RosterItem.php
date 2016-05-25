@@ -84,9 +84,9 @@ class RosterItem extends AbstractPayload implements RosterItemInterface
     }
 
     /**
-     * @param $groups
+     * @param array $groups
      */
-    public function setGroups($groups) {
+    public function setGroups(array $groups) {
         $this->groups['group'] = $groups;
     }
 

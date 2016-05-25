@@ -111,6 +111,26 @@ $result = $api->User()->deleteUserFromGroup('Username', array('groupname1','grou
 //Send message to all online users
 $result = $api->Message()->sendBroadcastMessage('Hello everybody!');
 ```
+### ChatRoom
+```php
+//Create a new ChatRoom
+$payload = new \Nelcoa\OpenFireRestAPI\Payload\ChatRoom();
+$payload->setRoomName('myfirstchatroom');
+$payload->setNaturalName('my_first_chat_room');
+$payload->setDescription('This is my first chat room!');
+$result = $api->ChatRoom()->createChatRoom($payload);
 
+//Add user with role to chat room
+$result = $api->ChatRoom()->addUserWithRoleToChatRoom('myfirstchatroom','members','username');
+
+//Add group with role to chat room
+$result = $api->ChatRoom()->addGroupWithRoleToChatRoom('myfirstchatroom','outcasts','groupname');
+
+//Delete a user from a chat room
+$result = $api->ChatRoom()->deleteUserFromChatRoom('myfirstchatroom','members','username');
+
+//Delete a chat room
+$result = $api->ChatRoom()->deleteChatRoom('myfirstchatroom');
+```
 ## CONTACT
 - nelcoa lcagnello@gmail.com

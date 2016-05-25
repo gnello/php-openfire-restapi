@@ -405,75 +405,75 @@ class ChatRoom extends AbstractPayload implements ChatRoomInterface
     }
 
     /**
-     * @param $broadcastPresenceRoles
+     * @param array $broadcastPresenceRoles
      */
-    public function setBroadcastPresenceRoles($broadcastPresenceRoles)
+    public function setBroadcastPresenceRoles(array $broadcastPresenceRoles)
     {
-        $this->broadcastPresenceRoles = $broadcastPresenceRoles;
+        $this->broadcastPresenceRoles['broadcastPresenceRole'] = $broadcastPresenceRoles;
     }
 
     /**
-     * @param $owners
+     * @param array $owners
      */
-    public function setOwners($owners)
+    public function setOwners(array $owners)
     {
-        $this->owners = $owners;
+        $this->owners['owner'] = $owners;
     }
 
     /**
-     * @param $admins
+     * @param array $admins
      */
-    public function setAdmins($admins)
+    public function setAdmins(array $admins)
     {
-        $this->admins = $admins;
+        $this->admins['admin'] = $admins;
     }
 
     /**
-     * @param $members
+     * @param array $members
      */
-    public function setMembers($members)
+    public function setMembers(array $members)
     {
-        $this->members = $members;
+        $this->members['member'] = $members;
     }
 
     /**
-     * @param $outcasts
+     * @param array $outcasts
      */
-    public function setOutcasts($outcasts)
+    public function setOutcasts(array $outcasts)
     {
-        $this->outcasts = $outcasts;
+        $this->outcasts['outcast'] = $outcasts;
     }
 
     /**
-     * @param $ownerGroups
+     * @param array $ownerGroups
      */
-    public function setOwnerGroups($ownerGroups)
+    public function setOwnerGroups(array $ownerGroups)
     {
-        $this->ownerGroups = $ownerGroups;
+        $this->ownerGroups['ownerGroup'] = $ownerGroups;
     }
 
     /**
-     * @param $adminGroups
+     * @param array $adminGroups
      */
-    public function setAdminGroups($adminGroups)
+    public function setAdminGroups(array $adminGroups)
     {
-        $this->adminGroups = $adminGroups;
+        $this->adminGroups['adminGroup'] = $adminGroups;
     }
 
     /**
-     * @param $memberGroups
+     * @param array $memberGroups
      */
-    public function setMemberGroups($memberGroups)
+    public function setMemberGroups(array $memberGroups)
     {
-        $this->memberGroups = $memberGroups;
+        $this->memberGroups['memberGroup'] = $memberGroups;
     }
 
     /**
-     * @param $outcastGroups
+     * @param array $outcastGroups
      */
-    public function setOutcastGroups($outcastGroups)
+    public function setOutcastGroups(array $outcastGroups)
     {
-        $this->outcastGroups = $outcastGroups;
+        $this->outcastGroups['outcastGroup'] = $outcastGroups;
     }
 
     /**

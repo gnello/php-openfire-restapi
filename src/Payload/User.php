@@ -87,9 +87,9 @@ class User extends AbstractPayload implements UserInterface
     }
 
     /**
-     * @param $properties
+     * @param array $properties
      */
-    public function setProperties($properties) {
+    public function setProperties(array $properties) {
         foreach ($properties as $key => $value) {
             $property['@key'] = $key;
             $property['@value'] = $value;

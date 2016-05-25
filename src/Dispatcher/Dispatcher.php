@@ -14,7 +14,7 @@
 namespace Nelcoa\OpenFireRestAPI\Dispatcher;
 
 use \Nelcoa\OpenFireRestAPI\Setting\Setting;
-use \Nelcoa\OpenFireRestAPI\Payload\Payload;
+use \Nelcoa\OpenFireRestAPI\Payload\AbstractPayload;
 
 /**
  * This class is responsible for sending requests to the server. The requests are sent
@@ -28,10 +28,10 @@ abstract class Dispatcher
     /**
      * @param $method
      * @param $endpoint
-     * @param Payload $payload
+     * @param AbstractPayload $payload
      * @return array
      */
-    protected static function sendRequest($method, $endpoint, Payload $payload = null)
+    protected static function sendRequest($method, $endpoint, AbstractPayload $payload = null)
     {
         $url = Setting::getBaseURL() . $endpoint;
         $headers = Setting::getHeaders();

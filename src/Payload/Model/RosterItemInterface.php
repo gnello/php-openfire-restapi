@@ -39,9 +39,9 @@ interface RosterItemInterface
     public function setSubscriptionType($subscriptionType);
 
     /**
-     * @param $groups
+     * @param array $groups
      */
-    public function setGroups($groups);
+    public function setGroups(array $groups);
 
     /**
      * Returns always the correct jid

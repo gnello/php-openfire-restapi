@@ -42,9 +42,9 @@ interface UserInterface
     public function setPassword($password);
 
     /**
-     * @param $properties
+     * @param array $properties
      */
-    public function setProperties($properties);
+    public function setProperties(array $properties);
 
     /**
      * @return string

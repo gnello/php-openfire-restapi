@@ -117,49 +117,49 @@ interface ChatRoomInterface
     public function setModerated($moderated);
 
     /**
-     * @param $broadcastPresenceRoles
+     * @param array $broadcastPresenceRoles
      */
-    public function setBroadcastPresenceRoles($broadcastPresenceRoles);
+    public function setBroadcastPresenceRoles(array $broadcastPresenceRoles);
 
     /**
-     * @param $owners
+     * @param array $owners
      */
-    public function setOwners($owners);
+    public function setOwners(array $owners);
 
     /**
-     * @param $admins
+     * @param array $admins
      */
-    public function setAdmins($admins);
+    public function setAdmins(array $admins);
 
     /**
-     * @param $members
+     * @param array $members
      */
-    public function setMembers($members);
+    public function setMembers(array $members);
 
     /**
-     * @param $outcasts
+     * @param array $outcasts
      */
-    public function setOutcasts($outcasts);
+    public function setOutcasts(array $outcasts);
 
     /**
-     * @param $ownerGroups
+     * @param array $ownerGroups
      */
-    public function setOwnerGroups($ownerGroups);
+    public function setOwnerGroups(array $ownerGroups);
 
     /**
-     * @param $adminGroups
+     * @param array $adminGroups
      */
-    public function setAdminGroups($adminGroups);
+    public function setAdminGroups(array $adminGroups);
 
     /**
-     * @param $memberGroups
+     * @param array $memberGroups
      */
-    public function setMemberGroups($memberGroups);
+    public function setMemberGroups(array $memberGroups);
 
     /**
-     * @param $outcastGroups
+     * @param array $outcastGroups
      */
-    public function setOutcastGroups($outcastGroups);
+    public function setOutcastGroups(array $outcastGroups);
 
     /**
      * @return string
