@@ -17,7 +17,7 @@ namespace Nelcoa\OpenFireRestAPI\Payload;
  * Class Payload
  * @package Nelcoa\OpenFireRestAPI\Payload
  */
-abstract class Payload 
+abstract class AbstractPayload
 {
     /**
      * Payload constructor.

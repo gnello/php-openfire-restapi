@@ -13,7 +13,7 @@
 
 namespace Nelcoa\OpenFireRestAPI\Payload;
 
-use Nelcoa\OpenFireRestAPI\Payload\Model\IChatRoom;
+use Nelcoa\OpenFireRestAPI\Payload\Model\ChatRoomInterface;
 
 /**
  * Payload of Group related REST Endpoint
@@ -21,7 +21,7 @@ use Nelcoa\OpenFireRestAPI\Payload\Model\IChatRoom;
  * @package Nelcoa\OpenFireRestAPI\Payload
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#chat-room-related-rest-endpoints
  */
-class ChatRoom extends Payload implements IChatRoom
+class ChatRoom extends AbstractPayload implements ChatRoomInterface
 {
     /**
      * The name/id of the room. Can only contains lowercase and alphanumeric characters.
@@ -293,7 +293,6 @@ class ChatRoom extends Payload implements IChatRoom
     }
 
     /**
-     * TODO: check format / automatic generate?
      * @param $creationDate
      */
     public function setCreationDate($creationDate)

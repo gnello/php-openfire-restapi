@@ -13,7 +13,7 @@
 
 namespace Nelcoa\OpenFireRestAPI\Payload;
 
-use Nelcoa\OpenFireRestAPI\Payload\Model\IRosterItem;
+use Nelcoa\OpenFireRestAPI\Payload\Model\RosterItemInterface;
 use Nelcoa\OpenFireRestAPI\Setting\Setting;
 use Nelcoa\OpenFireRestAPI\Setting\SubscriptionType;
 
@@ -23,7 +23,7 @@ use Nelcoa\OpenFireRestAPI\Setting\SubscriptionType;
  * @package Nelcoa\OpenFireRestAPI\Payload
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#rosteritem
  */
-class RosterItem extends Payload implements IRosterItem
+class RosterItem extends AbstractPayload implements RosterItemInterface
 {
     /**
      * The JID of the roster item

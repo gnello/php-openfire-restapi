@@ -15,11 +15,11 @@ namespace Nelcoa\OpenFireRestAPI\Payload\Model;
 
 /**
  * Payload of ChatRoom related REST Endpoint
- * Interface IChatRoom
+ * Interface ChatRoomInterface
  * @package Nelcoa\OpenFireRestAPI\Payload\Model
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#chat-room-related-rest-endpoints
  */
-interface IChatRoom
+interface ChatRoomInterface
 {
     /**
      * @param $roomName

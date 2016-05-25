@@ -14,30 +14,19 @@
 namespace Nelcoa\OpenFireRestAPI\Payload\Model;
 
 /**
- * Payload of SystemProperty related REST Endpoint
- * Interface ISystemProperty
+ * Payload of Message related REST Endpoint
+ * Interface MessageInterface
  * @package Nelcoa\OpenFireRestAPI\Payload\Model
- * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#system-property
  */
-interface ISystemProperty
+interface MessageInterface
 {
     /**
-     * @param $key
+     * @param $body
      */
-    public function setKey($key);
-
-    /**
-     * @param $value
-     */
-    public function setValue($value);
+    public function setBody($body);
 
     /**
      * @return string
      */
-    public function getKey();
-
-    /**
-     * @return string
-     */
-    public function getValue();
+    public function getBody();
 }

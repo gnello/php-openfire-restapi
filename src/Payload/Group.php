@@ -13,7 +13,7 @@
 
 namespace Nelcoa\OpenFireRestAPI\Payload;
 
-use Nelcoa\OpenFireRestAPI\Payload\Model\IGroup;
+use Nelcoa\OpenFireRestAPI\Payload\Model\GroupInterface;
 
 /**
  * Payload of Group related REST Endpoint
@@ -21,7 +21,7 @@ use Nelcoa\OpenFireRestAPI\Payload\Model\IGroup;
  * @package Nelcoa\OpenFireRestAPI\Payload
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#group
  */
-class Group extends Payload implements IGroup
+class Group extends AbstractPayload implements GroupInterface
 {
     /**
      * The name of the group

@@ -13,7 +13,7 @@
 
 namespace Nelcoa\OpenFireRestAPI\Payload;
 
-use Nelcoa\OpenFireRestAPI\Payload\Model\ISystemProperty;
+use Nelcoa\OpenFireRestAPI\Payload\Model\SystemPropertyInterface;
 
 /**
  * Payload of SystemProperty related REST Endpoint
@@ -21,7 +21,7 @@ use Nelcoa\OpenFireRestAPI\Payload\Model\ISystemProperty;
  * @package Nelcoa\OpenFireRestAPI\Payload
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#system-property
  */
-class SystemProperty extends Payload implements ISystemProperty
+class SystemProperty extends AbstractPayload implements SystemPropertyInterface
 {
     /**
      * The name of the system property

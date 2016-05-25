@@ -15,11 +15,11 @@ namespace Nelcoa\OpenFireRestAPI\Payload\Model;
 
 /**
  * Payload of Group related REST Endpoint
- * Interface IGroup
+ * Interface GroupInterface
  * @package Nelcoa\OpenFireRestAPI\Payload\Model
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#group
  */
-interface IGroup
+interface GroupInterface
 {
     /**
      * @param $name

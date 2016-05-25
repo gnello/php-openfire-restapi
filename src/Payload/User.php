@@ -13,7 +13,7 @@
 
 namespace Nelcoa\OpenFireRestAPI\Payload;
 
-use Nelcoa\OpenFireRestAPI\Payload\Model\IUser;
+use Nelcoa\OpenFireRestAPI\Payload\Model\UserInterface;
 
 /**
  * Payload of User related REST Endpoint
@@ -21,7 +21,7 @@ use Nelcoa\OpenFireRestAPI\Payload\Model\IUser;
  * @package Nelcoa\OpenFireRestAPI\Payload
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#user
  */
-class User extends Payload implements IUser
+class User extends AbstractPayload implements UserInterface
 {
     /**
      * The username of the user

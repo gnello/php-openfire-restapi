@@ -13,14 +13,14 @@
 
 namespace Nelcoa\OpenFireRestAPI\Payload;
 
-use Nelcoa\OpenFireRestAPI\Payload\Model\IMessage;
+use Nelcoa\OpenFireRestAPI\Payload\Model\MessageInterface;
 
 /**
  * Payload of Message related REST Endpoint
  * Class Message
  * @package Nelcoa\OpenFireRestAPI\Payload
  */
-class Message extends Payload implements IMessage
+class Message extends AbstractPayload implements MessageInterface
 {
     /**
      * The body of the message

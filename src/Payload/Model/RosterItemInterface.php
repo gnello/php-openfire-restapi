@@ -14,60 +14,53 @@
 namespace Nelcoa\OpenFireRestAPI\Payload\Model;
 
 /**
- * Payload of User related REST Endpoint
- * Interface IUser
+ * Payload of RosterItem related REST Endpoint
+ * Interface RosterItemInterface
  * @package Nelcoa\OpenFireRestAPI\Payload\Model
- * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#user
+ * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#rosteritem
  */
-interface IUser
+interface RosterItemInterface
 {
     /**
-     * @param $username
+     * Returns always the correct jid
+     * @param $jid
      */
-    public function setUsername($username);
+    public function setJid($jid);
 
     /**
-     * @param $name
+     * @param $nickname
      */
-    public function setName($name);
+    public function setNickname($nickname);
 
     /**
-     * @param $email
+     * @param $subscriptionType
+     * @throws \Exception
      */
-    public function setEmail($email);
+    public function setSubscriptionType($subscriptionType);
 
     /**
-     * @param $password
+     * @param $groups
      */
-    public function setPassword($password);
+    public function setGroups($groups);
 
     /**
-     * @param $properties
+     * Returns always the correct jid
+     * @return string
      */
-    public function setProperties($properties);
+    public function getJid();
 
     /**
      * @return string
      */
-    public function getUsername();
+    public function getNickname();
 
     /**
      * @return string
      */
-    public function getName();
+    public function getSubscriptionType();
 
     /**
      * @return string
      */
-    public function getEmail();
-
-    /**
-     * @return string
-     */
-    public function getPassword();
-
-    /**
-     * @return array
-     */
-    public function getProperties();
+    public function getGroups();
 }
