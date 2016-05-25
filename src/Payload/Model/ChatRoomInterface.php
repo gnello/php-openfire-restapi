@@ -47,7 +47,6 @@ interface ChatRoomInterface
     public function setPassword($password);
 
     /**
-     * TODO: check format / automatic generate?
      * @param $creationDate
      */
     public function setCreationDate($creationDate);
