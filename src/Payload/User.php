@@ -61,35 +61,35 @@ class User extends Payload implements IUser
     /**
      * @param $username
      */
-    protected function setUsername($username) {
+    public function setUsername($username) {
         $this->username = $username;
     }
 
     /**
      * @param $name
      */
-    protected function setName($name) {
+    public function setName($name) {
         $this->name = $name;
     }
 
     /**
      * @param $email
      */
-    protected function setEmail($email) {
+    public function setEmail($email) {
         $this->email = $email;
     }
 
     /**
      * @param $password
      */
-    protected function setPassword($password) {
+    public function setPassword($password) {
         $this->password = $password;
     }
 
     /**
      * @param $properties
      */
-    protected function setProperties($properties) {
+    public function setProperties($properties) {
         foreach ($properties as $key => $value) {
             $property['@key'] = $key;
             $property['@value'] = $value;
@@ -100,35 +100,35 @@ class User extends Payload implements IUser
     /**
      * @return string
      */
-    protected function getUsername() {
+    public function getUsername() {
         return $this->username;
     }
 
     /**
      * @return string
      */
-    protected function getName() {
+    public function getName() {
         return $this->name;
     }
 
     /**
      * @return string
      */
-    protected function getEmail() {
+    public function getEmail() {
         return $this->email;
     }
 
     /**
      * @return string
      */
-    protected function getPassword() {
+    public function getPassword() {
         return $this->password;
     }
 
     /**
      * @return array
      */
-    protected function getProperties() {
+    public function getProperties() {
         return $this->properties;
     }
 }

@@ -40,28 +40,28 @@ class SystemProperty extends Payload implements ISystemProperty
     /**
      * @param $key
      */
-    protected function setKey($key) {
+    public function setKey($key) {
         $this->key = $key;
     }
 
     /**
      * @param $value
      */
-    protected function setValue($value) {
+    public function setValue($value) {
         $this->value = $value;
     }
 
     /**
      * @return string
      */
-    protected function getKey() {
+    public function getKey() {
         return $this->key;
     }
 
     /**
      * @return string
      */
-    protected function getValue() {
+    public function getValue() {
         return $this->value;
     }
 }

@@ -22,13 +22,22 @@ namespace Nelcoa\OpenFireRestAPI\Dispatcher;
 abstract class Method
 {
     /**
-     * GET	    Receive a read-only data
-     * PUT	    Overwrite an existing resource
-     * POST	    Creates a new resource
-     * DELETE   Deletes the given resource
+     * Receive a read-only data
      */
     const GET       = 'GET';
+
+    /**
+     * Overwrite an existing resource
+     */
     const POST      = 'POST';
+
+    /**
+     * Creates a new resource
+     */
     const PUT       = 'PUT';
+
+    /**
+     * Deletes the given resource
+     */
     const DELETE    = 'DELETE';
 }

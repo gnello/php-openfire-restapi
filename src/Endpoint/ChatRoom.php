@@ -15,6 +15,7 @@ namespace Nelcoa\OpenFireRestAPI\Endpoint;
 
 use \Nelcoa\OpenFireRestAPI\Dispatcher\Method;
 use \Nelcoa\OpenFireRestAPI\Dispatcher\Dispatcher;
+use \Nelcoa\OpenFireRestAPI\Payload;
 
 /**
  * TODO: Control and implement better
@@ -59,6 +60,7 @@ class ChatRoom extends Dispatcher
     }
 
     /**
+     * TODO: think a better method
      * @param $roomName
      * @param $naturalName
      * @param $description
@@ -70,7 +72,8 @@ class ChatRoom extends Dispatcher
      */
     public static function createChatRoom($roomName, $naturalName, $description, $subject = '', $maxUsers = 0, $publicRoom = true)
     {
-        return self::sendRequest(Method::POST, self::$endpoint, compact('roomName', 'naturalName', 'description', 'subject', 'maxUsers', 'publicRoom'));
+        $payload = new Payload\ChatRoom(compact('roomName', 'naturalName', 'description', 'subject', 'maxUsers', 'publicRoom'));
+        return self::sendRequest(Method::POST, self::$endpoint, $payload);
     }
 
     /**
@@ -85,6 +88,7 @@ class ChatRoom extends Dispatcher
     }
 
     /**
+     * TODO: think a better method
      * @param $originalRoomName
      * @param $roomName
      * @param $naturalName
@@ -97,8 +101,9 @@ class ChatRoom extends Dispatcher
      */
     public static function updateChatRoom($originalRoomName, $roomName, $naturalName, $description, $subject = '', $maxUsers = 0, $publicRoom = true)
     {
+        $payload = new Payload\ChatRoom(compact('roomName', 'naturalName', 'description', 'subject', 'maxUsers', 'publicRoom'));
         $endpoint = self::$endpoint . '/' . $originalRoomName;
-        return self::sendRequest(Method::PUT, $endpoint, compact('roomName', 'naturalName', 'description', 'subject', 'maxUsers', 'publicRoom'));
+        return self::sendRequest(Method::PUT, $endpoint, $payload);
     }
 
     /**

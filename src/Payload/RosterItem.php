@@ -58,7 +58,7 @@ class RosterItem extends Payload implements IRosterItem
      * Returns always the correct jid
      * @param $jid
      */
-    protected function setJid($jid) {
+    public function setJid($jid) {
         if (strpos('@' . Setting::$serverName, $jid) === false) {
             $jid .= '@' . Setting::$serverName;
         }
@@ -68,7 +68,7 @@ class RosterItem extends Payload implements IRosterItem
     /**
      * @param $nickname
      */
-    protected function setNickname($nickname) {
+    public function setNickname($nickname) {
         $this->nickname = $nickname;
     }
 
@@ -76,7 +76,7 @@ class RosterItem extends Payload implements IRosterItem
      * @param $subscriptionType
      * @throws \Exception
      */
-    protected function setSubscriptionType($subscriptionType) {
+    public function setSubscriptionType($subscriptionType) {
         if (!SubscriptionType::isValid($subscriptionType)) {
             throw new \Exception("SubscriptionType not valid!");
         }
@@ -86,7 +86,7 @@ class RosterItem extends Payload implements IRosterItem
     /**
      * @param $groups
      */
-    protected function setGroups($groups) {
+    public function setGroups($groups) {
         $this->groups['group'] = $groups;
     }
 
@@ -101,21 +101,21 @@ class RosterItem extends Payload implements IRosterItem
     /**
      * @return string
      */
-    protected function getNickname() {
+    public function getNickname() {
         return $this->nickname;
     }
 
     /**
      * @return string
      */
-    protected function getSubscriptionType() {
+    public function getSubscriptionType() {
         return $this->subscriptionType;
     }
 
     /**
      * @return string
      */
-    protected function getGroups() {
+    public function getGroups() {
         return $this->groups;
     }
 }
