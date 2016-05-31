@@ -18,7 +18,6 @@ use \Nelcoa\OpenFireRestAPI\Dispatcher\Dispatcher;
 use \Nelcoa\OpenFireRestAPI\Payload;
 
 /**
- * TODO: Control and implement better
  * Chat room related REST Endpoint
  * Class ChatRoom
  * @package Nelcoa\OpenFireRestAPI\Endpoint
