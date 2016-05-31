@@ -49,7 +49,7 @@ class User
      * User constructor.
      * @param \stdClass $output
      */
-    protected function __construct(\stdClass $output)
+    final protected function __construct(\stdClass $output)
     {
         $this->username = $output->username;
         $this->name = $output->name;

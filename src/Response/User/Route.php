@@ -39,13 +39,13 @@ class Route extends User
             case 'retrieveUsers':
                 $list = array();
                 foreach ($output->user as $stdClass) {
-                    $list[$stdClass->username] = new self($stdClass);
+                    $list[$stdClass->username] = new User($stdClass);
                 }
                 return $list;
                 break;
             
             case 'retrieveUser':
-                return new self($output);
+                return new User($output);
                 break;
 
             //TODO: da fare
