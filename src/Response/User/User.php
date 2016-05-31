@@ -11,51 +11,54 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Response;
+namespace Nelcoa\OpenFireRestAPI\Response\User;
 
 /**
- * TODO: da pensare fare implementare
  * Response of User related REST Endpoint
  * Class User
- * @package Nelcoa\OpenFireRestAPI\Response
+ * @package Nelcoa\OpenFireRestAPI\Response\User
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#user
  */
 class User
 {
     /**
      * The username of the user
-     * Optional No
-     * @var string
+     * @var string $username
      */
     private $username;
 
     /**
      * The name of the user
-     * Optional Yes
-     * @var string
+     * @var string $name
      */
     private $name;
 
     /**
      * The email of the user
-     * Optional Yes
-     * @var string
+     * @var string $email
      */
     private $email;
 
     /**
-     * The password of the user
-     * Optional No
-     * @var string
+     * List of properties. Property is a key / value object. The key must to be per user unique
+     * @var array $properties
      */
-    private $password;
+    private $properties = array();
 
     /**
-     * List of properties. Property is a key/value object. The key must to be per user unique
-     * Optional Yes
-     * @var array
+     * User constructor.
+     * @param \stdClass $output
      */
-    private $properties;
+    protected function __construct(\stdClass $output)
+    {
+        $this->username = $output->username;
+        $this->name = $output->name;
+        $this->email = $output->email;
+
+        foreach ($output->properties->property as $stdClass) {
+            $this->properties[$stdClass->{'@key'}] = new Property($stdClass);
+        }
+    }
 
     /**
      * @return string
@@ -79,16 +82,10 @@ class User
     }
 
     /**
-     * @return string
-     */
-    public function getPassword() {
-        return $this->password;
-    }
-
-    /**
      * @return array
      */
     public function getProperties() {
         return $this->properties;
     }
+
 }
