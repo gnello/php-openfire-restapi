@@ -33,7 +33,7 @@ class Setting
     private static $port	    = self::PORT;
     private static $plugin      = self::PLUGIN;
     private static $secret	    = self::SECRET;
-    public static $serverName	= self::SERVER_NAME;
+    private static $serverName	= self::SERVER_NAME;
     private static $useSSL	    = false;
 
     /**
@@ -83,27 +83,52 @@ class Setting
     {
         self::$serverName = $serverName;
     }
-    
+
     /**
-     * Returns the URL under which query the webservice
      * @return string
      */
-    public static function getBaseURL()
+    public static function getHost()
     {
-        $base = (self::$useSSL) ? "https" : "http";
-        return $base . "://" . self::$host . ":" . self::$port . self::$plugin;
+        return self::$host;
     }
 
     /**
-     * Returns the headers to be sent to web service
-     * @return array
+     * @return string
      */
-    public static function getHeaders()
+    public static function getPort()
     {
-        return array(
-            'Accept: application/json',
-            'Authorization: ' . self::$secret,
-            'Content-Type: application/json',
-        );
+        return self::$port;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getPlugin()
+    {
+        return self::$plugin;
+    }
+
+    /**
+     * @return bool
+     */
+    public static function getSSL()
+    {
+        return self::$useSSL;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getSecret()
+    {
+        return self::$secret;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getServerName()
+    {
+        return self::$serverName;
     }
 }

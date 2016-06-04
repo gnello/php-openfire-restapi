@@ -48,14 +48,24 @@ class Route extends User
                 return new User($output);
                 break;
 
-            //TODO: da fare
             case 'retrieveAllUserGroups':
-                var_dump($output);
+                $groupnameArray = array();
+                if (!is_array($output->groupname)) {
+                    $output->groupname = array($output->groupname);
+                }
+                foreach($output->groupname as $groupname) {
+                    $groupnameArray[] = $groupname;
+                }
+                return $groupnameArray;
                 break;
 
             //TODO: da fare
             case 'retrieveUserRoster':
-                var_dump($output);
+                $rosterItemArray = array();
+                if (!is_array($output->rosterItem)) {
+                    $output->rosterItem = array($output->rosterItem);
+                }
+                return false;
                 break;
             
             default:

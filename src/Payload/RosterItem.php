@@ -59,8 +59,8 @@ class RosterItem extends AbstractPayload implements RosterItemInterface
      * @param $jid
      */
     public function setJid($jid) {
-        if (strpos('@' . Setting::$serverName, $jid) === false) {
-            $jid .= '@' . Setting::$serverName;
+        if (strpos('@' . Setting::getServerName(), $jid) === false) {
+            $jid .= '@' . Setting::getServerName();
         }
         $this->jid = $jid;;
     }
