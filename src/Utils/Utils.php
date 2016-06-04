@@ -19,7 +19,7 @@ use \Nelcoa\OpenFireRestAPI\Setting\Setting;
  * Class Utils
  * @package Nelcoa\OpenFireRestAPI\Utils
  */
-class Utils
+abstract class Utils
 {
     /**
      * Returns the URL under which query the webservice
@@ -42,5 +42,17 @@ class Utils
             'Authorization: ' . Setting::getSecret(),
             'Content-Type: application/json',
         );
+    }
+
+    /**
+     * @param $item
+     * @return array
+     */
+    public static function toArray($item) {
+        if (!is_array($item)) {
+            $item = array($item);
+        }
+
+        return $item;
     }
 }

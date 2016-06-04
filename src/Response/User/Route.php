@@ -12,6 +12,7 @@
  */
 
 namespace Nelcoa\OpenFireRestAPI\Response\User;
+use Nelcoa\OpenFireRestAPI\Utils\Utils;
 
 /**
  * Route of User related REST Endpoint
@@ -22,6 +23,7 @@ namespace Nelcoa\OpenFireRestAPI\Response\User;
 class Route extends User
 {
     /**
+     * This function parses the server output and return specific object
      * @param array $response
      * @param $function
      * @return bool|Route
@@ -49,23 +51,21 @@ class Route extends User
                 break;
 
             case 'retrieveAllUserGroups':
-                $groupnameArray = array();
-                if (!is_array($output->groupname)) {
-                    $output->groupname = array($output->groupname);
+                $groupNameArray = array();
+                $array = Utils::toArray($output->groupname);
+                foreach($array as $groupName) {
+                    $groupNameArray[] = $groupName;
                 }
-                foreach($output->groupname as $groupname) {
-                    $groupnameArray[] = $groupname;
-                }
-                return $groupnameArray;
+                return $groupNameArray;
                 break;
 
-            //TODO: da fare
             case 'retrieveUserRoster':
                 $rosterItemArray = array();
-                if (!is_array($output->rosterItem)) {
-                    $output->rosterItem = array($output->rosterItem);
+                $array = Utils::toArray($output->rosterItem);
+                foreach ($array as $stdClass) {
+                    $rosterItemArray[$stdClass->jid] = new RosterItem($stdClass);
                 }
-                return false;
+                return $rosterItemArray;
                 break;
             
             default:
