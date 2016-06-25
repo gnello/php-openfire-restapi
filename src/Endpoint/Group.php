@@ -5,22 +5,22 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/nelcoa/PHPOpenFireRestAPI/contributors
+ * contributors, visit https://github.com/gnello/PHPOpenFireRestAPI/contributors
  *
  * @author Luca Agnello <lcagnello@gmail.com>
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Endpoint;
+namespace Gnello\OpenFireRestAPI\Endpoint;
 
-use \Nelcoa\OpenFireRestAPI\Dispatcher\Method;
-use \Nelcoa\OpenFireRestAPI\Dispatcher\Dispatcher;
-use \Nelcoa\OpenFireRestAPI\Payload;
+use \Gnello\OpenFireRestAPI\Dispatcher\Method;
+use \Gnello\OpenFireRestAPI\Dispatcher\Dispatcher;
+use \Gnello\OpenFireRestAPI\Payload;
 
 /**
  * Group related REST Endpoint
  * Class Group
- * @package Nelcoa\OpenFireRestAPI\Endpoint
+ * @package Gnello\OpenFireRestAPI\Endpoint
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#group-related-rest-endpoints
  */
 class Group extends Dispatcher

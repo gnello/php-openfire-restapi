@@ -5,20 +5,20 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/nelcoa/PHPOpenFireRestAPI/contributors
+ * contributors, visit https://github.com/gnello/PHPOpenFireRestAPI/contributors
  *
  * @author Luca Agnello <lcagnello@gmail.com>
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Payload;
+namespace Gnello\OpenFireRestAPI\Payload;
 
-use Nelcoa\OpenFireRestAPI\Payload\Model\UserInterface;
+use Gnello\OpenFireRestAPI\Payload\Model\UserInterface;
 
 /**
  * Payload of User related REST Endpoint
  * Class User
- * @package Nelcoa\OpenFireRestAPI\Payload
+ * @package Gnello\OpenFireRestAPI\Payload
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#user
  */
 class User extends AbstractPayload implements UserInterface

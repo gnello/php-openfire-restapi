@@ -18,7 +18,7 @@ The best way to install php-openfire-restapi is to use Composer, you do that:
 ```json
 {
     "require": {
-        "nelcoa/php-openfire-restapi": "dev-master"
+        "gnello/php-openfire-restapi": "dev-master"
     }
 }
 ```
@@ -41,7 +41,7 @@ or you can dynamically configure in this way
 ```php
 include "vendor/autoload.php";
 
-$api = new \Nelcoa\OpenFireRestAPI\API();
+$api = new \Gnello\OpenFireRestAPI\API();
 
 // Set the required config parameters
 $api->Setting()->setSecret("your_secret");
@@ -59,7 +59,7 @@ $api->Setting()->setPlugin("/plugins/restapi/v1");
 ```php
 include "vendor/autoload.php";
 
-$api = new \Nelcoa\OpenFireRestAPI\API();
+$api = new \Gnello\OpenFireRestAPI\API();
 ```
 ### Check result
 ```php
@@ -87,11 +87,11 @@ $result = $api->User()->unlockUser('Username');
 ### Roster
 ```php
 //Add to roster
-use \Nelcoa\OpenFireRestAPI\Setting\SubscriptionType;
+use \Gnello\OpenFireRestAPI\Setting\SubscriptionType;
 $result = $api->User()->createUserRosterEntry('Username', 'Jid', 'Full Name', SubscriptionType::BOTH, array('group1','group2'));
 
 //Update roster
-use \Nelcoa\OpenFireRestAPI\Setting\SubscriptionType;
+use \Gnello\OpenFireRestAPI\Setting\SubscriptionType;
 $result = $api->User()->updateUserRosterEntry('Username', 'Jid', 'Full Name', SubscriptionType::BOTH, array('group1'));
 
 //Delete from roster
@@ -116,7 +116,7 @@ $result = $api->Message()->sendBroadcastMessage('Hello everybody!');
 ### ChatRoom
 ```php
 //Create a new ChatRoom
-$payload = new \Nelcoa\OpenFireRestAPI\Payload\ChatRoom();
+$payload = new \Gnello\OpenFireRestAPI\Payload\ChatRoom();
 $payload->setRoomName('myfirstchatroom');
 $payload->setNaturalName('my_first_chat_room');
 $payload->setDescription('This is my first chat room!');
@@ -135,4 +135,4 @@ $result = $api->ChatRoom()->deleteUserFromChatRoom('myfirstchatroom','members','
 $result = $api->ChatRoom()->deleteChatRoom('myfirstchatroom');
 ```
 ## CONTACT
-- nelcoa lcagnello@gmail.com
+- gnello lcagnello@gmail.com

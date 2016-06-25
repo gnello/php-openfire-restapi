@@ -5,20 +5,20 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/nelcoa/PHPOpenFireRestAPI/contributors
+ * contributors, visit https://github.com/gnello/PHPOpenFireRestAPI/contributors
  *
  * @author Luca Agnello <lcagnello@gmail.com>
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Payload;
+namespace Gnello\OpenFireRestAPI\Payload;
 
-use Nelcoa\OpenFireRestAPI\Payload\Model\MessageInterface;
+use Gnello\OpenFireRestAPI\Payload\Model\MessageInterface;
 
 /**
  * Payload of Message related REST Endpoint
  * Class Message
- * @package Nelcoa\OpenFireRestAPI\Payload
+ * @package Gnello\OpenFireRestAPI\Payload
  */
 class Message extends AbstractPayload implements MessageInterface
 {

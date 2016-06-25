@@ -5,24 +5,24 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/nelcoa/PHPOpenFireRestAPI/contributors
+ * contributors, visit https://github.com/gnello/PHPOpenFireRestAPI/contributors
  *
  * @author Luca Agnello <lcagnello@gmail.com>
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Endpoint;
+namespace Gnello\OpenFireRestAPI\Endpoint;
 
-use \Nelcoa\OpenFireRestAPI\Dispatcher\Method;
-use \Nelcoa\OpenFireRestAPI\Dispatcher\Dispatcher;
-use \Nelcoa\OpenFireRestAPI\Setting\SubscriptionType;
-use \Nelcoa\OpenFireRestAPI\Response\User\Route;
-use \Nelcoa\OpenFireRestAPI\Payload;
+use \Gnello\OpenFireRestAPI\Dispatcher\Method;
+use \Gnello\OpenFireRestAPI\Dispatcher\Dispatcher;
+use \Gnello\OpenFireRestAPI\Setting\SubscriptionType;
+use \Gnello\OpenFireRestAPI\Response\User\Route;
+use \Gnello\OpenFireRestAPI\Payload;
 
 /**
  * User related REST Endpoint
  * Class User
- * @package Nelcoa\OpenFireRestAPI\Endpoint
+ * @package Gnello\OpenFireRestAPI\Endpoint
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#user-related-rest-endpoints
  */
 class User extends Dispatcher
@@ -54,7 +54,7 @@ class User extends Dispatcher
     /**
      * Get information over a specific user
      * @param $username
-     * @return \Nelcoa\OpenFireRestAPI\Response\User\User
+     * @return \Gnello\OpenFireRestAPI\Response\User\User
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#retrieve-a-user
      */
     public static function retrieveUser($username)
