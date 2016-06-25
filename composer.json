@@ -1,9 +1,9 @@
 {
-  "name": "nelcoa/php-openfire-restapi",
+  "name": "gnello/php-openfire-restapi",
   "description": "Manage OpenFire Server using Rest API",
   "version": "1.0.4",
   "keywords": ["openfire", "chat"],
-  "homepage": "https://github.com/nelcoa/php-openfire-restapi",
+  "homepage": "https://github.com/gnello/php-openfire-restapi",
   "license": "Apache-2.0",
   "authors": [
     {
@@ -13,7 +13,7 @@
   ],
   "support": {
     "email": "lcagnello@gmail.com",
-    "issues": "https://github.com/nelcoa/php-openfire-restapi/issues"
+    "issues": "https://github.com/gnello/php-openfire-restapi/issues"
   },
   "require": {
     "php": ">=5.3.0",
@@ -21,7 +21,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Nelcoa\\OpenFireRestAPI\\": "src/"
+      "Gnello\\OpenFireRestAPI\\": "src/"
     }
   },
   "minimum-stability": "dev",

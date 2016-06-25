@@ -5,23 +5,23 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/nelcoa/PHPOpenFireRestAPI/contributors
+ * contributors, visit https://github.com/gnello/PHPOpenFireRestAPI/contributors
  *
  * @author Luca Agnello <lcagnello@gmail.com>
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Dispatcher;
+namespace Gnello\OpenFireRestAPI\Dispatcher;
 
-use \Nelcoa\OpenFireRestAPI\Setting\Setting;
-use \Nelcoa\OpenFireRestAPI\Payload\AbstractPayload;
+use \Gnello\OpenFireRestAPI\Payload\AbstractPayload;
+use Gnello\OpenFireRestAPI\Utils\Utils;
 
 /**
  * This class is responsible for sending requests to the server. The requests are sent
  * by curl to ensure compatibility also with PHP installations without the XML form.
  *
  * Class Dispatcher
- * @package Nelcoa\OpenFireRestAPI\Dispatcher
+ * @package Gnello\OpenFireRestAPI\Dispatcher
  */
 abstract class Dispatcher
 {
@@ -33,8 +33,8 @@ abstract class Dispatcher
      */
     protected static function sendRequest($method, $endpoint, AbstractPayload $payload = null)
     {
-        $url = Setting::getBaseURL() . $endpoint;
-        $headers = Setting::getHeaders();
+        $url = Utils::getBaseURL() . $endpoint;
+        $headers = Utils::getHeaders();
 
         $postData = null;
         if (!is_null($payload)) {

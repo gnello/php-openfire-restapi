@@ -5,18 +5,18 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/nelcoa/PHPOpenFireRestAPI/contributors
+ * contributors, visit https://github.com/gnello/PHPOpenFireRestAPI/contributors
  *
  * @author Luca Agnello <lcagnello@gmail.com>
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Payload\Model;
+namespace Gnello\OpenFireRestAPI\Payload\Model;
 
 /**
  * Payload of ChatRoom related REST Endpoint
  * Interface ChatRoomInterface
- * @package Nelcoa\OpenFireRestAPI\Payload\Model
+ * @package Gnello\OpenFireRestAPI\Payload\Model
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#chat-room-related-rest-endpoints
  */
 interface ChatRoomInterface

@@ -5,18 +5,18 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/nelcoa/PHPOpenFireRestAPI/contributors
+ * contributors, visit https://github.com/gnello/PHPOpenFireRestAPI/contributors
  *
  * @author Luca Agnello <lcagnello@gmail.com>
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI;
+namespace Gnello\OpenFireRestAPI;
 
 /**
  * API manager
  * Class API
- * @package Nelcoa\OpenFireRestAPI
+ * @package Gnello\OpenFireRestAPI
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#group-related-rest-endpoints
  */
 class API

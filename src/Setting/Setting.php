@@ -5,17 +5,17 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/nelcoa/PHPOpenFireRestAPI/contributors
+ * contributors, visit https://github.com/gnello/PHPOpenFireRestAPI/contributors
  *
  * @author Luca Agnello <lcagnello@gmail.com>
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Setting;
+namespace Gnello\OpenFireRestAPI\Setting;
 
 /**
  * Class Setting
- * @package Nelcoa\OpenFireRestAPI\Setting
+ * @package Gnello\OpenFireRestAPI\Setting
  */
 class Setting
 {
@@ -33,7 +33,7 @@ class Setting
     private static $port	    = self::PORT;
     private static $plugin      = self::PLUGIN;
     private static $secret	    = self::SECRET;
-    public static $serverName	= self::SERVER_NAME;
+    private static $serverName	= self::SERVER_NAME;
     private static $useSSL	    = false;
 
     /**
@@ -83,27 +83,52 @@ class Setting
     {
         self::$serverName = $serverName;
     }
-    
+
     /**
-     * Returns the URL under which query the webservice
      * @return string
      */
-    public static function getBaseURL()
+    public static function getHost()
     {
-        $base = (self::$useSSL) ? "https" : "http";
-        return $base . "://" . self::$host . ":" . self::$port . self::$plugin;
+        return self::$host;
     }
 
     /**
-     * Returns the headers to be sent to web service
-     * @return array
+     * @return string
      */
-    public static function getHeaders()
+    public static function getPort()
     {
-        return array(
-            'Accept: application/json',
-            'Authorization: ' . self::$secret,
-            'Content-Type: application/json',
-        );
+        return self::$port;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getPlugin()
+    {
+        return self::$plugin;
+    }
+
+    /**
+     * @return bool
+     */
+    public static function getSSL()
+    {
+        return self::$useSSL;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getSecret()
+    {
+        return self::$secret;
+    }
+
+    /**
+     * @return string
+     */
+    public static function getServerName()
+    {
+        return self::$serverName;
     }
 }

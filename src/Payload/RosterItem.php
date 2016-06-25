@@ -5,22 +5,22 @@
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code. For the full list of
- * contributors, visit https://github.com/nelcoa/PHPOpenFireRestAPI/contributors
+ * contributors, visit https://github.com/gnello/PHPOpenFireRestAPI/contributors
  *
  * @author Luca Agnello <lcagnello@gmail.com>
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Nelcoa\OpenFireRestAPI\Payload;
+namespace Gnello\OpenFireRestAPI\Payload;
 
-use Nelcoa\OpenFireRestAPI\Payload\Model\RosterItemInterface;
-use Nelcoa\OpenFireRestAPI\Setting\Setting;
-use Nelcoa\OpenFireRestAPI\Setting\SubscriptionType;
+use Gnello\OpenFireRestAPI\Payload\Model\RosterItemInterface;
+use Gnello\OpenFireRestAPI\Setting\Setting;
+use Gnello\OpenFireRestAPI\Setting\SubscriptionType;
 
 /**
  * Payload of RosterItem related REST Endpoint
  * Class RosterItem
- * @package Nelcoa\OpenFireRestAPI\Payload
+ * @package Gnello\OpenFireRestAPI\Payload
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#rosteritem
  */
 class RosterItem extends AbstractPayload implements RosterItemInterface
@@ -59,8 +59,8 @@ class RosterItem extends AbstractPayload implements RosterItemInterface
      * @param $jid
      */
     public function setJid($jid) {
-        if (strpos('@' . Setting::$serverName, $jid) === false) {
-            $jid .= '@' . Setting::$serverName;
+        if (strpos('@' . Setting::getServerName(), $jid) === false) {
+            $jid .= '@' . Setting::getServerName();
         }
         $this->jid = $jid;;
     }
