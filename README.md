@@ -2,7 +2,15 @@
 Easy Php REST API Client to manage [Openfire Server] (http://www.igniterealtime.org/projects/openfire/)
 
 ## VERSION
-1.1.0
+current version: 1.1.0
+
+##### CHANGELOG
+
+- v1.1.0
+-- Renamed some methods into API class
+
+- v1.0.4
+-- first release
 
 ## LICENSE
 PhpOpenFireRestAPI is licensed under Apache License 2.0, see LICENCE for further information.
