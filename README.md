@@ -77,7 +77,7 @@ if($result['response']) {
     echo 'Error!';
 }
 ```
-### User
+### Users
 ```php
 //Add a new user
 $properties = array('key1' => 'value1', 'key2' => 'value2');
@@ -92,7 +92,7 @@ $result = $api->Users()->lockoutUser('Username');
 //Unban a user
 $result = $api->Users()->unlockUser('Username');
 ```
-### Roster 
+### Rosters
 ```php
 //Add to roster
 use \Gnello\OpenFireRestAPI\Settings\SubscriptionType;
@@ -105,7 +105,7 @@ $result = $api->Users()->updateUserRosterEntry('Username', 'Jid', 'Full Name', S
 //Delete from roster
 $result = $api->Users()->deleteUserRosterEntry('Username', 'Jid');
 ```
-### Group
+### Groups
 ```php
 //Create group
 $result = $api->Groups()->createGroup('groupname', 'description');
@@ -116,12 +116,12 @@ $result = $api->Users()->addUserToGroup('Username', array('groupname1', 'groupna
 //Delete from Groups
 $result = $api->Users()->deleteUserFromGroup('Username', array('groupname1','groupname2'));
 ```
-### Message
+### Messages
 ```php
 //Send message to all online users
 $result = $api->Messages()->sendBroadcastMessage('Hello everybody!');
 ```
-### ChatRoom
+### ChatRooms
 ```php
 //Create a new ChatRoom
 $payload = new \Gnello\OpenFireRestAPI\Payloads\ChatRoom();
