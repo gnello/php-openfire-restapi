@@ -51,7 +51,7 @@ include "vendor/autoload.php";
 
 $api = new \Gnello\OpenFireRestAPI\API();
 
-// Set the required config parameters
+//Set the required config parameters
 $api->Settings()->setSecret("your_secret");
 $api->Settings()->setHost("your_host");
 $api->Settings()->setServerName("your_servername");
