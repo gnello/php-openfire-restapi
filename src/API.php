@@ -22,7 +22,7 @@ namespace Gnello\OpenFireRestAPI;
 class API
 {
     /**
-     * @var Setting\Setting
+     * @var Settings\Settings
      */
     private $setting;
 
@@ -61,7 +61,7 @@ class API
      */
     public function __construct()
     {
-        $this->setting      = new Setting\Setting();
+        $this->setting      = new Settings\Settings();
         $this->user         = new Endpoint\User();
         $this->chatroom     = new Endpoint\ChatRoom();
         $this->group        = new Endpoint\Group();
@@ -71,9 +71,9 @@ class API
     }
 
     /**
-     * @return Setting\Setting
+     * @return Settings\Settings
      */
-    public function Setting()
+    public function Settings()
     {
         return $this->setting;
     }

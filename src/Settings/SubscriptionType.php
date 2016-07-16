@@ -11,11 +11,11 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Setting;
+namespace Gnello\OpenFireRestAPI\Settings;
 
 /**
  * Class SubscriptionType
- * @package Gnello\OpenFireRestAPI\Setting
+ * @package Gnello\OpenFireRestAPI\Settings
  */
 class SubscriptionType
 {

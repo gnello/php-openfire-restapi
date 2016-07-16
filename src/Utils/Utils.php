@@ -13,7 +13,7 @@
 
 namespace Gnello\OpenFireRestAPI\Utils;
 
-use \Gnello\OpenFireRestAPI\Setting\Setting;
+use \Gnello\OpenFireRestAPI\Settings\Settings;
 
 /**
  * Class Utils
@@ -27,8 +27,8 @@ abstract class Utils
      */
     public static function getBaseURL()
     {
-        $base = (Setting::getSSL()) ? "https" : "http";
-        return $base . "://" . Setting::getHost() . ":" . Setting::getPort() . Setting::getPlugin();
+        $base = (Settings::getSSL()) ? "https" : "http";
+        return $base . "://" . Settings::getHost() . ":" . Settings::getPort() . Settings::getPlugin();
     }
 
     /**
@@ -39,7 +39,7 @@ abstract class Utils
     {
         return array(
             'Accept: application/json',
-            'Authorization: ' . Setting::getSecret(),
+            'Authorization: ' . Settings::getSecret(),
             'Content-Type: application/json',
         );
     }

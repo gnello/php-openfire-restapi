@@ -11,16 +11,16 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Setting;
+namespace Gnello\OpenFireRestAPI\Settings;
 
 /**
- * Class Setting
- * @package Gnello\OpenFireRestAPI\Setting
+ * Class Settings
+ * @package Gnello\OpenFireRestAPI\Settings
  */
-class Setting
+class Settings
 {
     /**
-     * Default Setting
+     * Default Settings
      * Edit this section to configure your client
      */
     const HOST = 'localhost';

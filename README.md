@@ -28,7 +28,7 @@ The best way to install php-openfire-restapi is to use Composer, you do that:
 Read more about how to install and use Composer on your local machine [here] (https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
 
 ## CONFIGURATION
-Just change these constants into Setting.php
+Just change these constants into src/Settings/Settings.php
 ```php
 const HOST = 'your_host';
 const PORT = '9090';
@@ -44,14 +44,14 @@ include "vendor/autoload.php";
 $api = new \Gnello\OpenFireRestAPI\API();
 
 // Set the required config parameters
-$api->Setting()->setSecret("your_secret");
-$api->Setting()->setHost("your_host");
-$api->Setting()->setServerName("your_servername");
+$api->Settings()->setSecret("your_secret");
+$api->Settings()->setHost("your_host");
+$api->Settings()->setServerName("your_servername");
 
 //Default values
-$api->Setting()->setPort("9090");
-$api->Setting()->setSSL(false);
-$api->Setting()->setPlugin("/plugins/restapi/v1");
+$api->Settings()->setPort("9090");
+$api->Settings()->setSSL(false);
+$api->Settings()->setPlugin("/plugins/restapi/v1");
 ```
 
 ## USAGE
@@ -87,11 +87,11 @@ $result = $api->User()->unlockUser('Username');
 ### Roster
 ```php
 //Add to roster
-use \Gnello\OpenFireRestAPI\Setting\SubscriptionType;
+use \Gnello\OpenFireRestAPI\Settings\SubscriptionType;
 $result = $api->User()->createUserRosterEntry('Username', 'Jid', 'Full Name', SubscriptionType::BOTH, array('group1','group2'));
 
 //Update roster
-use \Gnello\OpenFireRestAPI\Setting\SubscriptionType;
+use \Gnello\OpenFireRestAPI\Settings\SubscriptionType;
 $result = $api->User()->updateUserRosterEntry('Username', 'Jid', 'Full Name', SubscriptionType::BOTH, array('group1'));
 
 //Delete from roster

@@ -14,8 +14,8 @@
 namespace Gnello\OpenFireRestAPI\Payload;
 
 use Gnello\OpenFireRestAPI\Payload\Model\RosterItemInterface;
-use Gnello\OpenFireRestAPI\Setting\Setting;
-use Gnello\OpenFireRestAPI\Setting\SubscriptionType;
+use Gnello\OpenFireRestAPI\Settings\Settings;
+use Gnello\OpenFireRestAPI\Settings\SubscriptionType;
 
 /**
  * Payload of RosterItem related REST Endpoint
@@ -59,8 +59,8 @@ class RosterItem extends AbstractPayload implements RosterItemInterface
      * @param $jid
      */
     public function setJid($jid) {
-        if (strpos('@' . Setting::getServerName(), $jid) === false) {
-            $jid .= '@' . Setting::getServerName();
+        if (strpos('@' . Settings::getServerName(), $jid) === false) {
+            $jid .= '@' . Settings::getServerName();
         }
         $this->jid = $jid;;
     }

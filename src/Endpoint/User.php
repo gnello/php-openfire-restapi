@@ -15,7 +15,7 @@ namespace Gnello\OpenFireRestAPI\Endpoint;
 
 use \Gnello\OpenFireRestAPI\Dispatcher\Method;
 use \Gnello\OpenFireRestAPI\Dispatcher\Dispatcher;
-use \Gnello\OpenFireRestAPI\Setting\SubscriptionType;
+use \Gnello\OpenFireRestAPI\Settings\SubscriptionType;
 use \Gnello\OpenFireRestAPI\Response\User\Route;
 use \Gnello\OpenFireRestAPI\Payload;
 
