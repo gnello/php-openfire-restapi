@@ -11,12 +11,12 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Payload\Model;
+namespace Gnello\OpenFireRestAPI\Payloads\Models;
 
 /**
  * Payload of User related REST Endpoint
  * Interface UserInterface
- * @package Gnello\OpenFireRestAPI\Payload\Model
+ * @package Gnello\OpenFireRestAPI\Payloads\Models
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#user
  */
 interface UserInterface

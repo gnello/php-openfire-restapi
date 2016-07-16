@@ -15,7 +15,7 @@ namespace Gnello\OpenFireRestAPI\Endpoints;
 
 use \Gnello\OpenFireRestAPI\Dispatcher\Method;
 use \Gnello\OpenFireRestAPI\Dispatcher\Dispatcher;
-use \Gnello\OpenFireRestAPI\Payload;
+use \Gnello\OpenFireRestAPI\Payloads;
 
 /**
  * System related REST Endpoint
@@ -59,7 +59,7 @@ class System extends Dispatcher
      */
     public static function createSystemProperty($propertyName, $propertyValue)
     {
-        $payload = new Payload\SystemProperty(compact('propertyName', 'propertyValue'));
+        $payload = new Payloads\SystemProperty(compact('propertyName', 'propertyValue'));
         $endpoint = self::$endpoint . '/properties';
         return self::sendRequest(Method::POST, $endpoint, $payload);
     }

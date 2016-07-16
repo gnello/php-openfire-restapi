@@ -11,12 +11,12 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Payload\Model;
+namespace Gnello\OpenFireRestAPI\Payloads\Models;
 
 /**
  * Payload of RosterItem related REST Endpoint
  * Interface RosterItemInterface
- * @package Gnello\OpenFireRestAPI\Payload\Model
+ * @package Gnello\OpenFireRestAPI\Payloads\Models
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#rosteritem
  */
 interface RosterItemInterface

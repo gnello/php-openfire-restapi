@@ -11,14 +11,14 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Payload;
+namespace Gnello\OpenFireRestAPI\Payloads;
 
-use Gnello\OpenFireRestAPI\Payload\Model\GroupInterface;
+use Gnello\OpenFireRestAPI\Payloads\Models\GroupInterface;
 
 /**
  * Payload of Group related REST Endpoint
  * Class Group
- * @package Gnello\OpenFireRestAPI\Payload
+ * @package Gnello\OpenFireRestAPI\Payloads
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#group
  */
 class Group extends AbstractPayload implements GroupInterface

@@ -11,14 +11,14 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Payload;
+namespace Gnello\OpenFireRestAPI\Payloads;
 
-use Gnello\OpenFireRestAPI\Payload\Model\ChatRoomInterface;
+use Gnello\OpenFireRestAPI\Payloads\Models\ChatRoomInterface;
 
 /**
  * Payload of Group related REST Endpoint
  * Class ChatRoom
- * @package Gnello\OpenFireRestAPI\Payload
+ * @package Gnello\OpenFireRestAPI\Payloads
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#chat-room-related-rest-endpoints
  */
 class ChatRoom extends AbstractPayload implements ChatRoomInterface

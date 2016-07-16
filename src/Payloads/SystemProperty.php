@@ -11,14 +11,14 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Payload;
+namespace Gnello\OpenFireRestAPI\Payloads;
 
-use Gnello\OpenFireRestAPI\Payload\Model\SystemPropertyInterface;
+use Gnello\OpenFireRestAPI\Payloads\Models\SystemPropertyInterface;
 
 /**
  * Payload of SystemProperty related REST Endpoint
  * Class SystemProperty
- * @package Gnello\OpenFireRestAPI\Payload
+ * @package Gnello\OpenFireRestAPI\Payloads
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#system-property
  */
 class SystemProperty extends AbstractPayload implements SystemPropertyInterface

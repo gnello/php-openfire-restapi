@@ -15,7 +15,7 @@ namespace Gnello\OpenFireRestAPI\Endpoints;
 
 use \Gnello\OpenFireRestAPI\Dispatcher\Method;
 use \Gnello\OpenFireRestAPI\Dispatcher\Dispatcher;
-use \Gnello\OpenFireRestAPI\Payload;
+use \Gnello\OpenFireRestAPI\Payloads;
 
 /**
  * Message related REST Endpoint
@@ -35,7 +35,7 @@ class Message extends Dispatcher
      */
     public static function sendBroadcastMessage($body)
     {
-        $payload = new Payload\Message(compact('body'));
+        $payload = new Payloads\Message(compact('body'));
         $endpoint = self::$endpoint . User::$endpoint;
         return self::sendRequest(Method::POST, $endpoint, $payload);
     }

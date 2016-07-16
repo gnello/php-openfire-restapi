@@ -13,7 +13,7 @@
 
 namespace Gnello\OpenFireRestAPI\Dispatcher;
 
-use \Gnello\OpenFireRestAPI\Payload\AbstractPayload;
+use \Gnello\OpenFireRestAPI\Payloads\AbstractPayload;
 use \Gnello\OpenFireRestAPI\Utils\Utils;
 
 /**

@@ -11,12 +11,12 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Payload\Model;
+namespace Gnello\OpenFireRestAPI\Payloads\Models;
 
 /**
  * Payload of Group related REST Endpoint
  * Interface GroupInterface
- * @package Gnello\OpenFireRestAPI\Payload\Model
+ * @package Gnello\OpenFireRestAPI\Payloads\Models
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#group
  */
 interface GroupInterface

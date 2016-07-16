@@ -11,16 +11,16 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Payload;
+namespace Gnello\OpenFireRestAPI\Payloads;
 
-use Gnello\OpenFireRestAPI\Payload\Model\RosterItemInterface;
+use Gnello\OpenFireRestAPI\Payloads\Models\RosterItemInterface;
 use Gnello\OpenFireRestAPI\Settings\Settings;
 use Gnello\OpenFireRestAPI\Settings\SubscriptionType;
 
 /**
  * Payload of RosterItem related REST Endpoint
  * Class RosterItem
- * @package Gnello\OpenFireRestAPI\Payload
+ * @package Gnello\OpenFireRestAPI\Payloads
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#rosteritem
  */
 class RosterItem extends AbstractPayload implements RosterItemInterface

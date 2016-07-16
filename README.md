@@ -1,8 +1,8 @@
 # php-openfire-restapi
-Easy Php REST API Client to manage Openfire Server
+Easy Php REST API Client to manage [Openfire Server] (http://www.igniterealtime.org/projects/openfire/)
 
 ## VERSION
-1.0.4
+1.1.0
 
 ## LICENSE
 PhpOpenFireRestAPI is licensed under Apache License 2.0, see LICENCE for further information.
@@ -73,66 +73,66 @@ if($result['response']) {
 ```php
 //Add a new user
 $properties = array('key1' => 'value1', 'key2' => 'value2');
-$result = $api->User()->createUser('Username', 'Password', 'Full Name', 'email@domain.com', $properties);
+$result = $api->Users()->createUser('Username', 'Password', 'Full Name', 'email@domain.com', $properties);
 
 //Delete a user
-$result = $api->User()->deleteUser('Username');
+$result = $api->Users()->deleteUser('Username');
 
 //Ban a user
-$result = $api->User()->lockoutUser('Username');
+$result = $api->Users()->lockoutUser('Username');
 
 //Unban a user
-$result = $api->User()->unlockUser('Username');
+$result = $api->Users()->unlockUser('Username');
 ```
 ### Roster 
 ```php
 //Add to roster
 use \Gnello\OpenFireRestAPI\Settings\SubscriptionType;
-$result = $api->User()->createUserRosterEntry('Username', 'Jid', 'Full Name', SubscriptionType::BOTH, array('group1','group2'));
+$result = $api->Users()->createUserRosterEntry('Username', 'Jid', 'Full Name', SubscriptionType::BOTH, array('group1','group2'));
 
 //Update roster
 use \Gnello\OpenFireRestAPI\Settings\SubscriptionType;
-$result = $api->User()->updateUserRosterEntry('Username', 'Jid', 'Full Name', SubscriptionType::BOTH, array('group1'));
+$result = $api->Users()->updateUserRosterEntry('Username', 'Jid', 'Full Name', SubscriptionType::BOTH, array('group1'));
 
 //Delete from roster
-$result = $api->User()->deleteUserRosterEntry('Username', 'Jid');
+$result = $api->Users()->deleteUserRosterEntry('Username', 'Jid');
 ```
 ### Group
 ```php
 //Create group
-$result = $api->Group()->createGroup('groupname', 'description');
+$result = $api->Groups()->createGroup('groupname', 'description');
 
-//Add to Group
-$result = $api->User()->addUserToGroup('Username', array('groupname1', 'groupname2', 'groupname3'));
+//Add to Groups
+$result = $api->Users()->addUserToGroup('Username', array('groupname1', 'groupname2', 'groupname3'));
 
-//Delete from Group
-$result = $api->User()->deleteUserFromGroup('Username', array('groupname1','groupname2'));
+//Delete from Groups
+$result = $api->Users()->deleteUserFromGroup('Username', array('groupname1','groupname2'));
 ```
 ### Message
 ```php
 //Send message to all online users
-$result = $api->Message()->sendBroadcastMessage('Hello everybody!');
+$result = $api->Messages()->sendBroadcastMessage('Hello everybody!');
 ```
 ### ChatRoom
 ```php
 //Create a new ChatRoom
-$payload = new \Gnello\OpenFireRestAPI\Payload\ChatRoom();
+$payload = new \Gnello\OpenFireRestAPI\Payloads\ChatRoom();
 $payload->setRoomName('myfirstchatroom');
 $payload->setNaturalName('my_first_chat_room');
 $payload->setDescription('This is my first chat room!');
-$result = $api->ChatRoom()->createChatRoom($payload);
+$result = $api->ChatRooms()->createChatRoom($payload);
 
 //Add user with role to chat room
-$result = $api->ChatRoom()->addUserWithRoleToChatRoom('myfirstchatroom','members','username');
+$result = $api->ChatRooms()->addUserWithRoleToChatRoom('myfirstchatroom','members','username');
 
 //Add group with role to chat room
-$result = $api->ChatRoom()->addGroupWithRoleToChatRoom('myfirstchatroom','outcasts','groupname');
+$result = $api->ChatRooms()->addGroupWithRoleToChatRoom('myfirstchatroom','outcasts','groupname');
 
 //Delete a user from a chat room
-$result = $api->ChatRoom()->deleteUserFromChatRoom('myfirstchatroom','members','username');
+$result = $api->ChatRooms()->deleteUserFromChatRoom('myfirstchatroom','members','username');
 
 //Delete a chat room
-$result = $api->ChatRoom()->deleteChatRoom('myfirstchatroom');
+$result = $api->ChatRooms()->deleteChatRoom('myfirstchatroom');
 ```
 ## CONTACT
 - gnello luca@gnello.com

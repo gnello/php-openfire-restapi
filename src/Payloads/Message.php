@@ -11,22 +11,35 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Payload\Model;
+namespace Gnello\OpenFireRestAPI\Payloads;
+
+use Gnello\OpenFireRestAPI\Payloads\Models\MessageInterface;
 
 /**
  * Payload of Message related REST Endpoint
- * Interface MessageInterface
- * @package Gnello\OpenFireRestAPI\Payload\Model
+ * Class Message
+ * @package Gnello\OpenFireRestAPI\Payloads
  */
-interface MessageInterface
+class Message extends AbstractPayload implements MessageInterface
 {
+    /**
+     * The body of the message
+     * Optional No
+     * @var string
+     */
+    private $body;
+
     /**
      * @param $body
      */
-    public function setBody($body);
+    public function setBody($body) {
+        $this->body = $body;
+    }
 
     /**
      * @return string
      */
-    public function getBody();
+    public function getBody() {
+        return $this->body;
+    }
 }

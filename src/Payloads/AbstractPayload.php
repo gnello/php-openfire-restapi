@@ -11,16 +11,16 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Payload;
+namespace Gnello\OpenFireRestAPI\Payloads;
 
 /**
- * Class Payload
- * @package Gnello\OpenFireRestAPI\Payload
+ * Class Payloads
+ * @package Gnello\OpenFireRestAPI\Payloads
  */
 abstract class AbstractPayload
 {
     /**
-     * Payload constructor.
+     * Payloads constructor.
      */
     public function __construct()
     {

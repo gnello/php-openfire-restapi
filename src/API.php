@@ -17,39 +17,39 @@ namespace Gnello\OpenFireRestAPI;
  * API manager
  * Class API
  * @package Gnello\OpenFireRestAPI
- * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#group-related-rest-endpoints
+ * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 class API
 {
     /**
      * @var Settings\Settings
      */
-    private $setting;
+    private $settings;
 
     /**
      * @var Endpoints\User
      */
-    private $user;
+    private $users;
 
     /**
      * @var Endpoints\ChatRoom
      */
-    private $chatroom;
+    private $chatrooms;
 
     /**
      * @var Endpoints\Group
      */
-    private $group;
+    private $groups;
 
     /**
      * @var Endpoints\Message
      */
-    private $message;
+    private $messages;
 
     /**
      * @var Endpoints\Session
      */
-    private $session;
+    private $sessions;
 
     /**
      * @var Endpoints\System
@@ -61,12 +61,12 @@ class API
      */
     public function __construct()
     {
-        $this->setting      = new Settings\Settings();
-        $this->user         = new Endpoints\User();
-        $this->chatroom     = new Endpoints\ChatRoom();
-        $this->group        = new Endpoints\Group();
-        $this->message      = new Endpoints\Message();
-        $this->session      = new Endpoints\Session();
+        $this->settings     = new Settings\Settings();
+        $this->users        = new Endpoints\User();
+        $this->chatrooms    = new Endpoints\ChatRoom();
+        $this->groups       = new Endpoints\Group();
+        $this->messages     = new Endpoints\Message();
+        $this->sessions     = new Endpoints\Session();
         $this->system       = new Endpoints\System();
     }
 
@@ -75,47 +75,47 @@ class API
      */
     public function Settings()
     {
-        return $this->setting;
+        return $this->settings;
     }
 
     /**
      * @return Endpoints\User
      */
-    public function User()
+    public function Users()
     {
-        return $this->user;
+        return $this->users;
     }
 
     /**
      * @return Endpoints\ChatRoom
      */
-    public function ChatRoom()
+    public function ChatRooms()
     {
-        return $this->chatroom;
+        return $this->chatrooms;
     }
 
     /**
      * @return Endpoints\Group
      */
-    public function Group()
+    public function Groups()
     {
-        return $this->group;
+        return $this->groups;
     }
 
     /**
      * @return Endpoints\Message
      */
-    public function Message()
+    public function Messages()
     {
-        return $this->message;
+        return $this->messages;
     }
 
     /**
      * @return Endpoints\Session
      */
-    public function Session()
+    public function Sessions()
     {
-        return $this->session;
+        return $this->sessions;
     }
 
     /**
