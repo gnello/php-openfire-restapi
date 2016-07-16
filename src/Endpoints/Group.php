@@ -11,7 +11,7 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Endpoint;
+namespace Gnello\OpenFireRestAPI\Endpoints;
 
 use \Gnello\OpenFireRestAPI\Dispatcher\Method;
 use \Gnello\OpenFireRestAPI\Dispatcher\Dispatcher;
@@ -20,7 +20,7 @@ use \Gnello\OpenFireRestAPI\Payload;
 /**
  * Group related REST Endpoint
  * Class Group
- * @package Gnello\OpenFireRestAPI\Endpoint
+ * @package Gnello\OpenFireRestAPI\Endpoints
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#group-related-rest-endpoints
  */
 class Group extends Dispatcher

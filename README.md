@@ -84,7 +84,7 @@ $result = $api->User()->lockoutUser('Username');
 //Unban a user
 $result = $api->User()->unlockUser('Username');
 ```
-### Roster
+### Roster 
 ```php
 //Add to roster
 use \Gnello\OpenFireRestAPI\Settings\SubscriptionType;

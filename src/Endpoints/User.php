@@ -11,7 +11,7 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Endpoint;
+namespace Gnello\OpenFireRestAPI\Endpoints;
 
 use \Gnello\OpenFireRestAPI\Dispatcher\Method;
 use \Gnello\OpenFireRestAPI\Dispatcher\Dispatcher;
@@ -22,7 +22,7 @@ use \Gnello\OpenFireRestAPI\Payload;
 /**
  * User related REST Endpoint
  * Class User
- * @package Gnello\OpenFireRestAPI\Endpoint
+ * @package Gnello\OpenFireRestAPI\Endpoints
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#user-related-rest-endpoints
  */
 class User extends Dispatcher

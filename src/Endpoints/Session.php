@@ -11,7 +11,7 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Endpoint;
+namespace Gnello\OpenFireRestAPI\Endpoints;
 
 use \Gnello\OpenFireRestAPI\Dispatcher\Method;
 use \Gnello\OpenFireRestAPI\Dispatcher\Dispatcher;
@@ -19,7 +19,7 @@ use \Gnello\OpenFireRestAPI\Dispatcher\Dispatcher;
 /**
  * Session related REST Endpoint
  * Class Session
- * @package Gnello\OpenFireRestAPI\Endpoint
+ * @package Gnello\OpenFireRestAPI\Endpoints
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#session-related-rest-endpoints
  */
 class Session extends Dispatcher

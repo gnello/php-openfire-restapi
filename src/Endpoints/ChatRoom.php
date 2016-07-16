@@ -11,7 +11,7 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Endpoint;
+namespace Gnello\OpenFireRestAPI\Endpoints;
 
 use \Gnello\OpenFireRestAPI\Dispatcher\Method;
 use \Gnello\OpenFireRestAPI\Dispatcher\Dispatcher;
@@ -20,7 +20,7 @@ use \Gnello\OpenFireRestAPI\Payload;
 /**
  * Chat room related REST Endpoint
  * Class ChatRoom
- * @package Gnello\OpenFireRestAPI\Endpoint
+ * @package Gnello\OpenFireRestAPI\Endpoints
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#chat-room-related-rest-endpoints
  */
 class ChatRoom extends Dispatcher
@@ -28,7 +28,7 @@ class ChatRoom extends Dispatcher
     public static $endpoint = '/chatrooms';
 
     /**
-     * Endpoint to get all chat rooms
+     * Endpoints to get all chat rooms
      * @return array with Chatrooms
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#retrieve-all-chat-rooms
      */
@@ -38,7 +38,7 @@ class ChatRoom extends Dispatcher
     }
 
     /**
-     * Endpoint to get information over specific chat room
+     * Endpoints to get information over specific chat room
      * @param $roomName
      * @return array with Chatrooms
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#retrieve-a-chat-room
@@ -50,7 +50,7 @@ class ChatRoom extends Dispatcher
     }
 
     /**
-     * Endpoint to get all participants with a role of specified room.
+     * Endpoints to get all participants with a role of specified room.
      * @param $roomName
      * @return array with Participants
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#retrieve-chat-room-participants
@@ -62,7 +62,7 @@ class ChatRoom extends Dispatcher
     }
 
     /**
-     * Endpoint to get all occupants (all roles/affiliations) of a specified room.
+     * Endpoints to get all occupants (all roles/affiliations) of a specified room.
      * @param $roomName
      * @return array with Occupants
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#retrieve-chat-room-occupants
@@ -74,7 +74,7 @@ class ChatRoom extends Dispatcher
     }
 
     /**
-     * Endpoint to create a new chat room.
+     * Endpoints to create a new chat room.
      * @param Payload\ChatRoom $payload
      * @return array with HTTP status 201 (Created)
      */
@@ -84,7 +84,7 @@ class ChatRoom extends Dispatcher
     }
 
     /**
-     * Endpoint to delete a chat room.
+     * Endpoints to delete a chat room.
      * @param $roomName
      * @return array with HTTP status 200 (OK)
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#delete-a-chat-room
@@ -97,7 +97,7 @@ class ChatRoom extends Dispatcher
 
     /**
      * TODO: not working....
-     * Endpoint to update a chat room.
+     * Endpoints to update a chat room.
      * @param $roomName
      * @param Payload\ChatRoom $payload
      * @return array with HTTP status 200 (OK)
