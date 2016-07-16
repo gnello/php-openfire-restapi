@@ -135,4 +135,4 @@ $result = $api->ChatRoom()->deleteUserFromChatRoom('myfirstchatroom','members','
 $result = $api->ChatRoom()->deleteChatRoom('myfirstchatroom');
 ```
 ## CONTACT
-- gnello lcagnello@gmail.com
+- gnello luca@gnello.com

@@ -8,11 +8,11 @@
   "authors": [
     {
       "name": "Luca Agnello",
-      "email": "lcagnello@gmail.com"
+      "email": "luca@gnello.com"
     }
   ],
   "support": {
-    "email": "lcagnello@gmail.com",
+    "email": "luca@gnello.com",
     "issues": "https://github.com/gnello/php-openfire-restapi/issues"
   },
   "require": {
