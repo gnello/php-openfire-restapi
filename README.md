@@ -6,14 +6,14 @@ current version: 1.2.0
 
 ##### CHANGELOG
 
-- v1.2.0
+- v1.2.0 (29/09/2016)
 -- Added debug mode
 -- Improved logic of Settings
 
-- v1.1.0
+- v1.1.0 (16/07/2016)
 -- Renamed some methods into API class
 
-- v1.0.4
+- v1.0.4 (21/05/2016)
 -- first release
 
 ## LICENSE
