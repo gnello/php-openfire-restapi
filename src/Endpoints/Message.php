@@ -7,20 +7,20 @@
  * file that was distributed with this source code. For the full list of
  * contributors, visit https://github.com/gnello/PHPOpenFireRestAPI/contributors
  *
- * @author Luca Agnello <lcagnello@gmail.com>
+ * @author Luca Agnello <luca@gnello.com>
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Endpoint;
+namespace Gnello\OpenFireRestAPI\Endpoints;
 
 use \Gnello\OpenFireRestAPI\Dispatcher\Method;
 use \Gnello\OpenFireRestAPI\Dispatcher\Dispatcher;
-use \Gnello\OpenFireRestAPI\Payload;
+use \Gnello\OpenFireRestAPI\Payloads;
 
 /**
  * Message related REST Endpoint
  * Class Message
- * @package Gnello\OpenFireRestAPI\Endpoint
+ * @package Gnello\OpenFireRestAPI\Endpoints
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#message-related-rest-endpoints
  */
 class Message extends Dispatcher
@@ -35,7 +35,7 @@ class Message extends Dispatcher
      */
     public static function sendBroadcastMessage($body)
     {
-        $payload = new Payload\Message(compact('body'));
+        $payload = new Payloads\Message(compact('body'));
         $endpoint = self::$endpoint . User::$endpoint;
         return self::sendRequest(Method::POST, $endpoint, $payload);
     }

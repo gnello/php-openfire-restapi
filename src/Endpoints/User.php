@@ -7,22 +7,21 @@
  * file that was distributed with this source code. For the full list of
  * contributors, visit https://github.com/gnello/PHPOpenFireRestAPI/contributors
  *
- * @author Luca Agnello <lcagnello@gmail.com>
+ * @author Luca Agnello <luca@gnello.com>
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Endpoint;
+namespace Gnello\OpenFireRestAPI\Endpoints;
 
 use \Gnello\OpenFireRestAPI\Dispatcher\Method;
 use \Gnello\OpenFireRestAPI\Dispatcher\Dispatcher;
-use \Gnello\OpenFireRestAPI\Setting\SubscriptionType;
-use \Gnello\OpenFireRestAPI\Response\User\Route;
-use \Gnello\OpenFireRestAPI\Payload;
+use \Gnello\OpenFireRestAPI\Settings\SubscriptionType;
+use \Gnello\OpenFireRestAPI\Payloads;
 
 /**
  * User related REST Endpoint
  * Class User
- * @package Gnello\OpenFireRestAPI\Endpoint
+ * @package Gnello\OpenFireRestAPI\Endpoints
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#user-related-rest-endpoints
  */
 class User extends Dispatcher
@@ -47,21 +46,19 @@ class User extends Dispatcher
         $getData = compact($search, $propertyKey, $propertyValue);
         $getData = http_build_query($getData);
         $endpoint = self::$endpoint . '?' . $getData;
-        $response = self::sendRequest(Method::GET, $endpoint);
-        return Route::route($response, __FUNCTION__);
+        return self::sendRequest(Method::GET, $endpoint);
     }
 
     /**
      * Get information over a specific user
      * @param $username
-     * @return \Gnello\OpenFireRestAPI\Response\User\User
+     * @return array
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#retrieve-a-user
      */
     public static function retrieveUser($username)
     {
         $endpoint = self::$endpoint . '/' . $username;
-        $response = self::sendRequest(Method::GET, $endpoint);
-        return Route::route($response, __FUNCTION__);
+        return self::sendRequest(Method::GET, $endpoint);
     }
 
     /**
@@ -76,9 +73,8 @@ class User extends Dispatcher
      */
     public static function createUser($username, $password, $name = null, $email = null, $properties = array())
     {
-        $payload = new Payload\User(compact('username', 'password', 'name', 'email', 'properties'));
-        $response = self::sendRequest(Method::POST, self::$endpoint, $payload);
-        return Route::route($response, __FUNCTION__);
+        $payload = new Payloads\User(compact('username', 'password', 'name', 'email', 'properties'));
+        return self::sendRequest(Method::POST, self::$endpoint, $payload);
     }
 
     /**
@@ -90,8 +86,7 @@ class User extends Dispatcher
     public static function deleteUser($username)
     {
         $endpoint = self::$endpoint . '/' . $username;
-        $response = self::sendRequest(Method::DELETE, $endpoint);
-        return Route::route($response, __FUNCTION__);
+        return self::sendRequest(Method::DELETE, $endpoint);
     }
 
     /**
@@ -106,10 +101,9 @@ class User extends Dispatcher
      */
     public static function updateUser($username, $password, $name = null, $email = null, $properties = array())
     {
-        $payload = new Payload\User(compact('username', 'password', 'name', 'email', 'properties'));
+        $payload = new Payloads\User(compact('username', 'password', 'name', 'email', 'properties'));
         $endpoint = self::$endpoint . '/' . $username;
-        $response = self::sendRequest(Method::PUT, $endpoint, $payload);
-        return Route::route($response, __FUNCTION__);
+        return self::sendRequest(Method::PUT, $endpoint, $payload);
     }
 
     /**
@@ -121,8 +115,7 @@ class User extends Dispatcher
     public static function retrieveAllUserGroups($username)
     {
         $endpoint = self::$endpoint . '/' . $username . Group::$endpoint;
-        $response = self::sendRequest(Method::GET, $endpoint);
-        return Route::route($response, __FUNCTION__);
+        return self::sendRequest(Method::GET, $endpoint);
     }
 
     /**
@@ -134,10 +127,9 @@ class User extends Dispatcher
      */
     public static function addUserToGroups($username, $groupname)
     {
-        $payload = new Payload\Group(compact('groupname'));
+        $payload = new Payloads\Group(compact('groupname'));
         $endpoint = self::$endpoint . '/' . $username . Group::$endpoint;
-        $response = self::sendRequest(Method::POST, $endpoint, $payload);
-        return Route::route($response, __FUNCTION__);
+        return self::sendRequest(Method::POST, $endpoint, $payload);
     }
 
     /**
@@ -150,8 +142,7 @@ class User extends Dispatcher
     public static function addUserToGroup($username, $groupName)
     {
         $endpoint = self::$endpoint . '/' . $username . Group::$endpoint . '/' . $groupName;
-        $response = self::sendRequest(Method::POST, $endpoint);
-        return Route::route($response, __FUNCTION__);
+        return self::sendRequest(Method::POST, $endpoint);
     }
 
     /**
@@ -163,10 +154,9 @@ class User extends Dispatcher
      */
     public static function deleteUserFromGroups($username, $groupname)
     {
-        $payload = new Payload\Group(compact('groupname'));
+        $payload = new Payloads\Group(compact('groupname'));
         $endpoint = self::$endpoint . '/' . $username . Group::$endpoint;
-        $response = self::sendRequest(Method::DELETE, $endpoint, $payload);
-        return Route::route($response, __FUNCTION__);
+        return self::sendRequest(Method::DELETE, $endpoint, $payload);
     }
 
     /**
@@ -179,8 +169,7 @@ class User extends Dispatcher
     public static function deleteUserFromGroup($username, $groupName)
     {
         $endpoint = self::$endpoint . '/' . $username . Group::$endpoint . '/' . $groupName;
-        $response = self::sendRequest(Method::DELETE, $endpoint);
-        return Route::route($response, __FUNCTION__);
+        return self::sendRequest(Method::DELETE, $endpoint);
     }
 
     /**
@@ -193,8 +182,7 @@ class User extends Dispatcher
     public static function lockoutUser($username)
     {
         $endpoint = '/lockouts/' . $username;
-        $response = self::sendRequest(Method::POST, $endpoint);
-        return Route::route($response, __FUNCTION__);
+        return self::sendRequest(Method::POST, $endpoint);
     }
 
     /**
@@ -206,8 +194,7 @@ class User extends Dispatcher
     public static function unlockUser($username)
     {
         $endpoint = '/lockouts/' . $username;
-        $response = self::sendRequest(Method::DELETE, $endpoint);
-        return Route::route($response, __FUNCTION__);
+        return self::sendRequest(Method::DELETE, $endpoint);
     }
 
     /**
@@ -219,8 +206,7 @@ class User extends Dispatcher
     public static function retrieveUserRoster($username)
     {
         $endpoint = self::$endpoint . '/' . $username . '/roster';
-        $response = self::sendRequest(Method::GET,$endpoint);
-        return Route::route($response, __FUNCTION__);
+        return self::sendRequest(Method::GET,$endpoint);
     }
 
     /**
@@ -235,10 +221,9 @@ class User extends Dispatcher
      */
     public static function createUserRosterEntry($username, $jid, $nickname = null, $subscriptionType = SubscriptionType::BOTH, $groups)
     {
-        $payload = new Payload\RosterItem(compact('jid', 'nickname', 'subscriptionType', 'groups'));
+        $payload = new Payloads\RosterItem(compact('jid', 'nickname', 'subscriptionType', 'groups'));
         $endpoint = self::$endpoint . '/' . $username . '/roster';
-        $response = self::sendRequest(Method::POST, $endpoint, $payload);
-        return Route::route($response, __FUNCTION__);
+        return self::sendRequest(Method::POST, $endpoint, $payload);
     }
 
     /**
@@ -250,10 +235,9 @@ class User extends Dispatcher
      */
     public static function deleteUserRosterEntry($username, $jid)
     {
-        $payload = new Payload\RosterItem(compact('jid'));
+        $payload = new Payloads\RosterItem(compact('jid'));
         $endpoint = self::$endpoint . '/' . $username . '/roster/' . $payload->getJid();
-        $response = self::sendRequest(Method::DELETE, $endpoint);
-        return Route::route($response, __FUNCTION__);
+        return self::sendRequest(Method::DELETE, $endpoint);
     }
 
     /**
@@ -268,9 +252,8 @@ class User extends Dispatcher
      */
     public static function updateUserRosterEntry($username, $jid, $nickname = null, $subscriptionType = SubscriptionType::BOTH, $groups)
     {
-        $payload = new Payload\RosterItem(compact('jid', 'nickname', 'subscriptionType', 'groups'));
+        $payload = new Payloads\RosterItem(compact('jid', 'nickname', 'subscriptionType', 'groups'));
         $endpoint = self::$endpoint . '/' . $username. '/roster/' . $payload->getJid();
-        $response = self::sendRequest(Method::PUT, $endpoint, $payload);
-        return Route::route($response, __FUNCTION__);
+        return self::sendRequest(Method::PUT, $endpoint, $payload);
     }
 }

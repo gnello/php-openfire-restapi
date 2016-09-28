@@ -7,13 +7,11 @@
  * file that was distributed with this source code. For the full list of
  * contributors, visit https://github.com/gnello/PHPOpenFireRestAPI/contributors
  *
- * @author Luca Agnello <lcagnello@gmail.com>
+ * @author Luca Agnello <luca@gnello.com>
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
 namespace Gnello\OpenFireRestAPI\Utils;
-
-use \Gnello\OpenFireRestAPI\Setting\Setting;
 
 /**
  * Class Utils
@@ -21,29 +19,6 @@ use \Gnello\OpenFireRestAPI\Setting\Setting;
  */
 abstract class Utils
 {
-    /**
-     * Returns the URL under which query the webservice
-     * @return string
-     */
-    public static function getBaseURL()
-    {
-        $base = (Setting::getSSL()) ? "https" : "http";
-        return $base . "://" . Setting::getHost() . ":" . Setting::getPort() . Setting::getPlugin();
-    }
-
-    /**
-     * Returns the headers to be sent to web service
-     * @return array
-     */
-    public static function getHeaders()
-    {
-        return array(
-            'Accept: application/json',
-            'Authorization: ' . Setting::getSecret(),
-            'Content-Type: application/json',
-        );
-    }
-
     /**
      * @param $item
      * @return array

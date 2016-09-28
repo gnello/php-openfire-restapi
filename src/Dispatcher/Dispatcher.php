@@ -7,14 +7,15 @@
  * file that was distributed with this source code. For the full list of
  * contributors, visit https://github.com/gnello/PHPOpenFireRestAPI/contributors
  *
- * @author Luca Agnello <lcagnello@gmail.com>
+ * @author Luca Agnello <luca@gnello.com>
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
 namespace Gnello\OpenFireRestAPI\Dispatcher;
 
-use \Gnello\OpenFireRestAPI\Payload\AbstractPayload;
-use \Gnello\OpenFireRestAPI\Utils\Utils;
+use Gnello\OpenFireRestAPI\Debug\Request;
+use \Gnello\OpenFireRestAPI\Payloads\AbstractPayload;
+use Gnello\OpenFireRestAPI\Settings\Settings;
 
 /**
  * This class is responsible for sending requests to the server. The requests are sent
@@ -33,8 +34,9 @@ abstract class Dispatcher
      */
     protected static function sendRequest($method, $endpoint, AbstractPayload $payload = null)
     {
-        $url = Utils::getBaseURL() . $endpoint;
-        $headers = Utils::getHeaders();
+        $settings = Settings::getInstance();
+        $url = $settings->getBaseURL() . $endpoint;
+        $headers = $settings->getHeaders();
 
         $postData = null;
         if (!is_null($payload)) {
@@ -74,6 +76,11 @@ abstract class Dispatcher
         $response = false;
         if ($info['http_code'] == 200 || $info['http_code'] == 201) {
             $response = true;
+        }
+
+        $settings = Settings::getInstance();
+        if ($settings->isDebug()) {
+            Request::recordRequest($url, $headers, $method, $postData, $response, $server_output);
         }
 
         return array(

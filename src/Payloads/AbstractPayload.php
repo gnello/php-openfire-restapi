@@ -7,20 +7,20 @@
  * file that was distributed with this source code. For the full list of
  * contributors, visit https://github.com/gnello/PHPOpenFireRestAPI/contributors
  *
- * @author Luca Agnello <lcagnello@gmail.com>
+ * @author Luca Agnello <luca@gnello.com>
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Payload;
+namespace Gnello\OpenFireRestAPI\Payloads;
 
 /**
- * Class Payload
- * @package Gnello\OpenFireRestAPI\Payload
+ * Class Payloads
+ * @package Gnello\OpenFireRestAPI\Payloads
  */
 abstract class AbstractPayload
 {
     /**
-     * Payload constructor.
+     * Payloads constructor.
      */
     public function __construct()
     {

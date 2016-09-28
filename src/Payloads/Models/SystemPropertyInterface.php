@@ -7,61 +7,37 @@
  * file that was distributed with this source code. For the full list of
  * contributors, visit https://github.com/gnello/PHPOpenFireRestAPI/contributors
  *
- * @author Luca Agnello <lcagnello@gmail.com>
+ * @author Luca Agnello <luca@gnello.com>
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Payload;
-
-use Gnello\OpenFireRestAPI\Payload\Model\SystemPropertyInterface;
+namespace Gnello\OpenFireRestAPI\Payloads\Models;
 
 /**
  * Payload of SystemProperty related REST Endpoint
- * Class SystemProperty
- * @package Gnello\OpenFireRestAPI\Payload
+ * Interface SystemPropertyInterface
+ * @package Gnello\OpenFireRestAPI\Payloads\Models
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#system-property
  */
-class SystemProperty extends AbstractPayload implements SystemPropertyInterface
+interface SystemPropertyInterface
 {
-    /**
-     * The name of the system property
-     * Optional No
-     * @var string
-     */
-    private $key;
-
-    /**
-     * The value of the system property
-     * Optional Yes
-     * @var string
-     */
-    private $value;
-
     /**
      * @param $key
      */
-    public function setKey($key) {
-        $this->key = $key;
-    }
+    public function setKey($key);
 
     /**
      * @param $value
      */
-    public function setValue($value) {
-        $this->value = $value;
-    }
+    public function setValue($value);
 
     /**
      * @return string
      */
-    public function getKey() {
-        return $this->key;
-    }
+    public function getKey();
 
     /**
      * @return string
      */
-    public function getValue() {
-        return $this->value;
-    }
+    public function getValue();
 }

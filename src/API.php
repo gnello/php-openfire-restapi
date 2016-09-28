@@ -7,7 +7,7 @@
  * file that was distributed with this source code. For the full list of
  * contributors, visit https://github.com/gnello/PHPOpenFireRestAPI/contributors
  *
- * @author Luca Agnello <lcagnello@gmail.com>
+ * @author Luca Agnello <luca@gnello.com>
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
@@ -17,42 +17,42 @@ namespace Gnello\OpenFireRestAPI;
  * API manager
  * Class API
  * @package Gnello\OpenFireRestAPI
- * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#group-related-rest-endpoints
+ * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 class API
 {
     /**
-     * @var Setting\Setting
+     * @var Settings\Settings
      */
-    private $setting;
+    private $settings;
 
     /**
-     * @var Endpoint\User
+     * @var Endpoints\User
      */
-    private $user;
+    private $users;
 
     /**
-     * @var Endpoint\ChatRoom
+     * @var Endpoints\ChatRoom
      */
-    private $chatroom;
+    private $chatrooms;
 
     /**
-     * @var Endpoint\Group
+     * @var Endpoints\Group
      */
-    private $group;
+    private $groups;
 
     /**
-     * @var Endpoint\Message
+     * @var Endpoints\Message
      */
-    private $message;
+    private $messages;
 
     /**
-     * @var Endpoint\Session
+     * @var Endpoints\Session
      */
-    private $session;
+    private $sessions;
 
     /**
-     * @var Endpoint\System
+     * @var Endpoints\System
      */
     private $system;
 
@@ -61,65 +61,65 @@ class API
      */
     public function __construct()
     {
-        $this->setting      = new Setting\Setting();
-        $this->user         = new Endpoint\User();
-        $this->chatroom     = new Endpoint\ChatRoom();
-        $this->group        = new Endpoint\Group();
-        $this->message      = new Endpoint\Message();
-        $this->session      = new Endpoint\Session();
-        $this->system       = new Endpoint\System();
+        $this->settings     = Settings\Settings::getInstance();
+        $this->users        = new Endpoints\User();
+        $this->chatrooms    = new Endpoints\ChatRoom();
+        $this->groups       = new Endpoints\Group();
+        $this->messages     = new Endpoints\Message();
+        $this->sessions     = new Endpoints\Session();
+        $this->system       = new Endpoints\System();
     }
 
     /**
-     * @return Setting\Setting
+     * @return Settings\Settings
      */
-    public function Setting()
+    public function Settings()
     {
-        return $this->setting;
+        return $this->settings;
     }
 
     /**
-     * @return Endpoint\User
+     * @return Endpoints\User
      */
-    public function User()
+    public function Users()
     {
-        return $this->user;
+        return $this->users;
     }
 
     /**
-     * @return Endpoint\ChatRoom
+     * @return Endpoints\ChatRoom
      */
-    public function ChatRoom()
+    public function ChatRooms()
     {
-        return $this->chatroom;
+        return $this->chatrooms;
     }
 
     /**
-     * @return Endpoint\Group
+     * @return Endpoints\Group
      */
-    public function Group()
+    public function Groups()
     {
-        return $this->group;
+        return $this->groups;
     }
 
     /**
-     * @return Endpoint\Message
+     * @return Endpoints\Message
      */
-    public function Message()
+    public function Messages()
     {
-        return $this->message;
+        return $this->messages;
     }
 
     /**
-     * @return Endpoint\Session
+     * @return Endpoints\Session
      */
-    public function Session()
+    public function Sessions()
     {
-        return $this->session;
+        return $this->sessions;
     }
 
     /**
-     * @return Endpoint\System
+     * @return Endpoints\System
      */
     public function System()
     {

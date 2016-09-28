@@ -7,15 +7,15 @@
  * file that was distributed with this source code. For the full list of
  * contributors, visit https://github.com/gnello/PHPOpenFireRestAPI/contributors
  *
- * @author Luca Agnello <lcagnello@gmail.com>
+ * @author Luca Agnello <luca@gnello.com>
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Setting;
+namespace Gnello\OpenFireRestAPI\Settings;
 
 /**
  * Class SubscriptionType
- * @package Gnello\OpenFireRestAPI\Setting
+ * @package Gnello\OpenFireRestAPI\Settings
  */
 class SubscriptionType
 {

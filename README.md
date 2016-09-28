@@ -1,8 +1,20 @@
 # php-openfire-restapi
-Easy Php REST API Client to manage Openfire Server
+Easy Php REST API Client to manage [Openfire Server] (http://www.igniterealtime.org/projects/openfire/)
 
 ## VERSION
-1.0.4
+current version: 1.2.0
+
+##### CHANGELOG
+
+- v1.2.0 (29/09/2016)
+-- Added debug mode
+-- Improved logic of Settings
+
+- v1.1.0 (16/07/2016)
+-- Renamed some methods into API class
+
+- v1.0.4 (21/05/2016)
+-- first release
 
 ## LICENSE
 PhpOpenFireRestAPI is licensed under Apache License 2.0, see LICENCE for further information.
@@ -28,7 +40,7 @@ The best way to install php-openfire-restapi is to use Composer, you do that:
 Read more about how to install and use Composer on your local machine [here] (https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
 
 ## CONFIGURATION
-Just change these constants into Setting.php
+Just change these constants into src/Settings/Settings.php
 ```php
 const HOST = 'your_host';
 const PORT = '9090';
@@ -37,21 +49,20 @@ const SECRET = 'your_secret';
 const SERVER_NAME = 'your_server_name';
 ```
 
-or you can dynamically configure in this way
+or you can dynamically configure it at any point of the project in this way
 ```php
 include "vendor/autoload.php";
 
-$api = new \Gnello\OpenFireRestAPI\API();
-
-// Set the required config parameters
-$api->Setting()->setSecret("your_secret");
-$api->Setting()->setHost("your_host");
-$api->Setting()->setServerName("your_servername");
+//Set the required config parameters
+$settings = \Gnello\OpenFireRestAPI\Settings\Settings::getInstance();
+$settings->setSecret("your_secret");
+$settings->setHost("your_host");
+$settings->setServerName("your_servername");
 
 //Default values
-$api->Setting()->setPort("9090");
-$api->Setting()->setSSL(false);
-$api->Setting()->setPlugin("/plugins/restapi/v1");
+$settings->->setPort("9090");
+$settings->->setSSL(false);
+$settings->->setPlugin("/plugins/restapi/v1");
 ```
 
 ## USAGE
@@ -69,70 +80,82 @@ if($result['response']) {
     echo 'Error!';
 }
 ```
-### User
+### Users
 ```php
 //Add a new user
 $properties = array('key1' => 'value1', 'key2' => 'value2');
-$result = $api->User()->createUser('Username', 'Password', 'Full Name', 'email@domain.com', $properties);
+$result = $api->Users()->createUser('Username', 'Password', 'Full Name', 'email@domain.com', $properties);
 
 //Delete a user
-$result = $api->User()->deleteUser('Username');
+$result = $api->Users()->deleteUser('Username');
 
 //Ban a user
-$result = $api->User()->lockoutUser('Username');
+$result = $api->Users()->lockoutUser('Username');
 
 //Unban a user
-$result = $api->User()->unlockUser('Username');
+$result = $api->Users()->unlockUser('Username');
 ```
-### Roster
+### Rosters
 ```php
 //Add to roster
-use \Gnello\OpenFireRestAPI\Setting\SubscriptionType;
-$result = $api->User()->createUserRosterEntry('Username', 'Jid', 'Full Name', SubscriptionType::BOTH, array('group1','group2'));
+use \Gnello\OpenFireRestAPI\Settings\SubscriptionType;
+$result = $api->Users()->createUserRosterEntry('Username', 'Jid', 'Full Name', SubscriptionType::BOTH, array('group1','group2'));
 
 //Update roster
-use \Gnello\OpenFireRestAPI\Setting\SubscriptionType;
-$result = $api->User()->updateUserRosterEntry('Username', 'Jid', 'Full Name', SubscriptionType::BOTH, array('group1'));
+use \Gnello\OpenFireRestAPI\Settings\SubscriptionType;
+$result = $api->Users()->updateUserRosterEntry('Username', 'Jid', 'Full Name', SubscriptionType::BOTH, array('group1'));
 
 //Delete from roster
-$result = $api->User()->deleteUserRosterEntry('Username', 'Jid');
+$result = $api->Users()->deleteUserRosterEntry('Username', 'Jid');
 ```
-### Group
+### Groups
 ```php
 //Create group
-$result = $api->Group()->createGroup('groupname', 'description');
+$result = $api->Groups()->createGroup('groupname', 'description');
 
-//Add to Group
-$result = $api->User()->addUserToGroup('Username', array('groupname1', 'groupname2', 'groupname3'));
+//Add to Groups
+$result = $api->Users()->addUserToGroup('Username', array('groupname1', 'groupname2', 'groupname3'));
 
-//Delete from Group
-$result = $api->User()->deleteUserFromGroup('Username', array('groupname1','groupname2'));
+//Delete from Groups
+$result = $api->Users()->deleteUserFromGroup('Username', array('groupname1','groupname2'));
 ```
-### Message
+### Messages
 ```php
 //Send message to all online users
-$result = $api->Message()->sendBroadcastMessage('Hello everybody!');
+$result = $api->Messages()->sendBroadcastMessage('Hello everybody!');
 ```
-### ChatRoom
+### ChatRooms
 ```php
 //Create a new ChatRoom
-$payload = new \Gnello\OpenFireRestAPI\Payload\ChatRoom();
+$payload = new \Gnello\OpenFireRestAPI\Payloads\ChatRoom();
 $payload->setRoomName('myfirstchatroom');
 $payload->setNaturalName('my_first_chat_room');
 $payload->setDescription('This is my first chat room!');
-$result = $api->ChatRoom()->createChatRoom($payload);
+$result = $api->ChatRooms()->createChatRoom($payload);
 
 //Add user with role to chat room
-$result = $api->ChatRoom()->addUserWithRoleToChatRoom('myfirstchatroom','members','username');
+$result = $api->ChatRooms()->addUserWithRoleToChatRoom('myfirstchatroom','members','username');
 
 //Add group with role to chat room
-$result = $api->ChatRoom()->addGroupWithRoleToChatRoom('myfirstchatroom','outcasts','groupname');
+$result = $api->ChatRooms()->addGroupWithRoleToChatRoom('myfirstchatroom','outcasts','groupname');
 
 //Delete a user from a chat room
-$result = $api->ChatRoom()->deleteUserFromChatRoom('myfirstchatroom','members','username');
+$result = $api->ChatRooms()->deleteUserFromChatRoom('myfirstchatroom','members','username');
 
 //Delete a chat room
-$result = $api->ChatRoom()->deleteChatRoom('myfirstchatroom');
+$result = $api->ChatRooms()->deleteChatRoom('myfirstchatroom');
 ```
+## DEBUG
+Under development you may need access to some useful information of the execution of software they're not normally available. 
+To do this just enable debug mode like this
+```php
+//Enable debug mode
+$settings->setDebug(true);
+```
+At the moment is only available the register of requests with its server responses, you can access it in this way
+```php
+$requests = \Gnello\OpenFireRestAPI\Debug\Request::getRequests();
+```
+
 ## CONTACT
-- gnello lcagnello@gmail.com
+- gnello luca@gnello.com

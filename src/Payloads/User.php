@@ -7,18 +7,18 @@
  * file that was distributed with this source code. For the full list of
  * contributors, visit https://github.com/gnello/PHPOpenFireRestAPI/contributors
  *
- * @author Luca Agnello <lcagnello@gmail.com>
+ * @author Luca Agnello <luca@gnello.com>
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Payload;
+namespace Gnello\OpenFireRestAPI\Payloads;
 
-use Gnello\OpenFireRestAPI\Payload\Model\UserInterface;
+use Gnello\OpenFireRestAPI\Payloads\Models\UserInterface;
 
 /**
  * Payload of User related REST Endpoint
  * Class User
- * @package Gnello\OpenFireRestAPI\Payload
+ * @package Gnello\OpenFireRestAPI\Payloads
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#user
  */
 class User extends AbstractPayload implements UserInterface
