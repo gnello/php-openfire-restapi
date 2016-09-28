@@ -2,9 +2,13 @@
 Easy Php REST API Client to manage [Openfire Server] (http://www.igniterealtime.org/projects/openfire/)
 
 ## VERSION
-current version: 1.1.0
+current version: 1.2.0
 
 ##### CHANGELOG
+
+- v1.2.0
+-- Added debug mode
+-- Improved logic of Settings
 
 - v1.1.0
 -- Renamed some methods into API class
@@ -45,21 +49,20 @@ const SECRET = 'your_secret';
 const SERVER_NAME = 'your_server_name';
 ```
 
-or you can dynamically configure in this way
+or you can dynamically configure it at any point of the project in this way
 ```php
 include "vendor/autoload.php";
 
-$api = new \Gnello\OpenFireRestAPI\API();
-
 //Set the required config parameters
-$api->Settings()->setSecret("your_secret");
-$api->Settings()->setHost("your_host");
-$api->Settings()->setServerName("your_servername");
+$settings = \Gnello\OpenFireRestAPI\Settings\Settings::getInstance();
+$settings->setSecret("your_secret");
+$settings->setHost("your_host");
+$settings->setServerName("your_servername");
 
 //Default values
-$api->Settings()->setPort("9090");
-$api->Settings()->setSSL(false);
-$api->Settings()->setPlugin("/plugins/restapi/v1");
+$settings->->setPort("9090");
+$settings->->setSSL(false);
+$settings->->setPlugin("/plugins/restapi/v1");
 ```
 
 ## USAGE
@@ -142,5 +145,16 @@ $result = $api->ChatRooms()->deleteUserFromChatRoom('myfirstchatroom','members',
 //Delete a chat room
 $result = $api->ChatRooms()->deleteChatRoom('myfirstchatroom');
 ```
+## DEBUG
+Under development you may need access to some useful information of the execution of software they're not normally available. 
+To do it just enable debug mode like this
+```php
+$settings->setDebug(true);
+```
+At the moment is only available the register of requests, you can access it in this way
+```php
+$requestes = \Gnello\OpenFireRestAPI\Debug\Request::getRequestes();
+```
+
 ## CONTACT
 - gnello luca@gnello.com

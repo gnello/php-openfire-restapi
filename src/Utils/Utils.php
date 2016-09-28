@@ -27,8 +27,9 @@ abstract class Utils
      */
     public static function getBaseURL()
     {
-        $base = (Settings::getSSL()) ? "https" : "http";
-        return $base . "://" . Settings::getHost() . ":" . Settings::getPort() . Settings::getPlugin();
+        $settings = Settings::getInstance();
+        $base = ($settings->isSSL()) ? "https" : "http";
+        return $base . "://" . $settings->getHost() . ":" . $settings->getPort() . $settings->getPlugin();
     }
 
     /**
@@ -37,9 +38,10 @@ abstract class Utils
      */
     public static function getHeaders()
     {
+        $settings = Settings::getInstance();
         return array(
             'Accept: application/json',
-            'Authorization: ' . Settings::getSecret(),
+            'Authorization: ' . $settings->getSecret(),
             'Content-Type: application/json',
         );
     }

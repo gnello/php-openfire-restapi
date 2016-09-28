@@ -13,7 +13,9 @@
 
 namespace Gnello\OpenFireRestAPI\Dispatcher;
 
+use Gnello\OpenFireRestAPI\Debug\Request;
 use \Gnello\OpenFireRestAPI\Payloads\AbstractPayload;
+use Gnello\OpenFireRestAPI\Settings\Settings;
 use \Gnello\OpenFireRestAPI\Utils\Utils;
 
 /**
@@ -74,6 +76,11 @@ abstract class Dispatcher
         $response = false;
         if ($info['http_code'] == 200 || $info['http_code'] == 201) {
             $response = true;
+        }
+
+        $settings = Settings::getInstance();
+        if ($settings->isDebug()) {
+            Request::recordRequest($url, $headers, $method, $postData, $response, $server_output);
         }
 
         return array(

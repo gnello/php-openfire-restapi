@@ -61,7 +61,7 @@ class API
      */
     public function __construct()
     {
-        $this->settings     = new Settings\Settings();
+        $this->settings     = Settings\Settings::getInstance();
         $this->users        = new Endpoints\User();
         $this->chatrooms    = new Endpoints\ChatRoom();
         $this->groups       = new Endpoints\Group();

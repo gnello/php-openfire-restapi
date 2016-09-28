@@ -29,106 +29,181 @@ class Settings
     const SECRET = 'your_secret';
     const SERVER_NAME = 'your_server_name';
 
-    private static $host	    = self::HOST;
-    private static $port	    = self::PORT;
-    private static $plugin      = self::PLUGIN;
-    private static $secret	    = self::SECRET;
-    private static $serverName	= self::SERVER_NAME;
-    private static $useSSL	    = false;
+    /**
+     * @var Settings
+     */
+    private static $instance;
+
+    /**
+     * @var array
+     */
+    private $register = array();
+
+    /**
+     * Settings constructor.
+     */
+    private function __construct() {}
+
+    /**
+     * @return Settings
+     */
+    static public function getInstance()
+    {
+        if (is_null(self::$instance)) {
+            $settings = new Settings();
+            $settings->setHost(self::HOST);
+            $settings->setPort(self::PORT);
+            $settings->setPlugin(self::PLUGIN);
+            $settings->setSecret(self::SECRET);
+            $settings->setServerName(self::SERVER_NAME);
+            $settings->setSSL(false);
+            $settings->setDebug(false);
+
+            self::$instance = $settings;
+        }
+
+        return self::$instance;
+    }
+
+    /**
+     * @param $key
+     * @param $value
+     * @return mixed
+     */
+    private function set($key, $value)
+    {
+        return $this->register[$key] = $value;
+    }
+
+    /**
+     * @param $key
+     * @return mixed|null
+     */
+    private function get($key)
+    {
+        if (!isset($this->register[$key])) {
+            return null;
+        }
+
+        return $this->register[$key];
+    }
 
     /**
      * @param $host
+     * @return mixed
      */
-    public static function setHost($host)
+    public function setHost($host)
     {
-        self::$host = $host;    
+        return $this->set('host', $host);
     }
 
     /**
      * @param $port
+     * @return mixed
      */
-    public static function setPort($port)
+    public function setPort($port)
     {
-        self::$port = $port;    
+        return $this->set('port', $port);
     }
 
     /**
      * @param $plugin
+     * @return mixed
      */
-    public static function setPlugin($plugin)
+    public function setPlugin($plugin)
     {
-        self::$plugin = $plugin;    
+        return $this->set('plugin', $plugin);
     }
 
     /**
-     * @param bool $useSSL
+     * @param $useSSL
+     * @return mixed
      */
-    public static function setSSL($useSSL)
+    public function setSSL($useSSL)
     {
-        self::$useSSL = $useSSL;
+        return $this->set('useSSL', $useSSL);
     }
 
     /**
      * @param $secret
+     * @return mixed
      */
-    public static function setSecret($secret)
+    public function setSecret($secret)
     {
-        self::$secret = $secret;    
+        return $this->set('secret', $secret);
     }
 
     /**
      * @param $serverName
+     * @return mixed
      */
-    public static function setServerName($serverName)
+    public function setServerName($serverName)
     {
-        self::$serverName = $serverName;
+        return $this->set('serverName', $serverName);
+    }
+
+    /**
+     * @param $bool
+     * @return mixed
+     */
+    public function setDebug($bool)
+    {
+        return $this->set('debug', $bool);
     }
 
     /**
      * @return string
      */
-    public static function getHost()
+    public function getHost()
     {
-        return self::$host;
+        return $this->get('host');
     }
 
     /**
      * @return string
      */
-    public static function getPort()
+    public function getPort()
     {
-        return self::$port;
+        return $this->get('port');
     }
 
     /**
      * @return string
      */
-    public static function getPlugin()
+    public function getPlugin()
     {
-        return self::$plugin;
+        return $this->get('plugin');
     }
 
     /**
      * @return bool
      */
-    public static function getSSL()
+    public function isSSL()
     {
-        return self::$useSSL;
+        return $this->get('useSSL');
     }
 
     /**
      * @return string
      */
-    public static function getSecret()
+    public function getSecret()
     {
-        return self::$secret;
+        return $this->get('secret');
     }
 
     /**
      * @return string
      */
-    public static function getServerName()
+    public function getServerName()
     {
-        return self::$serverName;
+        return $this->get('serverName');
+    }
+
+    /**
+     * @return bool
+     */
+    public function isDebug()
+    {
+        return $this->get('debug');
     }
 }
