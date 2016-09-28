@@ -22,7 +22,7 @@ abstract class Request
     /**
      * @var array
      */
-    private static $requestes = array();
+    private static $requests = array();
 
     /**
      * @param $url
@@ -34,14 +34,14 @@ abstract class Request
      */
     public static function recordRequest($url, $headers, $method, $postData, $response, $server_output)
     {
-        self::$requestes[] = compact('url', 'headers', 'method', 'postData', 'response', 'server_output');
+        self::$requests[] = compact('url', 'headers', 'method', 'postData', 'response', 'server_output');
     }
 
     /**
      * @return array
      */
-    public static function getRequestes()
+    public static function getRequests()
     {
-        return self::$requestes;
+        return self::$requests;
     }
 }

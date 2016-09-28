@@ -206,4 +206,27 @@ class Settings
     {
         return $this->get('debug');
     }
+
+    /**
+     * Returns the URL under which query the webservice
+     * @return string
+     */
+    public function getBaseURL()
+    {
+        $base = ($this->isSSL()) ? "https" : "http";
+        return $base . "://" . $this->getHost() . ":" . $this->getPort() . $this->getPlugin();
+    }
+
+    /**
+     * Returns the headers to be sent to web service
+     * @return array
+     */
+    public function getHeaders()
+    {
+        return array(
+            'Accept: application/json',
+            'Authorization: ' . $this->getSecret(),
+            'Content-Type: application/json',
+        );
+    }
 }

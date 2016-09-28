@@ -16,7 +16,6 @@ namespace Gnello\OpenFireRestAPI\Dispatcher;
 use Gnello\OpenFireRestAPI\Debug\Request;
 use \Gnello\OpenFireRestAPI\Payloads\AbstractPayload;
 use Gnello\OpenFireRestAPI\Settings\Settings;
-use \Gnello\OpenFireRestAPI\Utils\Utils;
 
 /**
  * This class is responsible for sending requests to the server. The requests are sent
@@ -35,8 +34,9 @@ abstract class Dispatcher
      */
     protected static function sendRequest($method, $endpoint, AbstractPayload $payload = null)
     {
-        $url = Utils::getBaseURL() . $endpoint;
-        $headers = Utils::getHeaders();
+        $settings = Settings::getInstance();
+        $url = $settings->getBaseURL() . $endpoint;
+        $headers = $settings->getHeaders();
 
         $postData = null;
         if (!is_null($payload)) {

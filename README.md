@@ -147,13 +147,14 @@ $result = $api->ChatRooms()->deleteChatRoom('myfirstchatroom');
 ```
 ## DEBUG
 Under development you may need access to some useful information of the execution of software they're not normally available. 
-To do it just enable debug mode like this
+To do this just enable debug mode like this
 ```php
+//Enable debug mode
 $settings->setDebug(true);
 ```
-At the moment is only available the register of requests, you can access it in this way
+At the moment is only available the register of requests with its server responses, you can access it in this way
 ```php
-$requestes = \Gnello\OpenFireRestAPI\Debug\Request::getRequestes();
+$requests = \Gnello\OpenFireRestAPI\Debug\Request::getRequests();
 ```
 
 ## CONTACT
