@@ -54,15 +54,14 @@ or you can dynamically configure it at any point of the project in this way
 include "vendor/autoload.php";
 
 //Set the required config parameters
-$settings = \Gnello\OpenFireRestAPI\Settings\Settings::getInstance();
-$settings->setSecret("your_secret");
-$settings->setHost("your_host");
-$settings->setServerName("your_servername");
+$api->Settings()->setSecret("your_secret");
+$api->Settings()->setHost("your_host");
+$api->Settings()->setServerName("your_servername");
 
 //Default values
-$settings->->setPort("9090");
-$settings->->setSSL(false);
-$settings->->setPlugin("/plugins/restapi/v1");
+$api->Settings()->setPort("9090");
+$api->Settings()->setSSL(false);
+$api->Settings()->setPlugin("/plugins/restapi/v1");
 ```
 
 ## USAGE
@@ -150,7 +149,7 @@ Under development you may need access to some useful information of the executio
 To do this just enable debug mode like this
 ```php
 //Enable debug mode
-$settings->setDebug(true);
+$api->Settings()->setDebug(true);
 ```
 At the moment is only available the register of requests with its server responses, you can access it in this way
 ```php
