@@ -2,14 +2,18 @@
 Easy Php REST API Client to manage [Openfire Server] (http://www.igniterealtime.org/projects/openfire/)
 
 ## VERSION
-current version: 1.1.0
+current version: 1.2.0
 
 ##### CHANGELOG
 
-- v1.1.0
+- v1.2.0 (29/09/2016)  
+-- Added debug mode  
+-- Improved logic of Settings  
+
+- v1.1.0 (16/07/2016)  
 -- Renamed some methods into API class
 
-- v1.0.4
+- v1.0.4 (21/05/2016)  
 -- first release
 
 ## LICENSE
@@ -45,11 +49,9 @@ const SECRET = 'your_secret';
 const SERVER_NAME = 'your_server_name';
 ```
 
-or you can dynamically configure in this way
+or you can dynamically configure it at any point of the project in this way
 ```php
 include "vendor/autoload.php";
-
-$api = new \Gnello\OpenFireRestAPI\API();
 
 //Set the required config parameters
 $api->Settings()->setSecret("your_secret");
@@ -142,5 +144,17 @@ $result = $api->ChatRooms()->deleteUserFromChatRoom('myfirstchatroom','members',
 //Delete a chat room
 $result = $api->ChatRooms()->deleteChatRoom('myfirstchatroom');
 ```
+## DEBUG
+Under development you may need access to some useful information of the execution of software they're not normally available. 
+To do this just enable debug mode like this
+```php
+//Enable debug mode
+$api->Settings()->setDebug(true);
+```
+At the moment is only available the register of requests with its server responses, you can access it in this way
+```php
+$requests = \Gnello\OpenFireRestAPI\Debug\Request::getRequests();
+```
+
 ## CONTACT
 - gnello luca@gnello.com
