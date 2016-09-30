@@ -13,13 +13,13 @@
 
 namespace Gnello\OpenFireRestAPI\Settings;
 
-use Gnello\OpenFireRestAPI\Wrappers\AbstractRegisterWrapper;
+use Gnello\OpenFireRestAPI\Wrappers\AbstractRegistryWrapper;
 
 /**
  * Class Settings
  * @package Gnello\OpenFireRestAPI\Settings
  */
-class Settings extends AbstractRegisterWrapper
+class Settings extends AbstractRegistryWrapper
 {
     /**
      * Default Settings

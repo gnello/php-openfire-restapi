@@ -14,10 +14,10 @@
 namespace Gnello\OpenFireRestAPI\Wrappers;
 
 /**
- * Class AbstractRegisterWrapper
+ * Class AbstractRegistryWrapper
  * @package Gnello\OpenFireRestAPI\Settings
  */
-class AbstractRegisterWrapper
+class AbstractRegistryWrapper
 {
     /**
      * @var array

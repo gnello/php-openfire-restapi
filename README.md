@@ -155,9 +155,10 @@ To do this just enable debug mode like this
 //Enable debug mode
 $api->Settings()->setDebug(true);
 ```
-At the moment is only available the register of requests with its server responses, you can access it in this way
+At the moment it's available the register of requests (with its server responses) and the curl info. You can access it in this way
 ```php
 $requests = $api->Debugger()->getRequests();
+$curlInfo = $api->Debugger()->getCurlInfo();
 ```
 
 ## CONTACT

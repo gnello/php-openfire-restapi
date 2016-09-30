@@ -13,13 +13,13 @@
 
 namespace Gnello\OpenFireRestAPI\Utils;
 
-use Gnello\OpenFireRestAPI\Wrappers\AbstractRegisterWrapper;
+use Gnello\OpenFireRestAPI\Wrappers\AbstractRegistryWrapper;
 
 /**
  * Class Debugger
  * @package Gnello\OpenFireRestAPI\Utils
  */
-class Debugger extends AbstractRegisterWrapper
+class Debugger extends AbstractRegistryWrapper
 {
     const REQUESTS  = 0;
     const CURL_INFO = 1;
