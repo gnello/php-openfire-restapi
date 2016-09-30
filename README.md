@@ -157,7 +157,7 @@ $api->Settings()->setDebug(true);
 ```
 At the moment is only available the register of requests with its server responses, you can access it in this way
 ```php
-$requests = \Gnello\OpenFireRestAPI\Debug\Request::getRequests();
+$requests = $api->Debugger()->getRequests();
 ```
 
 ## CONTACT

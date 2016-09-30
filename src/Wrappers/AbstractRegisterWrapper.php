@@ -11,37 +11,43 @@
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
  */
 
-namespace Gnello\OpenFireRestAPI\Debug;
+namespace Gnello\OpenFireRestAPI\Wrappers;
 
 /**
- * Class Request
- * @package Gnello\OpenFireRestAPI\Debug
+ * Class AbstractRegisterWrapper
+ * @package Gnello\OpenFireRestAPI\Settings
  */
-abstract class Request
+class AbstractRegisterWrapper
 {
     /**
      * @var array
      */
-    private static $requests = array();
+    private $register = array();
 
     /**
-     * @param $url
-     * @param $headers
-     * @param $method
-     * @param $postData
-     * @param $response
-     * @param $server_output
+     * @param $key
+     * @param $value
+     * @return mixed
      */
-    public static function recordRequest($url, $headers, $method, $postData, $response, $server_output)
+    protected function set($key, $value)
     {
-        self::$requests[] = compact('url', 'headers', 'method', 'postData', 'response', 'server_output');
+        if (is_array($key)) {
+            return $this->register[$key[0]][] = $value;
+        }
+
+        return $this->register[$key] = $value;
     }
 
     /**
-     * @return array
+     * @param $key
+     * @return mixed|null
      */
-    public static function getRequests()
+    protected function get($key)
     {
-        return self::$requests;
+        if (!isset($this->register[$key])) {
+            return null;
+        }
+
+        return $this->register[$key];
     }
 }

@@ -13,8 +13,8 @@
 
 namespace Gnello\OpenFireRestAPI\Dispatcher;
 
-use Gnello\OpenFireRestAPI\Debug\Request;
-use \Gnello\OpenFireRestAPI\Payloads\AbstractPayload;
+use Gnello\OpenFireRestAPI\Utils\Debugger;
+use Gnello\OpenFireRestAPI\Payloads\AbstractPayload;
 use Gnello\OpenFireRestAPI\Settings\Settings;
 
 /**
@@ -80,7 +80,9 @@ abstract class Dispatcher
 
         $settings = Settings::getInstance();
         if ($settings->isDebug()) {
-            Request::recordRequest($url, $headers, $method, $postData, $response, $server_output);
+            $debugger = Debugger::getInstance();
+            $debugger->recordRequest($url, $headers, $method, $postData, $response, $server_output);
+            $debugger->recordCurlInfo($info);
         }
 
         return array(

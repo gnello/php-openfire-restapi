@@ -13,11 +13,13 @@
 
 namespace Gnello\OpenFireRestAPI\Settings;
 
+use Gnello\OpenFireRestAPI\Wrappers\AbstractRegisterWrapper;
+
 /**
  * Class Settings
  * @package Gnello\OpenFireRestAPI\Settings
  */
-class Settings
+class Settings extends AbstractRegisterWrapper
 {
     /**
      * Default Settings
@@ -33,11 +35,6 @@ class Settings
      * @var Settings
      */
     private static $instance;
-
-    /**
-     * @var array
-     */
-    private $register = array();
 
     /**
      * Settings constructor.
@@ -63,29 +60,6 @@ class Settings
         }
 
         return self::$instance;
-    }
-
-    /**
-     * @param $key
-     * @param $value
-     * @return mixed
-     */
-    private function set($key, $value)
-    {
-        return $this->register[$key] = $value;
-    }
-
-    /**
-     * @param $key
-     * @return mixed|null
-     */
-    private function get($key)
-    {
-        if (!isset($this->register[$key])) {
-            return null;
-        }
-
-        return $this->register[$key];
     }
 
     /**
