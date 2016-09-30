@@ -13,15 +13,13 @@
 
 namespace Gnello\OpenFireRestAPI\Payloads;
 
-use Gnello\OpenFireRestAPI\Payloads\Models\ChatRoomInterface;
-
 /**
  * Payload of Group related REST Endpoint
- * Class ChatRoom
+ * Class ChatRoomPayload
  * @package Gnello\OpenFireRestAPI\Payloads
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#chat-room-related-rest-endpoints
  */
-class ChatRoom extends AbstractPayload implements ChatRoomInterface
+class ChatRoomPayload extends AbstractPayload
 {
     /**
      * The name/id of the room. Can only contains lowercase and alphanumeric characters.

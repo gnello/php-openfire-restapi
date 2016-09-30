@@ -13,15 +13,13 @@
 
 namespace Gnello\OpenFireRestAPI\Payloads;
 
-use Gnello\OpenFireRestAPI\Payloads\Models\UserInterface;
-
 /**
  * Payload of User related REST Endpoint
- * Class User
+ * Class UserPayload
  * @package Gnello\OpenFireRestAPI\Payloads
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#user
  */
-class User extends AbstractPayload implements UserInterface
+class UserPayload extends AbstractPayload
 {
     /**
      * The username of the user

@@ -47,7 +47,7 @@ class Settings
     /**
      * @return Settings
      */
-    static public function getInstance()
+    public static function getInstance()
     {
         if (is_null(self::$instance)) {
             $settings = new Settings();

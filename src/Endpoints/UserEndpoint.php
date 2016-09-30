@@ -20,11 +20,11 @@ use \Gnello\OpenFireRestAPI\Payloads;
 
 /**
  * User related REST Endpoint
- * Class User
+ * Class UserEndpoint
  * @package Gnello\OpenFireRestAPI\Endpoints
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#user-related-rest-endpoints
  */
-class User extends Dispatcher
+class UserEndpoint extends Dispatcher
 {
     public static $endpoint = '/users';
 
@@ -73,7 +73,7 @@ class User extends Dispatcher
      */
     public static function createUser($username, $password, $name = null, $email = null, $properties = array())
     {
-        $payload = new Payloads\User(compact('username', 'password', 'name', 'email', 'properties'));
+        $payload = new Payloads\UserPayload(compact('username', 'password', 'name', 'email', 'properties'));
         return self::sendRequest(Method::POST, self::$endpoint, $payload);
     }
 
@@ -101,7 +101,7 @@ class User extends Dispatcher
      */
     public static function updateUser($username, $password, $name = null, $email = null, $properties = array())
     {
-        $payload = new Payloads\User(compact('username', 'password', 'name', 'email', 'properties'));
+        $payload = new Payloads\UserPayload(compact('username', 'password', 'name', 'email', 'properties'));
         $endpoint = self::$endpoint . '/' . $username;
         return self::sendRequest(Method::PUT, $endpoint, $payload);
     }
@@ -114,7 +114,7 @@ class User extends Dispatcher
      */
     public static function retrieveAllUserGroups($username)
     {
-        $endpoint = self::$endpoint . '/' . $username . Group::$endpoint;
+        $endpoint = self::$endpoint . '/' . $username . GroupEndpoint::$endpoint;
         return self::sendRequest(Method::GET, $endpoint);
     }
 
@@ -127,8 +127,8 @@ class User extends Dispatcher
      */
     public static function addUserToGroups($username, $groupname)
     {
-        $payload = new Payloads\Group(compact('groupname'));
-        $endpoint = self::$endpoint . '/' . $username . Group::$endpoint;
+        $payload = new Payloads\GroupPayload(compact('groupname'));
+        $endpoint = self::$endpoint . '/' . $username . GroupEndpoint::$endpoint;
         return self::sendRequest(Method::POST, $endpoint, $payload);
     }
 
@@ -141,7 +141,7 @@ class User extends Dispatcher
      */
     public static function addUserToGroup($username, $groupName)
     {
-        $endpoint = self::$endpoint . '/' . $username . Group::$endpoint . '/' . $groupName;
+        $endpoint = self::$endpoint . '/' . $username . GroupEndpoint::$endpoint . '/' . $groupName;
         return self::sendRequest(Method::POST, $endpoint);
     }
 
@@ -154,8 +154,8 @@ class User extends Dispatcher
      */
     public static function deleteUserFromGroups($username, $groupname)
     {
-        $payload = new Payloads\Group(compact('groupname'));
-        $endpoint = self::$endpoint . '/' . $username . Group::$endpoint;
+        $payload = new Payloads\GroupPayload(compact('groupname'));
+        $endpoint = self::$endpoint . '/' . $username . GroupEndpoint::$endpoint;
         return self::sendRequest(Method::DELETE, $endpoint, $payload);
     }
 
@@ -168,7 +168,7 @@ class User extends Dispatcher
      */
     public static function deleteUserFromGroup($username, $groupName)
     {
-        $endpoint = self::$endpoint . '/' . $username . Group::$endpoint . '/' . $groupName;
+        $endpoint = self::$endpoint . '/' . $username . GroupEndpoint::$endpoint . '/' . $groupName;
         return self::sendRequest(Method::DELETE, $endpoint);
     }
 
@@ -206,7 +206,7 @@ class User extends Dispatcher
     public static function retrieveUserRoster($username)
     {
         $endpoint = self::$endpoint . '/' . $username . '/roster';
-        return self::sendRequest(Method::GET,$endpoint);
+        return self::sendRequest(Method::GET, $endpoint);
     }
 
     /**
@@ -221,7 +221,7 @@ class User extends Dispatcher
      */
     public static function createUserRosterEntry($username, $jid, $nickname = null, $subscriptionType = SubscriptionType::BOTH, $groups)
     {
-        $payload = new Payloads\RosterItem(compact('jid', 'nickname', 'subscriptionType', 'groups'));
+        $payload = new Payloads\RosterItemPayload(compact('jid', 'nickname', 'subscriptionType', 'groups'));
         $endpoint = self::$endpoint . '/' . $username . '/roster';
         return self::sendRequest(Method::POST, $endpoint, $payload);
     }
@@ -235,7 +235,7 @@ class User extends Dispatcher
      */
     public static function deleteUserRosterEntry($username, $jid)
     {
-        $payload = new Payloads\RosterItem(compact('jid'));
+        $payload = new Payloads\RosterItemPayload(compact('jid'));
         $endpoint = self::$endpoint . '/' . $username . '/roster/' . $payload->getJid();
         return self::sendRequest(Method::DELETE, $endpoint);
     }
@@ -252,8 +252,8 @@ class User extends Dispatcher
      */
     public static function updateUserRosterEntry($username, $jid, $nickname = null, $subscriptionType = SubscriptionType::BOTH, $groups)
     {
-        $payload = new Payloads\RosterItem(compact('jid', 'nickname', 'subscriptionType', 'groups'));
-        $endpoint = self::$endpoint . '/' . $username. '/roster/' . $payload->getJid();
+        $payload = new Payloads\RosterItemPayload(compact('jid', 'nickname', 'subscriptionType', 'groups'));
+        $endpoint = self::$endpoint . '/' . $username . '/roster/' . $payload->getJid();
         return self::sendRequest(Method::PUT, $endpoint, $payload);
     }
 }

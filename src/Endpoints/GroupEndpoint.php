@@ -19,11 +19,11 @@ use \Gnello\OpenFireRestAPI\Payloads;
 
 /**
  * Group related REST Endpoint
- * Class Group
+ * Class GroupEndpoint
  * @package Gnello\OpenFireRestAPI\Endpoints
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#group-related-rest-endpoints
  */
-class Group extends Dispatcher
+class GroupEndpoint extends Dispatcher
 {
     public static $endpoint = '/groups';
 
@@ -58,7 +58,7 @@ class Group extends Dispatcher
      */
     public static function createGroup($name, $description)
     {
-        $payload = new Payloads\Group(compact('name', 'description'));
+        $payload = new Payloads\GroupPayload(compact('name', 'description'));
         return self::sendRequest(Method::POST, self::$endpoint, $payload);
     }
 
@@ -84,7 +84,7 @@ class Group extends Dispatcher
      */
     public static function updateGroup($groupName, $name, $description)
     {
-        $payload = new Payloads\Group(compact('name', 'description'));
+        $payload = new Payloads\GroupPayload(compact('name', 'description'));
         $endpoint = self::$endpoint . '/' . $groupName;
         return self::sendRequest(Method::PUT, $endpoint, $payload);
     }

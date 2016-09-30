@@ -27,32 +27,32 @@ class API
     private $settings;
 
     /**
-     * @var Endpoints\User
+     * @var Endpoints\UserEndpoint
      */
     private $users;
 
     /**
-     * @var Endpoints\ChatRoom
+     * @var Endpoints\ChatRoomEndpoint
      */
     private $chatrooms;
 
     /**
-     * @var Endpoints\Group
+     * @var Endpoints\GroupEndpoint
      */
     private $groups;
 
     /**
-     * @var Endpoints\Message
+     * @var Endpoints\MessageEndpoint
      */
     private $messages;
 
     /**
-     * @var Endpoints\Session
+     * @var Endpoints\SessionEndpoint
      */
     private $sessions;
 
     /**
-     * @var Endpoints\System
+     * @var Endpoints\SystemEndpoint
      */
     private $system;
 
@@ -62,12 +62,12 @@ class API
     public function __construct()
     {
         $this->settings     = Settings\Settings::getInstance();
-        $this->users        = new Endpoints\User();
-        $this->chatrooms    = new Endpoints\ChatRoom();
-        $this->groups       = new Endpoints\Group();
-        $this->messages     = new Endpoints\Message();
-        $this->sessions     = new Endpoints\Session();
-        $this->system       = new Endpoints\System();
+        $this->users        = new Endpoints\UserEndpoint();
+        $this->chatrooms    = new Endpoints\ChatRoomEndpoint();
+        $this->groups       = new Endpoints\GroupEndpoint();
+        $this->messages     = new Endpoints\MessageEndpoint();
+        $this->sessions     = new Endpoints\SessionEndpoint();
+        $this->system       = new Endpoints\SystemEndpoint();
     }
 
     /**
@@ -79,7 +79,7 @@ class API
     }
 
     /**
-     * @return Endpoints\User
+     * @return Endpoints\UserEndpoint
      */
     public function Users()
     {
@@ -87,7 +87,7 @@ class API
     }
 
     /**
-     * @return Endpoints\ChatRoom
+     * @return Endpoints\ChatRoomEndpoint
      */
     public function ChatRooms()
     {
@@ -95,7 +95,7 @@ class API
     }
 
     /**
-     * @return Endpoints\Group
+     * @return Endpoints\GroupEndpoint
      */
     public function Groups()
     {
@@ -103,7 +103,7 @@ class API
     }
 
     /**
-     * @return Endpoints\Message
+     * @return Endpoints\MessageEndpoint
      */
     public function Messages()
     {
@@ -111,7 +111,7 @@ class API
     }
 
     /**
-     * @return Endpoints\Session
+     * @return Endpoints\SessionEndpoint
      */
     public function Sessions()
     {
@@ -119,7 +119,7 @@ class API
     }
 
     /**
-     * @return Endpoints\System
+     * @return Endpoints\SystemEndpoint
      */
     public function System()
     {
