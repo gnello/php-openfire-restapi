@@ -7,7 +7,7 @@ current version: 1.2.1
 ##### CHANGELOG
 
 - v1.2.1 (30/09/2016)  
--- Fixed a bug of the "setJid" method into RosterItem Payload
+-- Fixed a bug of the "setJid" method into RosterItem Payload  
 -- Renamed some classes (never satisfied :P)
 
 - v1.2.0 (29/09/2016)  
