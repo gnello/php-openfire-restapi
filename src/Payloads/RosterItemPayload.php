@@ -65,7 +65,7 @@ class RosterItemPayload extends AbstractPayload
         if (strpos('@' . $server_name, $jid) === false) {
             $jid .= '@' . $server_name;
         }
-        $this->jid = $jid;;
+        $this->jid = $jid;
     }
 
     /**
