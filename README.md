@@ -2,9 +2,13 @@
 Easy Php REST API Client to manage [Openfire Server] (http://www.igniterealtime.org/projects/openfire/)
 
 ## VERSION
-current version: 1.2.0
+current version: 1.2.1
 
 ##### CHANGELOG
+
+- v1.2.1 (30/09/2016)  
+-- Fixed a bug of the "setJid" method into RosterItem Payload
+-- Renamed some classes (never satisfied :P)
 
 - v1.2.0 (29/09/2016)  
 -- Added debug mode  

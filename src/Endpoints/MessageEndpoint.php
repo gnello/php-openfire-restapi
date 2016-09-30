@@ -19,11 +19,11 @@ use \Gnello\OpenFireRestAPI\Payloads;
 
 /**
  * Message related REST Endpoint
- * Class Message
+ * Class MessageEndpoint
  * @package Gnello\OpenFireRestAPI\Endpoints
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#message-related-rest-endpoints
  */
-class Message extends Dispatcher
+class MessageEndpoint extends Dispatcher
 {
     public static $endpoint = '/messages';
 
@@ -35,8 +35,8 @@ class Message extends Dispatcher
      */
     public static function sendBroadcastMessage($body)
     {
-        $payload = new Payloads\Message(compact('body'));
-        $endpoint = self::$endpoint . User::$endpoint;
+        $payload = new Payloads\MessagePayload(compact('body'));
+        $endpoint = self::$endpoint . UserEndpoint::$endpoint;
         return self::sendRequest(Method::POST, $endpoint, $payload);
     }
 }
