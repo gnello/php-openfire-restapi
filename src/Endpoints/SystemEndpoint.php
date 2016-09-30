@@ -19,11 +19,11 @@ use \Gnello\OpenFireRestAPI\Payloads;
 
 /**
  * System related REST Endpoint
- * Class System
+ * Class SystemEndpoint
  * @package Gnello\OpenFireRestAPI\Endpoints
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#system-related-rest-endpoints
  */
-class System extends Dispatcher
+class SystemEndpoint extends Dispatcher
 {
     public static $endpoint = '/system';
 
@@ -59,7 +59,7 @@ class System extends Dispatcher
      */
     public static function createSystemProperty($propertyName, $propertyValue)
     {
-        $payload = new Payloads\SystemProperty(compact('propertyName', 'propertyValue'));
+        $payload = new Payloads\SystemPropertyPayload(compact('propertyName', 'propertyValue'));
         $endpoint = self::$endpoint . '/properties';
         return self::sendRequest(Method::POST, $endpoint, $payload);
     }
@@ -95,7 +95,7 @@ class System extends Dispatcher
      */
     public static function retrieveConcurrentSessions()
     {
-        $endpoint = self::$endpoint . '/statistics' . Session::$endpoint;
+        $endpoint = self::$endpoint . '/statistics' . SessionEndpoint::$endpoint;
         return self::sendRequest(Method::GET, $endpoint);
     }
 }

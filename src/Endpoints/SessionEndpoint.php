@@ -18,11 +18,11 @@ use \Gnello\OpenFireRestAPI\Dispatcher\Dispatcher;
 
 /**
  * Session related REST Endpoint
- * Class Session
+ * Class SessionEndpoint
  * @package Gnello\OpenFireRestAPI\Endpoints
  * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#session-related-rest-endpoints
  */
-class Session extends Dispatcher
+class SessionEndpoint extends Dispatcher
 {
     public static $endpoint = '/sessions';
 

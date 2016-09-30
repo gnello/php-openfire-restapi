@@ -13,15 +13,13 @@
 
 namespace Gnello\OpenFireRestAPI\Payloads;
 
-use Gnello\OpenFireRestAPI\Payloads\Models\GroupInterface;
-
 /**
  * Payload of Group related REST Endpoint
- * Class Group
+ * Class GroupPayload
  * @package Gnello\OpenFireRestAPI\Payloads
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#group
  */
-class Group extends AbstractPayload implements GroupInterface
+class GroupPayload extends AbstractPayload
 {
     /**
      * The name of the group
@@ -106,14 +104,14 @@ class Group extends AbstractPayload implements GroupInterface
     }
 
     /**
-     * @return string
+     * @return array
      */
     public function getAdmins() {
         return $this->admins;
     }
 
     /**
-     * @return string
+     * @return array
      */
     public function getMembers() {
         return $this->members;

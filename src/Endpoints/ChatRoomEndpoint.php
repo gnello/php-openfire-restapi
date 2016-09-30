@@ -19,11 +19,11 @@ use \Gnello\OpenFireRestAPI\Payloads;
 
 /**
  * Chat room related REST Endpoint
- * Class ChatRoom
+ * Class ChatRoomEndpoint
  * @package Gnello\OpenFireRestAPI\Endpoints
  * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#chat-room-related-rest-endpoints
  */
-class ChatRoom extends Dispatcher
+class ChatRoomEndpoint extends Dispatcher
 {
     public static $endpoint = '/chatrooms';
 
@@ -75,10 +75,10 @@ class ChatRoom extends Dispatcher
 
     /**
      * Endpoints to create a new chat room.
-     * @param Payloads\ChatRoom $payload
+     * @param Payloads\ChatRoomPayload $payload
      * @return array with HTTP status 201 (Created)
      */
-    public static function createChatRoom(Payloads\ChatRoom $payload)
+    public static function createChatRoom(Payloads\ChatRoomPayload $payload)
     {
         return self::sendRequest(Method::POST, self::$endpoint, $payload);
     }
@@ -99,11 +99,11 @@ class ChatRoom extends Dispatcher
      * TODO: not working....
      * Endpoints to update a chat room.
      * @param $roomName
-     * @param Payloads\ChatRoom $payload
+     * @param Payloads\ChatRoomPayload $payload
      * @return array with HTTP status 200 (OK)
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#update-a-chat-room
      */
-    public static function updateChatRoom($roomName, Payloads\ChatRoom $payload)
+    public static function updateChatRoom($roomName, Payloads\ChatRoomPayload $payload)
     {
         $endpoint = self::$endpoint . '/' . $roomName;
         return self::sendRequest(Method::PUT, $endpoint, $payload);
