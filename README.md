@@ -1,7 +1,8 @@
 # php-openfire-restapi
-Easy Php REST API Client to manage [Openfire Server] (http://www.igniterealtime.org/projects/openfire/)
 
 [![Build Status](https://scrutinizer-ci.com/g/gnello/php-openfire-restapi/badges/build.png?b=master)](https://scrutinizer-ci.com/g/gnello/php-openfire-restapi/build-status/master)
+
+Easy Php REST API Client to manage [Openfire Server] (http://www.igniterealtime.org/projects/openfire/)
 
 ## VERSION
 current version: 1.2.2
