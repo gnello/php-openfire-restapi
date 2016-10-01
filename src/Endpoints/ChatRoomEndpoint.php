@@ -32,7 +32,7 @@ class ChatRoomEndpoint extends Dispatcher
      * @return array with Chatrooms
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#retrieve-all-chat-rooms
      */
-    public static function retrieveAllChatRooms()
+    public function retrieveAllChatRooms()
     {
         return self::sendRequest(Method::GET, self::$endpoint);
     }
@@ -43,7 +43,7 @@ class ChatRoomEndpoint extends Dispatcher
      * @return array with Chatrooms
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#retrieve-a-chat-room
      */
-    public static function retrieveChatRoom($roomName)
+    public function retrieveChatRoom($roomName)
     {
         $endpoint = self::$endpoint . '/' . $roomName;
         return self::sendRequest(Method::GET, $endpoint);
@@ -55,7 +55,7 @@ class ChatRoomEndpoint extends Dispatcher
      * @return array with Participants
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#retrieve-chat-room-participants
      */
-    public static function retrieveChatRoomParticipants($roomName)
+    public function retrieveChatRoomParticipants($roomName)
     {
         $endpoint = self::$endpoint . '/' . $roomName . '/participants';
         return self::sendRequest(Method::GET, $endpoint);
@@ -67,7 +67,7 @@ class ChatRoomEndpoint extends Dispatcher
      * @return array with Occupants
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#retrieve-chat-room-occupants
      */
-    public static function retrieveChatRoomOccupants($roomName)
+    public function retrieveChatRoomOccupants($roomName)
     {
         $endpoint = self::$endpoint . '/' . $roomName . '/occupants';
         return self::sendRequest(Method::GET, $endpoint);
@@ -78,7 +78,7 @@ class ChatRoomEndpoint extends Dispatcher
      * @param Payloads\ChatRoomPayload $payload
      * @return array with HTTP status 201 (Created)
      */
-    public static function createChatRoom(Payloads\ChatRoomPayload $payload)
+    public function createChatRoom(Payloads\ChatRoomPayload $payload)
     {
         return self::sendRequest(Method::POST, self::$endpoint, $payload);
     }
@@ -89,7 +89,7 @@ class ChatRoomEndpoint extends Dispatcher
      * @return array with HTTP status 200 (OK)
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#delete-a-chat-room
      */
-    public static function deleteChatRoom($roomName)
+    public function deleteChatRoom($roomName)
     {
         $endpoint = self::$endpoint . '/' . $roomName;
         return self::sendRequest(Method::DELETE, $endpoint);
@@ -103,7 +103,7 @@ class ChatRoomEndpoint extends Dispatcher
      * @return array with HTTP status 200 (OK)
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#update-a-chat-room
      */
-    public static function updateChatRoom($roomName, Payloads\ChatRoomPayload $payload)
+    public function updateChatRoom($roomName, Payloads\ChatRoomPayload $payload)
     {
         $endpoint = self::$endpoint . '/' . $roomName;
         return self::sendRequest(Method::PUT, $endpoint, $payload);
@@ -118,7 +118,7 @@ class ChatRoomEndpoint extends Dispatcher
      * @return array with HTTP status 201 (Created)
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#add-user-with-role-to-chat-room
      */
-    public static function addUserWithRoleToChatRoom($roomName, $roles, $name)
+    public function addUserWithRoleToChatRoom($roomName, $roles, $name)
     {
         $endpoint = self::$endpoint . '/' . $roomName . '/' . $roles . '/' . $name;
         return self::sendRequest(Method::POST, $endpoint);
@@ -133,7 +133,7 @@ class ChatRoomEndpoint extends Dispatcher
      * @return array with HTTP status 201 (Created)
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#add-group-with-role-to-chat-room
      */
-    public static function addGroupWithRoleToChatRoom($roomName, $roles, $name)
+    public function addGroupWithRoleToChatRoom($roomName, $roles, $name)
     {
         $endpoint = self::$endpoint . '/' . $roomName . '/' . $roles . '/group/' . $name;
         return self::sendRequest(Method::POST, $endpoint);
@@ -147,7 +147,7 @@ class ChatRoomEndpoint extends Dispatcher
      * @return array with HTTP status 200 (OK)
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#delete-a-user-from-a-chat-room
      */
-    public static function deleteUserFromChatRoom($roomName, $roles, $name)
+    public function deleteUserFromChatRoom($roomName, $roles, $name)
     {
         $endpoint = self::$endpoint . '/' . $roomName . '/' . $roles . '/' . $name;
         return self::sendRequest(Method::DELETE, $endpoint);
@@ -161,7 +161,7 @@ class ChatRoomEndpoint extends Dispatcher
      * @return array with HTTP status 200 (OK)
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#delete-a-group-from-a-chat-room
      */
-    public static function deleteGroupFromChatRoom($roomName, $roles, $name)
+    public function deleteGroupFromChatRoom($roomName, $roles, $name)
     {
         $endpoint = self::$endpoint . '/' . $roomName . '/' . $roles . '/group/' . $name;
         return self::sendRequest(Method::DELETE, $endpoint);

@@ -31,7 +31,7 @@ class SessionEndpoint extends Dispatcher
      * @return array with Sessions
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#retrieve-all-user-session
      */
-    public static function retrieveAllUserSession()
+    public function retrieveAllUserSession()
     {
         return self::sendRequest(Method::GET, self::$endpoint);
     }
@@ -42,7 +42,7 @@ class SessionEndpoint extends Dispatcher
      * @return array with Sessions
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#retrieve-the-user-sessions
      */
-    public static function retrieveUserSessions($username)
+    public function retrieveUserSessions($username)
     {
         $endpoint = self::$endpoint . '/' . $username;
         return self::sendRequest(Method::GET, $endpoint);
@@ -54,7 +54,7 @@ class SessionEndpoint extends Dispatcher
      * @return array with HTTP status 200 (OK)
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#close-all-user-sessions
      */
-    public static function closeAllUserSessions($username)
+    public function closeAllUserSessions($username)
     {
         $endpoint = self::$endpoint . '/' . $username;
         return self::sendRequest(Method::DELETE, $endpoint);

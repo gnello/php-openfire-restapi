@@ -57,6 +57,11 @@ class API
     private $system;
 
     /**
+     * @var Utils\Debugger
+     */
+    private $debugger;
+
+    /**
      * API constructor.
      */
     public function __construct()
@@ -68,6 +73,7 @@ class API
         $this->messages     = new Endpoints\MessageEndpoint();
         $this->sessions     = new Endpoints\SessionEndpoint();
         $this->system       = new Endpoints\SystemEndpoint();
+        $this->debugger     = Utils\Debugger::getInstance();
     }
 
     /**
@@ -124,5 +130,13 @@ class API
     public function System()
     {
         return $this->system;
+    }
+
+    /**
+     * @return Utils\Debugger
+     */
+    public function Debugger()
+    {
+        return $this->debugger;
     }
 }

@@ -32,7 +32,7 @@ class GroupEndpoint extends Dispatcher
      * @return array with Groups
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#retrieve-all-groups
      */
-    public static function retrieveAllGroups()
+    public function retrieveAllGroups()
     {
         return self::sendRequest(Method::GET, self::$endpoint);
     }
@@ -43,7 +43,7 @@ class GroupEndpoint extends Dispatcher
      * @return array with Group
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#retrieve-a-group
      */
-    public static function retrieveGroup($groupName)
+    public function retrieveGroup($groupName)
     {
         $endpoint = self::$endpoint . '/' . $groupName;
         return self::sendRequest(Method::GET, $endpoint);
@@ -56,7 +56,7 @@ class GroupEndpoint extends Dispatcher
      * @return array with HTTP status 201 (Created)
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#create-a-group
      */
-    public static function createGroup($name, $description)
+    public function createGroup($name, $description)
     {
         $payload = new Payloads\GroupPayload(compact('name', 'description'));
         return self::sendRequest(Method::POST, self::$endpoint, $payload);
@@ -68,7 +68,7 @@ class GroupEndpoint extends Dispatcher
      * @return array with HTTP status 200 (OK)
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#delete-a-group
      */
-    public static function deleteGroup($groupName)
+    public function deleteGroup($groupName)
     {
         $endpoint = self::$endpoint . '/' . $groupName;
         return self::sendRequest(Method::DELETE, $endpoint);
@@ -82,7 +82,7 @@ class GroupEndpoint extends Dispatcher
      * @return array with HTTP status 200 (OK)
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#update-a-group
      */
-    public static function updateGroup($groupName, $name, $description)
+    public function updateGroup($groupName, $name, $description)
     {
         $payload = new Payloads\GroupPayload(compact('name', 'description'));
         $endpoint = self::$endpoint . '/' . $groupName;
