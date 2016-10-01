@@ -42,8 +42,8 @@ class Settings extends AbstractRegistryWrapper
     /**
      * Authentication constants
      */
-    const AUTH_BASE         = 1;
-    const AUTH_SECRET_KEY   = 2;
+    const AUTH_BASE         = 'basic';
+    const AUTH_SECRET_KEY   = 'secret_key';
 
     /**
      * @var Settings
@@ -86,15 +86,6 @@ class Settings extends AbstractRegistryWrapper
      */
     public function setAuth($auth)
     {
-        switch ($auth) {
-            case 'basic':
-                $auth = self::AUTH_BASE;
-                break;
-            case 'secret_key':
-                $auth = self::AUTH_SECRET_KEY;
-                break;
-        }
-
         return $this->set('auth', $auth);
     }
 
