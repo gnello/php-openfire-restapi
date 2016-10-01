@@ -71,7 +71,8 @@ $api->Settings()->setSSL(false);
 $api->Settings()->setPlugin("/plugins/restapi/v1");
 ```
 ## AUTHENTICATION
-There are two ways to authenticate:  
+There are two ways to authenticate:
+
 Basic HTTP Authentication
 ```php
 //Set the required authentication parameters
