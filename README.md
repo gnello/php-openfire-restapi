@@ -57,7 +57,7 @@ const PLUGIN = '/plugins/restapi/v1';
 const SERVER_NAME = 'your_server_name';
 ```
 
-or you can dynamically configure it at any point of the project in this way
+or you can dynamically configure it in this way
 ```php
 include "vendor/autoload.php";
 

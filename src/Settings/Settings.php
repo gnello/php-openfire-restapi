@@ -277,21 +277,23 @@ class Settings extends AbstractRegistryWrapper
      */
     public function getHeaders()
     {
-        switch ($this->getAuth()) {
+        $auth = $this->getAuth();
+
+        switch ($auth) {
             case self::AUTH_BASE:
-                $auth = "basic " . base64_encode($this->getUser() . ":" . $this->getPsw());
+                $authHeader = "basic " . base64_encode($this->getUser() . ":" . $this->getPsw());
                 break;
             case self::AUTH_SECRET_KEY:
-                $auth = $this->getSecretKey();
+                $authHeader = $this->getSecretKey();
                 break;
             default:
-                $auth = "Unrecognized auth [{$this->getAuth()}]! Must be 'basic' or 'secret_key'";
+                $authHeader = "Unrecognized auth [{$auth}]! Must be 'basic' or 'secret_key'";
                 break;
         }
 
         return array(
             'Accept: application/json',
-            'Authorization: ' . $auth,
+            'Authorization: ' . $authHeader,
             'Content-Type: application/json',
         );
     }
