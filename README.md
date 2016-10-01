@@ -138,10 +138,10 @@ $result = $api->Users()->deleteUserRosterEntry('Username', 'Jid');
 $result = $api->Groups()->createGroup('groupname', 'description');
 
 //Add to Groups
-$result = $api->Users()->addUserToGroup('Username', array('groupname1', 'groupname2', 'groupname3'));
+$result = $api->Users()->addUserToGroups('Username', array('groupname1', 'groupname2', 'groupname3'));
 
 //Delete from Groups
-$result = $api->Users()->deleteUserFromGroup('Username', array('groupname1','groupname2'));
+$result = $api->Users()->deleteUserFromGroups('Username', array('groupname1','groupname2'));
 ```
 ### Messages
 ```php
