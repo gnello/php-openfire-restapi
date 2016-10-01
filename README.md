@@ -2,7 +2,7 @@
 Easy Php REST API Client to manage [Openfire Server] (http://www.igniterealtime.org/projects/openfire/)
 
 ## VERSION
-current version: 1.2.1
+current version: 1.2.2
 
 ##### CHANGELOG
 
