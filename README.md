@@ -49,7 +49,7 @@ The best way to install php-openfire-restapi is to use Composer, you do that:
 Read more about how to install and use Composer on your local machine [here] (https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx).
 
 ## CONFIGURATION
-Just change these constants into src/Settings/Settings.php
+Just change these constants into src/Settings/Settings.php (not recommended if you're using composer)
 ```php
 const HOST = 'your_host';
 const PORT = '9090';
