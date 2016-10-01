@@ -13,31 +13,42 @@
 
 namespace Gnello\OpenFireRestAPI\Settings;
 
+use Gnello\OpenFireRestAPI\Wrappers\AbstractRegistryWrapper;
+
 /**
  * Class Settings
  * @package Gnello\OpenFireRestAPI\Settings
  */
-class Settings
+class Settings extends AbstractRegistryWrapper
 {
     /**
      * Default Settings
      * Edit this section to configure your client
      */
-    const HOST = 'localhost';
-    const PORT = '9090';
-    const PLUGIN = '/plugins/restapi/v1';
-    const SECRET = 'your_secret';
-    const SERVER_NAME = 'your_server_name';
+    const HOST          = 'localhost';
+    const PORT          = '9090';
+    const PLUGIN        = '/plugins/restapi/v1';
+    const AUTH          = 'secret_key';
+
+    /**
+     * Settings that you need to change
+     * Edit this section to configure your client
+     */
+    const SERVER_NAME   = 'your_server_name';
+    const SECRET_KEY    = 'your_secret_key';    //if you use secret_key authentication
+    const USER          = 'your_username';      //if you use basic authentication
+    const PSW           = 'your_password';      //if you use basic authentication
+
+    /**
+     * Authentication constants, do not touch ;)
+     */
+    const AUTH_BASE         = 'basic';
+    const AUTH_SECRET_KEY   = 'secret_key';
 
     /**
      * @var Settings
      */
     private static $instance;
-
-    /**
-     * @var array
-     */
-    private $register = array();
 
     /**
      * Settings constructor.
@@ -51,10 +62,11 @@ class Settings
     {
         if (is_null(self::$instance)) {
             $settings = new Settings();
+            $settings->setAuth(self::AUTH);
             $settings->setHost(self::HOST);
             $settings->setPort(self::PORT);
             $settings->setPlugin(self::PLUGIN);
-            $settings->setSecret(self::SECRET);
+            $settings->setSecretKey(self::SECRET_KEY);
             $settings->setServerName(self::SERVER_NAME);
             $settings->setSSL(false);
             $settings->setDebug(false);
@@ -66,31 +78,20 @@ class Settings
     }
 
     /**
-     * @param $key
-     * @param $value
+     * Set type of authentication.
+     * Possible values are 'basic' or 'secret_key'
+     * @param $auth
      * @return mixed
+     * @throws \Exception
      */
-    private function set($key, $value)
+    public function setAuth($auth)
     {
-        return $this->register[$key] = $value;
-    }
-
-    /**
-     * @param $key
-     * @return mixed|null
-     */
-    private function get($key)
-    {
-        if (!isset($this->register[$key])) {
-            return null;
-        }
-
-        return $this->register[$key];
+        return $this->set('auth', $auth);
     }
 
     /**
      * @param $host
-     * @return mixed
+     * @return string
      */
     public function setHost($host)
     {
@@ -99,7 +100,7 @@ class Settings
 
     /**
      * @param $port
-     * @return mixed
+     * @return string
      */
     public function setPort($port)
     {
@@ -108,7 +109,7 @@ class Settings
 
     /**
      * @param $plugin
-     * @return mixed
+     * @return string
      */
     public function setPlugin($plugin)
     {
@@ -117,7 +118,7 @@ class Settings
 
     /**
      * @param $useSSL
-     * @return mixed
+     * @return bool
      */
     public function setSSL($useSSL)
     {
@@ -125,17 +126,35 @@ class Settings
     }
 
     /**
-     * @param $secret
-     * @return mixed
+     * @param $secretKey
+     * @return string
      */
-    public function setSecret($secret)
+    public function setSecretKey($secretKey)
     {
-        return $this->set('secret', $secret);
+        return $this->set('secret_key', $secretKey);
+    }
+
+    /**
+     * @param $user
+     * @return string
+     */
+    public function setUser($user)
+    {
+        return $this->set('user', $user);
+    }
+
+    /**
+     * @param $psw
+     * @return string
+     */
+    public function setPsw($psw)
+    {
+        return $this->set('psw', $psw);
     }
 
     /**
      * @param $serverName
-     * @return mixed
+     * @return string
      */
     public function setServerName($serverName)
     {
@@ -144,11 +163,20 @@ class Settings
 
     /**
      * @param $bool
-     * @return mixed
+     * @return string
      */
     public function setDebug($bool)
     {
         return $this->set('debug', $bool);
+    }
+
+    /**
+     * Return type of authentication.
+     * @return string
+     */
+    public function getAuth()
+    {
+        return $this->get('auth');
     }
 
     /**
@@ -186,9 +214,25 @@ class Settings
     /**
      * @return string
      */
-    public function getSecret()
+    public function getSecretKey()
     {
-        return $this->get('secret');
+        return $this->get('secret_key');
+    }
+
+    /**
+     * @return string
+     */
+    public function getUser()
+    {
+        return $this->get('user');
+    }
+
+    /**
+     * @return string
+     */
+    public function getPsw()
+    {
+        return $this->get('psw');
     }
 
     /**
@@ -220,12 +264,27 @@ class Settings
     /**
      * Returns the headers to be sent to web service
      * @return array
+     * @throws \Exception
      */
     public function getHeaders()
     {
+        $auth = $this->getAuth();
+
+        switch ($auth) {
+            case self::AUTH_BASE:
+                $authHeader = "basic " . base64_encode($this->getUser() . ":" . $this->getPsw());
+                break;
+            case self::AUTH_SECRET_KEY:
+                $authHeader = $this->getSecretKey();
+                break;
+            default:
+                $authHeader = "Unrecognized auth [{$auth}]! Must be 'basic' or 'secret_key'";
+                break;
+        }
+
         return array(
             'Accept: application/json',
-            'Authorization: ' . $this->getSecret(),
+            'Authorization: ' . $authHeader,
             'Content-Type: application/json',
         );
     }

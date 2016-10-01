@@ -33,7 +33,7 @@ class MessageEndpoint extends Dispatcher
      * @return array with HTTP status 201 (Created)
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#send-a-broadcast-message
      */
-    public static function sendBroadcastMessage($body)
+    public function sendBroadcastMessage($body)
     {
         $payload = new Payloads\MessagePayload(compact('body'));
         $endpoint = self::$endpoint . UserEndpoint::$endpoint;

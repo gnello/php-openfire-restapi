@@ -32,7 +32,7 @@ class SystemEndpoint extends Dispatcher
      * @return array with System properties
      * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#retrieve-all-system-properties
      */
-    public static function retrieveAllSystemProperties()
+    public function retrieveAllSystemProperties()
     {
         $endpoint = self::$endpoint . '/properties';
         return self::sendRequest(Method::GET, $endpoint);
@@ -44,7 +44,7 @@ class SystemEndpoint extends Dispatcher
      * @return array with System property
      * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#retrieve-system-property
      */
-    public static function retrieveSystemProperty($propertyName)
+    public function retrieveSystemProperty($propertyName)
     {
         $endpoint = self::$endpoint . '/properties/' . $propertyName;
         return self::sendRequest(Method::GET, $endpoint);
@@ -57,7 +57,7 @@ class SystemEndpoint extends Dispatcher
      * @return array with HTTP status 201 (Created)
      * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#create-a-system-property
      */
-    public static function createSystemProperty($propertyName, $propertyValue)
+    public function createSystemProperty($propertyName, $propertyValue)
     {
         $payload = new Payloads\SystemPropertyPayload(compact('propertyName', 'propertyValue'));
         $endpoint = self::$endpoint . '/properties';
@@ -70,7 +70,7 @@ class SystemEndpoint extends Dispatcher
      * @return array with HTTP status 200 (OK)
      * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#delete-a-system-property
      */
-    public static function deleteSystemProperty($propertyName)
+    public function deleteSystemProperty($propertyName)
     {
         $endpoint = self::$endpoint . '/properties/' . $propertyName;
         return self::sendRequest(Method::DELETE, $endpoint);
@@ -82,7 +82,7 @@ class SystemEndpoint extends Dispatcher
      * @return array with HTTP status 200 (OK)
      * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#update-a-system-property
      */
-    public static function updateSystemProperty($propertyName)
+    public function updateSystemProperty($propertyName)
     {
         $endpoint = self::$endpoint . '/properties/' . $propertyName;
         return self::sendRequest(Method::PUT, $endpoint);
@@ -93,7 +93,7 @@ class SystemEndpoint extends Dispatcher
      * @return array with Sessions count
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#retrieve-concurrent-sessions
      */
-    public static function retrieveConcurrentSessions()
+    public function retrieveConcurrentSessions()
     {
         $endpoint = self::$endpoint . '/statistics' . SessionEndpoint::$endpoint;
         return self::sendRequest(Method::GET, $endpoint);
