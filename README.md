@@ -6,7 +6,7 @@ current version: 1.2.2
 
 ##### CHANGELOG
 
-- v1.2.2 ()
+- v1.2.2 (01/10/2016)
 -- Added Basic Authentication
 -- Added Debugger Class
 -- Renamed method "setSecret" to "setSecretKey"
