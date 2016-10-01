@@ -6,18 +6,23 @@ current version: 1.2.1
 
 ##### CHANGELOG
 
-- v1.2.1 (30/09/2016)  
+- v1.2.2 ()
+-- Added Basic Authentication
+-- Added Debugger Class
+-- Renamed method "setSecret" to "setSecretKey"
+
+- v1.2.1 (30/09/2016)
 -- Fixed a bug of the "setJid" method into RosterItem Payload
 -- Renamed some classes (never satisfied :P)
 
-- v1.2.0 (29/09/2016)  
--- Added debug mode  
+- v1.2.0 (29/09/2016)
+-- Added debug mode
 -- Improved logic of Settings  
 
-- v1.1.0 (16/07/2016)  
+- v1.1.0 (16/07/2016)
 -- Renamed some methods into API class
 
-- v1.0.4 (21/05/2016)  
+- v1.0.4 (21/05/2016)
 -- first release
 
 ## LICENSE
@@ -49,7 +54,6 @@ Just change these constants into src/Settings/Settings.php
 const HOST = 'your_host';
 const PORT = '9090';
 const PLUGIN = '/plugins/restapi/v1';
-const SECRET = 'your_secret';
 const SERVER_NAME = 'your_server_name';
 ```
 
@@ -58,7 +62,6 @@ or you can dynamically configure it at any point of the project in this way
 include "vendor/autoload.php";
 
 //Set the required config parameters
-$api->Settings()->setSecret("your_secret");
 $api->Settings()->setHost("your_host");
 $api->Settings()->setServerName("your_servername");
 
@@ -67,7 +70,21 @@ $api->Settings()->setPort("9090");
 $api->Settings()->setSSL(false);
 $api->Settings()->setPlugin("/plugins/restapi/v1");
 ```
-
+## AUTHENTICATION
+There are two ways to authenticate:  
+Basic HTTP Authentication
+```php
+//Set the required authentication parameters
+$api->Settings()->setAuth("basic");
+$api->Settings()->setUser("your_user");
+$api->Settings()->setPsw("your_password");
+```
+Shared secret key
+```php
+//Set the required authentication parameters
+$api->Settings()->setAuth("secret_key"); //is setted by default so it's optional
+$api->Settings()->setSecretKey("your_secret_key");
+```
 ## USAGE
 ### Start
 ```php
