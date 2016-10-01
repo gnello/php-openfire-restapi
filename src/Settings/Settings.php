@@ -40,7 +40,7 @@ class Settings extends AbstractRegistryWrapper
     const PSW           = 'your_password';      //if you use basic authentication
 
     /**
-     * Authentication constants
+     * Authentication constants, do not touch ;)
      */
     const AUTH_BASE         = 'basic';
     const AUTH_SECRET_KEY   = 'secret_key';
