@@ -7,28 +7,7 @@ Easy Php REST API Client to manage [Openfire Server] (http://www.igniterealtime.
 [Documentation (under construction)](https://github.com/gnello/php-openfire-restapi/wiki)
 
 ## VERSION
-current version: 1.2.2
-
-##### CHANGELOG
-
-- v1.2.2 (01/10/2016)  
--- Added Basic Authentication  
--- Added Debugger Class  
--- Renamed method "setSecret" to "setSecretKey"
-
-- v1.2.1 (30/09/2016)  
--- Fixed a bug of the "setJid" method into RosterItem Payload  
--- Renamed some classes (never satisfied :P)
-
-- v1.2.0 (29/09/2016)  
--- Added debug mode  
--- Improved logic of Settings  
-
-- v1.1.0 (16/07/2016)  
--- Renamed some methods into API class
-
-- v1.0.4 (21/05/2016)  
--- first release
+The current version is 1.2.2, see [CHANGELOG](https://github.com/gnello/php-openfire-restapi/blob/master/CHANGELOG.md) for further information
 
 ## LICENSE
 PhpOpenFireRestAPI is licensed under Apache License 2.0, see LICENCE for further information.
