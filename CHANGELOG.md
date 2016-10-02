@@ -1,6 +1,10 @@
 # Changelog
 
 ## Master
+- Added Payloads creator into API class
+- Fixed a bug of the "createSystemProperty" and "updateSystemProperty" methods into SystemEndpoint
+
+## 1.2.2 
 - Added Basic Authentication
 - Added Debugger Class
 - Renamed method "setSecret" to "setSecretKey"

@@ -43,7 +43,7 @@ class UserEndpoint extends Dispatcher
             throw new \Exception("propertyValue can only be used within propertyKey parameter!");
         }
 
-        $getData = compact($search, $propertyKey, $propertyValue);
+        $getData = compact('search', 'propertyKey', 'propertyValue');
         $getData = http_build_query($getData);
         $endpoint = self::$endpoint . '?' . $getData;
         return self::sendRequest(Method::GET, $endpoint);
@@ -91,6 +91,7 @@ class UserEndpoint extends Dispatcher
 
     /**
      * Update/rename a user
+     * @param $currentUsername
      * @param $username
      * @param $password
      * @param null $name
@@ -99,10 +100,10 @@ class UserEndpoint extends Dispatcher
      * @return array with HTTP status 200 (OK)
      * @link http://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#update-a-user
      */
-    public function updateUser($username, $password, $name = null, $email = null, $properties = array())
+    public function updateUser($currentUsername, $username, $password, $name = null, $email = null, $properties = array())
     {
         $payload = new Payloads\UserPayload(compact('username', 'password', 'name', 'email', 'properties'));
-        $endpoint = self::$endpoint . '/' . $username;
+        $endpoint = self::$endpoint . '/' . $currentUsername;
         return self::sendRequest(Method::PUT, $endpoint, $payload);
     }
 

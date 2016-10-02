@@ -7,7 +7,7 @@ Easy Php REST API Client to manage [Openfire Server] (http://www.igniterealtime.
 [Documentation (under construction)](https://github.com/gnello/php-openfire-restapi/wiki)
 
 ## VERSION
-The current version is 1.2.2, see [CHANGELOG](https://github.com/gnello/php-openfire-restapi/blob/master/CHANGELOG.md) for further information
+The current version is 1.2.3, see [CHANGELOG](https://github.com/gnello/php-openfire-restapi/blob/master/CHANGELOG.md) for further information
 
 ## LICENSE
 PhpOpenFireRestAPI is licensed under Apache License 2.0, see LICENCE for further information.
@@ -132,7 +132,7 @@ $result = $api->Messages()->sendBroadcastMessage('Hello everybody!');
 ### ChatRooms
 ```php
 //Create a new ChatRoom
-$payload = new \Gnello\OpenFireRestAPI\Payloads\ChatRoom();
+$payload = $api->Payloads()->createChatRoomPayload();
 $payload->setRoomName('myfirstchatroom');
 $payload->setNaturalName('my_first_chat_room');
 $payload->setDescription('This is my first chat room!');

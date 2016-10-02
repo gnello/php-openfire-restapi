@@ -57,6 +57,11 @@ class API
     private $system;
 
     /**
+     * @var Payloads\Payload
+     */
+    private $payloads;
+
+    /**
      * @var Utils\Debugger
      */
     private $debugger;
@@ -73,6 +78,7 @@ class API
         $this->messages     = new Endpoints\MessageEndpoint();
         $this->sessions     = new Endpoints\SessionEndpoint();
         $this->system       = new Endpoints\SystemEndpoint();
+        $this->payloads     = new Payloads\Payload();
         $this->debugger     = Utils\Debugger::getInstance();
     }
 
@@ -130,6 +136,14 @@ class API
     public function System()
     {
         return $this->system;
+    }
+
+    /**
+     * @return Payloads\Payload
+     */
+    public function Payloads()
+    {
+        return $this->payloads;
     }
 
     /**
