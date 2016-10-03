@@ -68,10 +68,19 @@ class API
 
     /**
      * API constructor.
+     * @param                     $host
+     * @param                     $port
+     * @param AuthenticationToken $authenticationToken
      */
-    public function __construct()
+    public function __construct($host, $port, AuthenticationToken $authenticationToken)
     {
-        $this->settings     = Settings\Settings::getInstance();
+        $settings = Settings\Settings::getInstance();
+        $settings->setHost($host);
+        $settings->setPort($port);
+        $settings->setServerNameFromHost($host);
+        $settings->setAuthenticationToken($authenticationToken);
+
+        $this->settings     = $settings;
         $this->users        = new Endpoints\UserEndpoint();
         $this->chatrooms    = new Endpoints\ChatRoomEndpoint();
         $this->groups       = new Endpoints\GroupEndpoint();

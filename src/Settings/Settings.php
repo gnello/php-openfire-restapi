@@ -13,6 +13,7 @@
 
 namespace Gnello\OpenFireRestAPI\Settings;
 
+use Gnello\OpenFireRestAPI\AuthenticationToken;
 use Gnello\OpenFireRestAPI\Wrappers\AbstractRegistryWrapper;
 
 /**
@@ -25,25 +26,7 @@ class Settings extends AbstractRegistryWrapper
      * Default Settings
      * Edit this section to configure your client
      */
-    const HOST          = 'localhost';
-    const PORT          = '9090';
-    const PLUGIN        = '/plugins/restapi/v1';
-    const AUTH          = 'secret_key';
-
-    /**
-     * Settings that you need to change
-     * Edit this section to configure your client
-     */
-    const SERVER_NAME   = 'your_server_name';
-    const SECRET_KEY    = 'your_secret_key';    //if you use secret_key authentication
-    const USER          = 'your_username';      //if you use basic authentication
-    const PSW           = 'your_password';      //if you use basic authentication
-
-    /**
-     * Authentication constants, do not touch ;)
-     */
-    const AUTH_BASE         = 'basic';
-    const AUTH_SECRET_KEY   = 'secret_key';
+    const PLUGIN_PATH   = '/plugins/restapi/v1';
 
     /**
      * @var Settings
@@ -62,12 +45,7 @@ class Settings extends AbstractRegistryWrapper
     {
         if (is_null(self::$instance)) {
             $settings = new Settings();
-            $settings->setAuth(self::AUTH);
-            $settings->setHost(self::HOST);
-            $settings->setPort(self::PORT);
-            $settings->setPlugin(self::PLUGIN);
-            $settings->setSecretKey(self::SECRET_KEY);
-            $settings->setServerName(self::SERVER_NAME);
+            $settings->setPlugin(self::PLUGIN_PATH);
             $settings->setSSL(false);
             $settings->setDebug(false);
 
@@ -78,24 +56,21 @@ class Settings extends AbstractRegistryWrapper
     }
 
     /**
-     * Set type of authentication.
-     * Possible values are 'basic' or 'secret_key'
-     * @param $auth
-     * @return mixed
-     * @throws \Exception
-     */
-    public function setAuth($auth)
-    {
-        return $this->set('auth', $auth);
-    }
-
-    /**
      * @param $host
      * @return string
      */
     public function setHost($host)
     {
-        return $this->set('host', $host);
+        $parsed_host = parse_url($host, PHP_URL_HOST);
+
+        if (is_null($parsed_host)) {
+            $parsed_host = $host;
+        } else {
+            $scheme = parse_url($host, PHP_URL_SCHEME);
+            $this->setSSL($scheme === 'https');
+        }
+
+        return $this->set('host', $parsed_host);
     }
 
     /**
@@ -135,29 +110,28 @@ class Settings extends AbstractRegistryWrapper
     }
 
     /**
-     * @param $user
-     * @return string
-     */
-    public function setUser($user)
-    {
-        return $this->set('user', $user);
-    }
-
-    /**
-     * @param $psw
-     * @return string
-     */
-    public function setPsw($psw)
-    {
-        return $this->set('psw', $psw);
-    }
-
-    /**
      * @param $serverName
      * @return string
      */
     public function setServerName($serverName)
     {
+        return $this->set('serverName', $serverName);
+    }
+
+    /**
+     * @param $host
+     * @return string
+     */
+    public function setServerNameFromHost($host)
+    {
+        $parsed_host = parse_url($host, PHP_URL_HOST);
+
+        if (is_null($parsed_host)) {
+            $serverName = $host;
+        } else {
+            $serverName = preg_replace('/^www\./', '', $parsed_host);
+        }
+
         return $this->set('serverName', $serverName);
     }
 
@@ -171,12 +145,12 @@ class Settings extends AbstractRegistryWrapper
     }
 
     /**
-     * Return type of authentication.
-     * @return string
+     * @param AuthenticationToken $authenticationToken
+     * @return mixed
      */
-    public function getAuth()
+    public function setAuthenticationToken(AuthenticationToken $authenticationToken)
     {
-        return $this->get('auth');
+        return $this->set('authenticationToken', $authenticationToken);
     }
 
     /**
@@ -214,30 +188,6 @@ class Settings extends AbstractRegistryWrapper
     /**
      * @return string
      */
-    public function getSecretKey()
-    {
-        return $this->get('secret_key');
-    }
-
-    /**
-     * @return string
-     */
-    public function getUser()
-    {
-        return $this->get('user');
-    }
-
-    /**
-     * @return string
-     */
-    public function getPsw()
-    {
-        return $this->get('psw');
-    }
-
-    /**
-     * @return string
-     */
     public function getServerName()
     {
         return $this->get('serverName');
@@ -249,6 +199,14 @@ class Settings extends AbstractRegistryWrapper
     public function isDebug()
     {
         return $this->get('debug');
+    }
+
+    /**
+     * @return AuthenticationToken
+     */
+    public function getAuthenticationToken()
+    {
+        return $this->get('authenticationToken');
     }
 
     /**
@@ -268,17 +226,17 @@ class Settings extends AbstractRegistryWrapper
      */
     public function getHeaders()
     {
-        $auth = $this->getAuth();
+        $authenticationToken = $this->getAuthenticationToken();
 
-        switch ($auth) {
-            case self::AUTH_BASE:
-                $authHeader = "basic " . base64_encode($this->getUser() . ":" . $this->getPsw());
+        switch ($authenticationToken->getAuthMode()) {
+            case AuthenticationToken::AUTH_BASE:
+                $authHeader = "basic " . base64_encode($authenticationToken->getUsername() . ":" . $authenticationToken->getPassword());
                 break;
-            case self::AUTH_SECRET_KEY:
-                $authHeader = $this->getSecretKey();
+            case AuthenticationToken::AUTH_SECRET_KEY:
+                $authHeader = $authenticationToken->getSharedSecretKey();
                 break;
             default:
-                $authHeader = "Unrecognized auth [{$auth}]! Must be 'basic' or 'secret_key'";
+                $authHeader = "Unrecognized authentication token!";
                 break;
         }
 
