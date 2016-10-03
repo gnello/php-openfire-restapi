@@ -2,7 +2,7 @@
 
 ## Master
 - Changed API constructor
-- Changed Authentication mode, now with AuthenticationToken
+- Changed authentication mode, now through AuthenticationToken
 - Added Payloads creator into API class
 - Added $currentUsername parameter in the "updateUser" method into UserEndpoint
 - Fixed a bug of the "createSystemProperty" and "updateSystemProperty" methods into SystemEndpoint
