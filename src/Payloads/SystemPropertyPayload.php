@@ -26,40 +26,47 @@ class SystemPropertyPayload extends AbstractPayload
      * Optional No
      * @var string
      */
-    private $key;
+    //private $key;
 
     /**
      * The value of the system property
      * Optional Yes
      * @var string
      */
-    private $value;
+    //private $value;
 
     /**
-     * @param $key
+     * The value of the system property
+     * Optional Yes
+     * @var string
      */
-    public function setKey($key) {
-        $this->key = $key;
+    private $property;
+
+    /**
+     * SystemPropertyPayload constructor.
+     * @param $property
+     */
+    public function __construct($property)
+    {
+        $prop['property'][$property['propertyName']] = $property['propertyValue'];
+        parent::__construct($prop);
     }
 
     /**
-     * @param $value
+     * @param array $properties
      */
-    public function setValue($value) {
-        $this->value = $value;
+    public function setProperty(array $properties) {
+        foreach ($properties as $key => $value) {
+            $property['@key'] = $key;
+            $property['@value'] = $value;
+            $this->property = $property;
+        }
     }
 
     /**
-     * @return string
+     * @return array
      */
-    public function getKey() {
-        return $this->key;
-    }
-
-    /**
-     * @return string
-     */
-    public function getValue() {
-        return $this->value;
+    public function getProperty() {
+        return $this->property;
     }
 }

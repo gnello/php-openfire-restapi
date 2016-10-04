@@ -78,14 +78,17 @@ class SystemEndpoint extends Dispatcher
 
     /**
      * Update a system property
+     * @param $currentPropertyName
      * @param $propertyName
+     * @param $propertyValue
      * @return array with HTTP status 200 (OK)
      * @link https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#update-a-system-property
      */
-    public function updateSystemProperty($propertyName)
+    public function updateSystemProperty($currentPropertyName, $propertyName, $propertyValue)
     {
-        $endpoint = self::$endpoint . '/properties/' . $propertyName;
-        return self::sendRequest(Method::PUT, $endpoint);
+        $payload = new Payloads\SystemPropertyPayload(compact('propertyName', 'propertyValue'));
+        $endpoint = self::$endpoint . '/properties/' . $currentPropertyName;
+        return self::sendRequest(Method::PUT, $endpoint, $payload);
     }
 
     /**
