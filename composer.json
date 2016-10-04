@@ -24,6 +24,6 @@
       "Gnello\\OpenFireRestAPI\\": "src/"
     }
   },
-  "minimum-stability": "dev-master",
+  "minimum-stability": "dev",
   "prefer-stable": true
 }
