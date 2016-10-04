@@ -22,7 +22,5 @@
     "psr-4": {
       "Gnello\\OpenFireRestAPI\\": "src/"
     }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+  }
 }
