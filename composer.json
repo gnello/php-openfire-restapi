@@ -1,6 +1,7 @@
 {
   "name": "gnello/php-openfire-restapi",
   "description": "Manage OpenFire Server using Rest API",
+  "version": "2.0.0",
   "keywords": ["openfire", "chat"],
   "homepage": "https://github.com/gnello/php-openfire-restapi",
   "license": "Apache-2.0",
@@ -22,5 +23,7 @@
     "psr-4": {
       "Gnello\\OpenFireRestAPI\\": "src/"
     }
-  }
+  },
+  "minimum-stability": "dev-master",
+  "prefer-stable": true
 }
