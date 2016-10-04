@@ -10,7 +10,7 @@ PhpOpenFireRestAPI is licensed under Apache License 2.0, see LICENCE for further
 
 ## Requirements
 - PHP 5.3+
-
+ 
 ## Dependencies
 The REST API plugin need to be installed and configured on the Openfire server.
 
