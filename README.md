@@ -1,6 +1,7 @@
 # php-openfire-restapi
 
 [![Build Status][8]][7] [![Latest Stable Version][10]][11]  
+
 Easy Php REST API Client for the [Openfire][1] [REST API Plugin][2] which provides the ability to manage Openfire instance by sending an REST/HTTP request to the server 
 
 [Documentation (under construction)][5]
