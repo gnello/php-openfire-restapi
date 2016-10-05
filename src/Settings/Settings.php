@@ -101,15 +101,6 @@ class Settings extends AbstractRegistryWrapper
     }
 
     /**
-     * @param $secretKey
-     * @return string
-     */
-    public function setSecretKey($secretKey)
-    {
-        return $this->set('secret_key', $secretKey);
-    }
-
-    /**
      * @param $serverName
      * @return string
      */
@@ -226,23 +217,15 @@ class Settings extends AbstractRegistryWrapper
      */
     public function getHeaders()
     {
-        $authenticationToken = $this->getAuthenticationToken();
+        $authToken = $this->getAuthenticationToken()->getAuthToken();
 
-        switch ($authenticationToken->getAuthMode()) {
-            case AuthenticationToken::AUTH_BASE:
-                $authHeader = "basic " . base64_encode($authenticationToken->getUsername() . ":" . $authenticationToken->getPassword());
-                break;
-            case AuthenticationToken::AUTH_SECRET_KEY:
-                $authHeader = $authenticationToken->getSharedSecretKey();
-                break;
-            default:
-                $authHeader = "Unrecognized authentication token!";
-                break;
+        if (empty($authToken)) {
+            $authToken = "Unrecognized authentication token!";
         }
 
         return array(
             'Accept: application/json',
-            'Authorization: ' . $authHeader,
+            'Authorization: ' . $authToken,
             'Content-Type: application/json',
         );
     }

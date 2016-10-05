@@ -18,6 +18,9 @@
     "php": ">=5.3.0",
     "ext-curl": "*"
   },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
   "autoload": {
     "psr-4": {
       "Gnello\\OpenFireRestAPI\\": "src/"
