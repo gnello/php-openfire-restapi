@@ -43,37 +43,37 @@ class AuthenticationTokenTest extends \PHPUnit_Framework_TestCase
         $this->assertNotEquals(AuthenticationToken::AUTH_SECRET_KEY, $fixture->getAuthMode());
     }
 
-    public function testGetAuthTokenBase()
+    public function testAuthenticationTokenGetAuthTokenBase()
     {
         $fixture = new AuthenticationToken('username', 'password');
         $this->assertEquals("basic " . base64_encode("username:password"), $fixture->getAuthToken());
     }
 
-    public function testGetAuthTokenSharedSecretKey()
+    public function testAuthenticationTokenGetAuthTokenSharedSecretKey()
     {
         $fixture = new AuthenticationToken('shared_secret_key');
         $this->assertEquals('shared_secret_key', $fixture->getAuthToken());
     }
 
-    public function testGetAuthTokenNull()
+    public function testAuthenticationTokenGetAuthTokenNull()
     {
         $fixture = new AuthenticationToken('username', 'password', 'shared_secret_key');
         $this->assertNull($fixture->getAuthToken());
     }
 
-    public function testGetSharedSecretKey()
+    public function testAuthenticationTokenGetSharedSecretKey()
     {
         $fixture = new AuthenticationToken('shared_secret_key');
         $this->assertEquals('shared_secret_key', $fixture->getSharedSecretKey());
     }
 
-    public function testGetUsername()
+    public function testAuthenticationTokenGetUsername()
     {
         $fixture = new AuthenticationToken('username', 'password');
         $this->assertEquals('username', $fixture->getUsername());
     }
 
-    public function testGetPassword()
+    public function testAuthenticationTokenGetPassword()
     {
         $fixture = new AuthenticationToken('username', 'password');
         $this->assertEquals('password', $fixture->getPassword());
