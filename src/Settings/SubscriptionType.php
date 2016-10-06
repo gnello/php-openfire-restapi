@@ -33,7 +33,7 @@ class SubscriptionType
      */
     public static function isValid($subscriptionType)
     {
-        if (is_string($subscriptionType)) {
+        if (!is_numeric($subscriptionType)) {
             return false;
         }
 
