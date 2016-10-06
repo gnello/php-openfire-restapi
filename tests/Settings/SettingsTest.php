@@ -29,7 +29,7 @@ class SettingsTest extends \PHPUnit_Framework_TestCase
 
     protected function tearDown()
     {
-        unset($this->debugger);
+        $this->fixture->destroy();
     }
 
     public function testGetInstance()
@@ -51,8 +51,11 @@ class SettingsTest extends \PHPUnit_Framework_TestCase
 
         $this->fixture->setHost('test');
         $this->assertEquals('test', $this->fixture->getHost());
+    }
 
+    public function testHostIsNull()
+    {
         $this->fixture->setHost(array(1, 2));
-        $this->assertFalse($this->fixture->getHost());
+        $this->assertNull($this->fixture->getHost());
     }
 }
