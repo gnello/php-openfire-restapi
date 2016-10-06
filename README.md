@@ -4,7 +4,7 @@
 
 Easy Php REST API Client for the [Openfire][1] [REST API Plugin][2] which provides the ability to manage Openfire instance by sending an REST/HTTP request to the server 
 
-[Documentation (under construction)][5]
+please read [documentation][5] for further information on using this application.
 
 ## License
 PhpOpenFireRestAPI is licensed under Apache License 2.0, see LICENCE for further information.
