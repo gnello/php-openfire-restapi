@@ -58,4 +58,4 @@ class SettingsTest extends \PHPUnit_Framework_TestCase
         $this->fixture->setHost(array(1, 2));
         $this->assertNull($this->fixture->getHost());
     }
-}
+} 
