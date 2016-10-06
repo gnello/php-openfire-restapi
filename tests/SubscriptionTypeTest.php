@@ -34,5 +34,7 @@ class SubscriptionTypeTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse(SubscriptionType::isValid(4));
         $this->assertFalse(SubscriptionType::isValid(-1));
         $this->assertFalse(SubscriptionType::isValid('test'));
+        $this->assertFalse(SubscriptionType::isValid(array(1,2)));
+        $this->assertFalse(SubscriptionType::isValid(true));
     }
 }
