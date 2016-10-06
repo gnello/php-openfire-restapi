@@ -154,8 +154,8 @@ please note that if you do not make requests, these variables will be empty ;)
 [3]: https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#installation
 [4]: https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#authentication
 [5]: https://github.com/gnello/php-openfire-restapi/wiki
-[7]: https://scrutinizer-ci.com/g/gnello/php-openfire-restapi/build-status/master
-[8]: https://scrutinizer-ci.com/g/gnello/php-openfire-restapi/badges/build.png?b=master
+[7]: https://travis-ci.org/gnello/php-openfire-restapi
+[8]: https://travis-ci.org/gnello/php-openfire-restapi.svg?branch=master
 [9]: https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx
 [10]: https://poser.pugx.org/gnello/php-openfire-restapi/v/stable
 [11]: https://packagist.org/packages/gnello/php-openfire-restapi
