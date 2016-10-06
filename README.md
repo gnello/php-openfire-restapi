@@ -1,20 +1,17 @@
 # php-openfire-restapi
 
-[![Build Status][8]][7]
+[![Build Status][8]][7] [![Latest Stable Version][10]][11]  
 
 Easy Php REST API Client for the [Openfire][1] [REST API Plugin][2] which provides the ability to manage Openfire instance by sending an REST/HTTP request to the server 
 
 [Documentation (under construction)][5]
-
-## Version
-The current version is 1.2.3, see [CHANGELOG][6] for further information
 
 ## License
 PhpOpenFireRestAPI is licensed under Apache License 2.0, see LICENCE for further information.
 
 ## Requirements
 - PHP 5.3+
-
+ 
 ## Dependencies
 The REST API plugin need to be installed and configured on the Openfire server.
 
@@ -157,7 +154,8 @@ please note that if you do not make requests, these variables will be empty ;)
 [3]: https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#installation
 [4]: https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#authentication
 [5]: https://github.com/gnello/php-openfire-restapi/wiki
-[6]: https://github.com/gnello/php-openfire-restapi/blob/master/CHANGELOG.md
 [7]: https://scrutinizer-ci.com/g/gnello/php-openfire-restapi/build-status/master
 [8]: https://scrutinizer-ci.com/g/gnello/php-openfire-restapi/badges/build.png?b=master
 [9]: https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx
+[10]: https://poser.pugx.org/gnello/php-openfire-restapi/v/stable
+[11]: https://packagist.org/packages/gnello/php-openfire-restapi

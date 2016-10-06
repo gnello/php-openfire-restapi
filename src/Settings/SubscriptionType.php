@@ -33,6 +33,10 @@ class SubscriptionType
      */
     public static function isValid($subscriptionType)
     {
+        if (!is_numeric($subscriptionType)) {
+            return false;
+        }
+
         switch ($subscriptionType) {
             case self::NONE:
             case self::TO:

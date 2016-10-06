@@ -1,4 +1,5 @@
 todo.txt
 test.php
-test2.php
+composer.lock
 changelog.txt
+vendor/

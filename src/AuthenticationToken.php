@@ -102,4 +102,23 @@ class AuthenticationToken
         return $this->password;
     }
 
+    /**
+     * @return null|string
+     */
+    public function getAuthToken()
+    {
+        switch ($this->getAuthMode()) {
+            case self::AUTH_BASE:
+                $authToken = "basic " . base64_encode($this->getUsername() . ":" . $this->getPassword());
+                break;
+            case self::AUTH_SECRET_KEY:
+                $authToken = $this->getSharedSecretKey();
+                break;
+            default:
+                $authToken = null;
+                break;
+        }
+
+        return $authToken;
+    }
 }
