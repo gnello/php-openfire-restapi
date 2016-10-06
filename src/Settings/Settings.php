@@ -127,6 +127,10 @@ class Settings extends AbstractRegistryWrapper
      */
     public function setServerNameFromHost($host)
     {
+        if (!is_string($host)) {
+            return false;
+        }
+        
         $parsed_host = parse_url($host, PHP_URL_HOST);
 
         if (is_null($parsed_host)) {
