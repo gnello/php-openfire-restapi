@@ -55,6 +55,12 @@ class SettingsTest extends \PHPUnit_Framework_TestCase
 
     public function testHostIsNull()
     {
+        $this->fixture->setHost(true);
+        $this->assertNull($this->fixture->getHost());
+
+        $this->fixture->setHost(1);
+        $this->assertNull($this->fixture->getHost());
+
         $this->fixture->setHost(array(1, 2));
         $this->assertNull($this->fixture->getHost());
     }
@@ -66,5 +72,17 @@ class SettingsTest extends \PHPUnit_Framework_TestCase
 
         $this->fixture->setServerNameFromHost('test');
         $this->assertEquals('test', $this->fixture->getServerName());
+    }
+
+    public function testServerNameFromHostIsNull()
+    {
+        $this->fixture->setServerNameFromHost(true);
+        $this->assertNull($this->fixture->getServerName());
+
+        $this->fixture->setServerNameFromHost(1);
+        $this->assertNull($this->fixture->getServerName());
+
+        $this->fixture->setServerNameFromHost(array(1, 2));
+        $this->assertNull($this->fixture->getServerName());
     }
 }
