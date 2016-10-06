@@ -73,7 +73,7 @@ class SettingsTest extends \PHPUnit_Framework_TestCase
         $this->fixture->setServerNameFromHost('test');
         $this->assertEquals('test', $this->fixture->getServerName());
     }
-
+ 
     public function testServerNameFromHostIsNull()
     {
         $this->fixture->setServerNameFromHost(true);
