@@ -90,7 +90,7 @@ class ChatRoomPayload extends AbstractPayload
      * Optional Yes
      * @var bool
      */
-    private $persistent;
+    private $persistent = true;
 
     /**
      * Can be “true” or “false”. True if the room is searchable and visible through
