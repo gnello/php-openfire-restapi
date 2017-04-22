@@ -22,16 +22,9 @@ The REST API plugin need to be installed and configured on the Openfire server.
 ### Composer
 The best way to install php-openfire-restapi is to use Composer, you do that:
 
-1) Add the following to your project's ```composer.json``` file:
-```json
-{
-    "require": {
-        "gnello/php-openfire-restapi": "dev-master"
-    }
-}
 ```
-
-2) Run ```composer install``` or ```composer update``` command
+composer require gnello/php-openfire-restapi
+```
 
 Read more about how to install and use Composer on your local machine [here][9].
 
