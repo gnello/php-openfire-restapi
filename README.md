@@ -173,7 +173,7 @@ $response = $client->getGroupModel()->deleteGroup('theavengers');
 //Please read the GroupModel class for a complete list of available methods.
 ```
 
-##Endpoints supported 
+## Endpoints supported  
 All the endpoints are supported:
  
 - [Users](https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#user-related-rest-endpoints)
