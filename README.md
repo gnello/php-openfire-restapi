@@ -2,150 +2,188 @@
 
 [![Build Status][8]][7] [![Latest Stable Version][10]][11] [![Scrutinizer Code Quality][12]][13]  
 
-Easy Php REST API Client for the [Openfire][1] [REST API Plugin][2] which provides the ability to manage Openfire instance by sending an REST/HTTP request to the server 
+A PHP client for the [Openfire][1] [REST API Plugin][2] which provides you the ability
+ to manage an Openfire instance by sending a REST/HTTP request to the server.
 
-Please read [documentation][5] for further information on using this application.
+Please read the [documentation][2] for further information on using this application.
 
-## License
-PhpOpenFireRestAPI is licensed under Apache License 2.0, see LICENCE for further information.
-
-## Requirements
-- PHP 5.3+
+This client supports completely the >= 1.3.9 version of the [REST API Plugin][2].
  
 ## Dependencies
-The REST API plugin need to be installed and configured on the Openfire server.
+The REST API plugin need to be installed and configured on your Openfire server.
 
-* [How to install REST API][3]
-* [How to configure REST API][4]
+- [How to install REST API][3]
+- [How to configure REST API][4]
 
 ## Installation
 ### Composer
-The best way to install php-openfire-restapi is to use Composer, you do that:
+The best way to install php-openfire-restapi is to use Composer, run the following command:
 
-1) Add the following to your project's ```composer.json``` file:
-```json
-{
-    "require": {
-        "gnello/php-openfire-restapi": "dev-master"
-    }
-}
+```
+composer require gnello/php-openfire-restapi
 ```
 
-2) Run ```composer install``` or ```composer update``` command
-
-Read more about how to install and use Composer on your local machine [here][9].
+Read more about how to install and use Composer [here][9].
 
 ## Usage
-### Authentication
-There are two ways to authenticate:
+### Instance and authentication
+There are two ways of authentication:
 
 - Basic HTTP Authentication
 ```php
-$authenticationToken = new \Gnello\OpenFireRestAPI\AuthenticationToken('your_user', 'your_password');
+$client = new Client([
+    'client' => [
+        'username' => 'ironman',
+        'password' => 'romanoff',
+    ]
+]);
 ```
 - Shared secret key
 ```php
-$authenticationToken = new \Gnello\OpenFireRestAPI\AuthenticationToken('your_secret_key');
+$client = new Client([
+    'client' => [
+        'secretKey' => 'hulkstink',
+    ]
+]);
 ```
-### Start
-```php
-$api = new \Gnello\OpenFireRestAPI\API('your_host', 9090, $authenticationToken);
-```
+Make sure to enable one of these authentication methods on your Openfire server.
+
 ### Configuration
-Usually you do not need to change anything, otherwise you can do it this way
+You can configure the Client with the following options:
 ```php
-$api->Settings()->setServerName("your_servername");
-$api->Settings()->setHost("your_host");
-$api->Settings()->setPort("9090");
-$api->Settings()->setSSL(false);
-$api->Settings()->setPlugin("/plugins/restapi/v1");
+$client = new Client([
+    'client' => [
+        'secretKey' => 'hulkstink',
+        'scheme' => 'https',
+        'basePath' => '/plugins/restapi/v1/',
+        'host' => 'localhost',
+        'port' => '9090',
+    ],
+    'guzzle'    => [
+         //put here any options for Guzzle
+    ]
+]);
 ```
-### Check result
+The only options required are those relating to the chosen authentication method.
+
+### Check the response
+This Client follows the [PSR-7][5] document, therefore any response is a ResponseInterface type:
 ```php
-if($result['response']) {
-    echo $result['output'];
+if ($response->getStatusCode() == 200) {
+    echo "Oh, great.";
+    var_dump(json_decode($response->getBody()));
 } else {
-    echo 'Error!';
+    echo "HTTP ERROR " . $response->getStatusCode();
 }
 ```
-### Users
+### Users endpoint
 ```php
-//Add a new user
-$properties = array('key1' => 'value1', 'key2' => 'value2');
-$result = $api->Users()->createUser('Username', 'Password', 'Full Name', 'email@domain.com', $properties);
+//Create a new user
+$response = $client->getUserModel()->createUser([
+    "username" => "admin",
+    "name" => "Administrator",
+    "email" => "admin@example.com",
+    "password" => "p4ssword",
+    "properties" => [
+        [
+            "key" => "console.order",
+            "value" => "session-summary=0"
+        ]
+    ]
+]);
 
 //Delete a user
-$result = $api->Users()->deleteUser('Username');
+$response = $client->getUserModel()->deleteUser('ironman');
 
 //Ban a user
-$result = $api->Users()->lockoutUser('Username');
+$response = $client->getUserModel()->lockoutUser('ironman');
 
 //Unban a user
-$result = $api->Users()->unlockUser('Username');
+$response = $client->getUserModel()->unlockUser('ironman');
+
+//Please read the UserModel class for a complete list of available methods.
 ```
-### Rosters
+### Chat Rooms endpoint
 ```php
-//Add to roster
-use \Gnello\OpenFireRestAPI\Settings\SubscriptionType;
-$result = $api->Users()->createUserRosterEntry('Username', 'Jid', 'Full Name', SubscriptionType::BOTH, array('group1','group2'));
+//Create a chat room
+$response = $client->getChatRoomModel()->createChatRoom([
+    "roomName" => "global-1",
+    "naturalName" => "global-1_test_hello",
+    "description" => "Global chat room",
+    "subject" => "Global chat room subject",
+    "creationDate" => "2012-10-18T16:55:12.803+02:00",
+    "modificationDate" => "2014-07-10T09:49:12.411+02:00",
+    "maxUsers" => "0",
+    "persistent" => "true",
+    "publicRoom" => "true",
+    "registrationEnabled" => "false",
+    "canAnyoneDiscoverJID" => "true",
+    "canOccupantsChangeSubject" => "false",
+    "canOccupantsInvite" => "false",
+    "canChangeNickname" => "false",
+    "logEnabled" => "true",
+    "loginRestrictedToNickname" => "true",
+    "membersOnly" => "false",
+    "moderated" => "false",
+    "broadcastPresenceRoles" => [
+        "moderator",
+        "participant",
+        "visitor"
+    ],
+    "owners" => [
+       "owner@localhost"
+    ],
+    "admins" => [
+       "admin@localhost"
+    ],
+    "members" => [
+        "member@localhost"
+    ],
+    "outcasts" => [
+        "outcast@localhost"
+    ]
+]);
 
-//Update roster
-use \Gnello\OpenFireRestAPI\Settings\SubscriptionType;
-$result = $api->Users()->updateUserRosterEntry('Username', 'Jid', 'Full Name', SubscriptionType::BOTH, array('group1'));
+//Retrieve a chat room
+$response = $client->getChatRoomModel()->retrieveChatRoom('theavengers')
 
-//Delete from roster
-$result = $api->Users()->deleteUserRosterEntry('Username', 'Jid');
-```
-### Groups
-```php
-//Create group
-$result = $api->Groups()->createGroup('groupname', 'description');
-
-//Add to Groups
-$result = $api->Users()->addUserToGroups('Username', array('groupname1', 'groupname2', 'groupname3'));
-
-//Delete from Groups
-$result = $api->Users()->deleteUserFromGroups('Username', array('groupname1','groupname2'));
-```
-### Messages
-```php
-//Send message to all online users
-$result = $api->Messages()->sendBroadcastMessage('Hello everybody!');
-```
-### ChatRooms
-```php
-//Create a new ChatRoom
-$payload = $api->Payloads()->createChatRoomPayload();
-$payload->setRoomName('myfirstchatroom');
-$payload->setNaturalName('my_first_chat_room');
-$payload->setDescription('This is my first chat room!');
-$result = $api->ChatRooms()->createChatRoom($payload);
-
-//Add user with role to chat room
-$result = $api->ChatRooms()->addUserWithRoleToChatRoom('myfirstchatroom','members','username');
-
-//Add group with role to chat room
-$result = $api->ChatRooms()->addGroupWithRoleToChatRoom('myfirstchatroom','outcasts','groupname');
-
-//Delete a user from a chat room
-$result = $api->ChatRooms()->deleteUserFromChatRoom('myfirstchatroom','members','username');
+//Add a user with role to a chat room
+use \Gnello\OpenFireRestAPI\Models\ChatRoomModel;
+$response = $client->getChatRoomModel()->addUserWithRoleToChatRoom('theavengers', 'ironman', ChatRoomModel::ROLE_MEMBER);
 
 //Delete a chat room
-$result = $api->ChatRooms()->deleteChatRoom('myfirstchatroom');
+$response = $client->getChatRoomModel()->deleteChatRoom('theavengers');
+
+//Please read the ChatRoomModel class for a complete list of available methods.
 ```
-## Debug
-Under development you may need access to some useful information of the execution of software they're not normally available. 
-To do this just enable debug mode like this
+### Groups endpoint
 ```php
-//Enable debug mode
-$api->Settings()->setDebug(true);
+//Create a group
+$response = $client->getGroupModel()->createGroup([
+    "name" => "theavengers",
+    "description" => "team of superheroes appearing in American comic books published by Marvel Comics",
+]);
+
+//Retrieve a group
+$response = $client->getGroupModel()->retrieveGroup('theavengers')
+
+//Delete a group
+$response = $client->getGroupModel()->deleteGroup('theavengers');
+
+//Please read the GroupModel class for a complete list of available methods.
 ```
-At the moment it's available the register of requests (with its server responses) and the curl info. You can access it in this way
-```php
-$requests = $api->Debugger()->getRequests();
-$curlInfo = $api->Debugger()->getCurlInfo();
-```
-please note that if you do not make requests, these variables will be empty ;)
+
+##Endpoints supported 
+All the endpoints are supported:
+ 
+- [Users](https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#user-related-rest-endpoints)
+- [Chat Rooms](https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#chat-room-related-rest-endpoints)
+- [System](https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#system-related-rest-endpoints)
+- [Groups](https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#group-related-rest-endpoints)
+- [Sessions](https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#session-related-rest-endpoints)
+- [Messages](https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#message-related-rest-endpoints)
+- [Security Audit](https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#security-audit-related-rest-endpoints)
+
 ## Contact
 - gnello luca@gnello.com
 
@@ -153,7 +191,7 @@ please note that if you do not make requests, these variables will be empty ;)
 [2]: https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html
 [3]: https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#installation
 [4]: https://www.igniterealtime.org/projects/openfire/plugins/restapi/readme.html#authentication
-[5]: https://github.com/gnello/php-openfire-restapi/wiki
+[5]: http://www.php-fig.org/psr/psr-7/
 [7]: https://travis-ci.org/gnello/php-openfire-restapi
 [8]: https://travis-ci.org/gnello/php-openfire-restapi.svg?branch=master
 [9]: https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx
@@ -161,3 +199,4 @@ please note that if you do not make requests, these variables will be empty ;)
 [11]: https://packagist.org/packages/gnello/php-openfire-restapi
 [12]: https://scrutinizer-ci.com/g/gnello/php-openfire-restapi/badges/quality-score.png?b=master
 [13]: https://scrutinizer-ci.com/g/gnello/php-openfire-restapi/?branch=master
+
