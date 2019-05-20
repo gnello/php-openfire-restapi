@@ -31,6 +31,8 @@ There are two ways of authentication:
 
 - Basic HTTP Authentication
 ```php
+use Gnello\OpenFireRestAPI\Client;
+
 $client = new Client([
     'client' => [
         'username' => 'ironman',
@@ -40,6 +42,8 @@ $client = new Client([
 ```
 - Shared secret key
 ```php
+use Gnello\OpenFireRestAPI\Client;
+
 $client = new Client([
     'client' => [
         'secretKey' => 'hulkstink',
@@ -51,6 +55,8 @@ Make sure to enable one of these authentication methods on your Openfire server.
 ### Configuration
 You can configure the Client with the following options:
 ```php
+use Gnello\OpenFireRestAPI\Client;
+
 $client = new Client([
     'client' => [
         'secretKey' => 'hulkstink',
