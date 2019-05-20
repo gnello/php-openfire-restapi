@@ -7,7 +7,7 @@ A PHP client for the [Openfire][1] [REST API Plugin][2] which provides you the a
 
 Please read the [documentation][2] for further information on using this application.
 
-This client supports completely the >= 1.3.9 version of the [REST API Plugin][2].
+This client completely supports the >= 1.3.9 version of the [REST API Plugin][2].
  
 ## Dependencies
 The REST API plugin need to be installed and configured on your Openfire server.
