@@ -18,7 +18,7 @@
     "php": ">=5.5.0",
     "ext-json": "*",
     "psr/http-message" : "^1.0",
-    "guzzlehttp/guzzle": "^6.2"
+    "guzzlehttp/guzzle": "^6.0||^7.0"
   },
   "require-dev": {
     "phpunit/phpunit": "*",
